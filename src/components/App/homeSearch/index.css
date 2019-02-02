@@ -18,13 +18,16 @@ position:fixed;
 }
 
 .aa{
-width:200px;
-height:350px;
-background-color:rgba(0,0,0,0);
+width:35%;
+height:70%;
+background-color:#ffff;
 margin:0 auto;
 margin-top:auto;
 
-padding-left:0px;
+padding-left:10px;
+padding-bottom: 10px;
+padding-right: 10px;
+padding-top: 10px; 
 border-radius:5px;
 -webkit-border-radius:5px;
 -o-border-radius:5px;
@@ -37,12 +40,14 @@ color:black;
 .aa input[type="text"]{
 width:200px;
 height:35px;
-border:0;
+border:3px;
 border-radius:5px;
 -webkit-border-radius:5px;
 -o-border-radius:5px;
 -moz-border-radius:5px;
 padding-left:5px;
+border-color: black;
+font-size: 16px;
 }
 .aa input[type="date"]{
 width:200px;
@@ -58,17 +63,17 @@ border-radius:5px;
 .aa input[type="submit"]{
   border: 2px solid black;
   border-radius: 3px;
-  background-color: white;
-  color: black;
+  background-color: #f94141 ;
+  color: white;
   padding: 8px 18px;
-  font-size: 8px;
+  font-size: 12px;
   cursor: pointer;
-  border-color:white;
-  color: black;
+  border-color:#f94141;
+  color: white;
+  align-self: right; 
 }
 .aa input[type="submit"]:hover
 {
-background-color: whitesmoke;
-  color: black;
+background-color:white;
+  color: #f94141;
 }
-

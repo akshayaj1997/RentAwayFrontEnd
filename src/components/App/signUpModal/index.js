@@ -4,15 +4,15 @@ import './index.css';
 class SignUpModal extends Component {
     constructor(){
         super();
-        this.onClickB=this.onClickB.bind(this);
+        //this.onClickB=this.onClickB.bind(this);
         this.onClickN=this.onClickN.bind(this);
     }
 
     render() {
         return (
             <div>
-  <button onClick={this.onClickB} style={{ width: "auto" }} className="b1">Login</button>
-  <div id="id01" className="modal">
+  {/* <button onClick={this.onClickB} style={{ width: "auto" }} className="b1">Login</button> */}
+  <div id="id02" className="modal">
     <form className="modal-content animate" action="/action_page.php">
     <button
           onClick={this.onClickN}
@@ -21,36 +21,54 @@ class SignUpModal extends Component {
         <br></br>
       <div className="imgcontainer">
         
-        <img src={require('/Users/akshaya/Downloads/rent/src/components/App/signUpModal/Loki.jpeg')} alt="Avatar" className="avatar" />
+        <img src={require('./img_login.png')} alt="Avatar" className="avatar" />
       </div>
       <div className="container">
-        <label htmlFor="uname">
-          <b>Username</b>
+      <label htmlFor="email">
+          <b>Enter your E-mail</b>
         </label>
         <input
           type="text"
-          placeholder="Enter Username"
+          placeholder="E-mail"
+          name="email"
+          required
+        />
+        <label htmlFor="uname">
+          <b>Enter your Username</b>
+        </label>
+        <input
+          type="text"
+          placeholder="Username"
           name="uname"
           required
         />
         <label htmlFor="psw">
-          <b>Password</b>
+          <b>Enter Password</b>
         </label>
         <input
           type="password"
-          placeholder="Enter Password"
+          placeholder="Password"
           name="psw"
           required
         />
-        <button type="submit">Login</button>
+        <label htmlFor="repsw">
+        <b>Re-enter your Password</b>
+        </label>
+        <input
+          type="password"
+          placeholder="Re-enter Password"
+          name="repsw"
+          required
+        />
+        <button type="submit">Submit</button>
         <br></br>
         <label>
           <input
             type="checkbox"
             defaultChecked="checked"
-            name="remember"
+            name="TandC"
           />{" "}
-          Remember me
+          I agree to the terms and conditions.
         </label>
       </div>
       <div
@@ -74,14 +92,14 @@ class SignUpModal extends Component {
 )
 }
 onClickN(event) {
-  var modal = document.getElementById('id01');
+  var modal = document.getElementById('id02');
         modal.style.display = "none";
 }
 
-onClickB(event) {
-  var modal = document.getElementById('id01');
-  modal.style.display = "block";
-}
+// onClickB(event) {
+//   var modal = document.getElementById('id02');
+//   modal.style.display = "block";
+// }
 
 }
 
