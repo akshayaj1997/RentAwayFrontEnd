@@ -22,13 +22,13 @@ width:200px;
 height:350px;
 background-color:rgba(0,0,0,0);
 margin:0 auto;
-margin-top:20px;
+margin-top:auto;
 
 padding-left:0px;
-border-radius:15px;
--webkit-border-radius:15px;
--o-border-radius:15px;
--moz-border-radius:15px;
+border-radius:5px;
+-webkit-border-radius:5px;
+-o-border-radius:5px;
+-moz-border-radius:5px;
 color:black;
 
 
@@ -57,18 +57,18 @@ border-radius:5px;
 
 .aa input[type="submit"]{
   border: 2px solid black;
-  border-radius: 5px;
+  border-radius: 3px;
   background-color: white;
   color: black;
   padding: 8px 18px;
   font-size: 8px;
   cursor: pointer;
-  border-color: #007DB8;
-  color: #007DB8;
+  border-color:white;
+  color: black;
 }
 .aa input[type="submit"]:hover
 {
-background-color: #007DB8;
-  color: white;
+background-color: whitesmoke;
+  color: black;
 }
 

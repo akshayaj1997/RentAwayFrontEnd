@@ -15,7 +15,7 @@ class  Image extends React.Component{
         return(<div className="myImg">
            
             <NavBar/>
-            <HomeSearch/>
+           <div className='hello'><HomeSearch/></div> 
         </div>
         );
     }
