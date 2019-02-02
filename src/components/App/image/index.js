@@ -3,6 +3,7 @@ import "./img.css"
 import NavBar from "../navBar"
 import SignUpModal from "../signUpModal";
 import SearchBar from "../searchBar";
+import HomeSearch from "../homeSearch";
 //import HomeSearch from "../homeSearch"
 
 
@@ -14,7 +15,7 @@ class  Image extends React.Component{
         return(<div className="myImg">
            
             <NavBar/>
-            <SearchBar/>
+            <HomeSearch/>
         </div>
         );
     }
