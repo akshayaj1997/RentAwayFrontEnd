@@ -48,6 +48,10 @@ border-radius:5px;
 padding-left:5px;
 border-color: black;
 font-size: 16px;
+background-color:#f9fafc;
+}
+.aa input[type="text"]:focus {
+background-color: white;
 }
 .aa input[type="date"]{
 width:200px;

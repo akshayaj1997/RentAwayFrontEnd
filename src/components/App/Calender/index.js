@@ -55,7 +55,7 @@ export default class Example extends React.Component {
           }}
           onDayChange={this.handleFromChange}
         />{' '}
-        —{' '}
+        {' '}
         <span className="InputFromTo-to">
           <DayPickerInput
             ref={el => (this.to = el)}

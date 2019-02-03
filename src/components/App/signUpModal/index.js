@@ -1,5 +1,6 @@
 import React,{ Component } from 'react';
 import './index.css';
+import LoginModal from '../loginModal';
 
 class SignUpModal extends Component {
     constructor(){
@@ -86,6 +87,8 @@ class SignUpModal extends Component {
           Forgot Password <a href="#"><center><h6>password?</h6></center></a>
         </span> */}
       </div>
+      <a href="#" onClick={this.onClickB}>Already a member? Login.</a>
+      <LoginModal/>
     </form>
   </div>
   </div>
@@ -96,10 +99,12 @@ onClickN(event) {
         modal.style.display = "none";
 }
 
-// onClickB(event) {
-//   var modal = document.getElementById('id02');
-//   modal.style.display = "block";
-// }
+onClickB(event) {
+  var modal = document.getElementById('id01');
+  var modal2 = document.getElementById('id02');
+  modal.style.display = "block";
+  modal2.style.display ='none';
+}
 
 }
 

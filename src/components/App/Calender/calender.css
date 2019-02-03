@@ -15,8 +15,11 @@
   }
 
   .InputFromTo .DayPickerInput-Overlay {
-    width: 400 px;
+    width: 800 px;
+    /* margin-left: -150px; */
   }
   .InputFromTo-to .DayPickerInput-Overlay {
-    margin-left: -150px;
+    width: 800 px;
+    /* margin-left: -150px; */
   }
+

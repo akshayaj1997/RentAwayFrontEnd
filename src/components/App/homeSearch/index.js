@@ -8,8 +8,8 @@ class HomeSearch extends React.Component{
         return(
            <form>
                <div class="aa">
-               <center><h2> Book unique homes and  experiences </h2></center>
-               <div className="nextt"><center><h4> Your Place, Our safety </h4></center></div>
+               <center><h2> Book unique homes and  experiences. </h2></center>
+               <div className="nextt"><center><h4> Your Place, Our safety. </h4></center></div>
                <br></br>
                     <h5>WHERE</h5>
                     <SearchBar/>

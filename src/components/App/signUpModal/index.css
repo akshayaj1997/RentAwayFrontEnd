@@ -133,3 +133,8 @@ span.psw {
      width: 100%;
   }
 }
+
+.modal a {
+  background: rgb(241, 241, 241);
+  color: #000;
+}

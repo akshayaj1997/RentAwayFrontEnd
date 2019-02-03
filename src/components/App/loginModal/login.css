@@ -133,3 +133,11 @@ input[type=text], input[type=password] {
        width: 100%;
     }
   }
+  .container a {
+    background: #fefefe;
+    color: #fefefe;
+  }
+  .container a:hover {
+    background: #fefefe;
+    color: #000;
+  }

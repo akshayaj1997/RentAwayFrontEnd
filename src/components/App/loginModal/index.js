@@ -66,7 +66,7 @@ class LoginModal extends Component {
         <span className="psw">
           Forgot Password 
           <br></br>
-          <a href="#"><center><h6>password hint</h6></center></a>
+          <a href="#"><center><h6>Password Hint</h6></center></a>
         </span>
       </div>
     </form>
