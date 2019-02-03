@@ -64,7 +64,9 @@ class LoginModal extends Component {
           Cancel
         </button>
         <span className="psw">
-          Forgot Password <a href="#">password?</a>
+          Forgot Password 
+          <br></br>
+          <a href="#"><center><h6>password hint</h6></center></a>
         </span>
       </div>
     </form>

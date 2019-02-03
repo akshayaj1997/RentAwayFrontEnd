@@ -24,8 +24,8 @@ class NavBar extends React.Component {
             <LoginModal/>
             <a href="#" className="rightt" onClick={this.onClickN}>SignUp </a>
             <SignUpModal/>
-            <a href="#about" className="rightt">Become a host</a>
-          
+            <a href="#" className="rightt" onClick={this.onClickN}>Become a host</a>
+            <SignUpModal/>
             <a href="javascript:void(0);" className="icon" onClick={this.myFunction}>
               <i className="fa fa-bars"></i>
             </a>

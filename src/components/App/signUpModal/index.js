@@ -82,9 +82,9 @@ class SignUpModal extends Component {
         >
           Cancel
         </button>
-        <span className="psw">
-          Forgot Password <a href="#">password?</a>
-        </span>
+        {/* <span className="psw">
+          Forgot Password <a href="#"><center><h6>password?</h6></center></a>
+        </span> */}
       </div>
     </form>
   </div>
