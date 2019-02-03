@@ -1,6 +1,9 @@
 .topnav {
   overflow: hidden;
   background-color: rgba(255,255,255,0.0);
+  position: fixed;
+  top:0;
+  width: 100%;
 }
 
 .topnav .rightt{
