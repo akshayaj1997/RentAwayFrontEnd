@@ -50,7 +50,7 @@ export default class Example extends React.Component {
             disabledDays: { after: to },
             toMonth: to,
             modifiers,
-            numberOfMonths: 2,
+            numberOfMonths: 1,
             onDayClick: () => this.to.getInput().focus(),
           }}
           onDayChange={this.handleFromChange}
@@ -70,7 +70,7 @@ export default class Example extends React.Component {
               modifiers,
               month: from,
               fromMonth: from,
-              numberOfMonths: 2,
+              numberOfMonths: 1,
             }}
             onDayChange={this.handleToChange}
           />
