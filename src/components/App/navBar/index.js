@@ -22,7 +22,8 @@ class NavBar extends React.Component {
             <a href="#home"><img src={require('./Capture.png')} width='120' height='40'  /></a>
             <a href="#" className="rightt" onClick={this.onClickB}>Login</a>
             <LoginModal/>
-            <a href="#" className="rightt" onClick={this.onClickN}>SignUp <SignUpModal/></a>
+            <a href="#" className="rightt" onClick={this.onClickN}>SignUp </a>
+            <SignUpModal/>
             <a href="#about" className="rightt">Become a host</a>
           
             <a href="javascript:void(0);" className="icon" onClick={this.myFunction}>
