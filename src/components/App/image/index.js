@@ -15,7 +15,6 @@ class  Image extends React.Component{
     render(){
         
         return(<div className="myImg">
-           
             <NavBar/>
            <div className='hello'><HomeSearch/></div> 
         </div>
