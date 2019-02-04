@@ -1,10 +1,11 @@
 .myImg {
   background-image: url("./2.jpg");
-  background-repeat: repeat;
-  background-position: center;
+  background-repeat: no-repeat;
+  background-position: cover;
   background-size: cover;
   position: relative;
-  height: 100h; 
+  height: 150vh;
+  background-attachment: scroll;
 
 }
 .hello {

@@ -11,8 +11,7 @@ class HomePreSignin extends React.Component{
     render(){
       return( 
         <div>
-        <Image/>
-        
+        <Image/>  
         </div>
         
       )
