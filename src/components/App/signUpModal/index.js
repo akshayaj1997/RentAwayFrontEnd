@@ -2,12 +2,48 @@ import React,{ Component } from 'react';
 import './index.css';
 import LoginModal from '../loginModal';
 
+
+
+
 class SignUpModal extends Component {
-    constructor(){
-        super();
-        //this.onClickB=this.onClickB.bind(this);
-        this.onClickN=this.onClickN.bind(this);
+  constructor(props) {
+    super(props);
+    this.state = {
+      username : 'Barry ',
+      passwordHash:'Iris ',
+      email:'jj@hotmail.com'
     }
+
+    this.onClickN = this.onClickN.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    
+  }
+
+  componentDidMount(){
+   const url = "http://localhost:9000/users";
+    let headers = new Headers();
+ 
+    headers.append('Content-Type','application/json');
+    headers.append('Accept','application/json');
+ 
+    headers.append('Access-Control-Allow-origin',url);
+    headers.append('Access-Control-Allow-Credentials','true');
+ 
+    headers.append('GET','POST');
+ 
+    fetch(url, {
+       headers:headers,
+       method: 'POST',
+       body: JSON.stringify(this.state)
+    })
+    .then(response => response.json())
+    .then(contents => {console.log(contents);
+                      
+                      
+ })
+ .catch(()=> console.log("can't access" + url + "response. "))
+ }
 
     render() {
         return (
@@ -32,15 +68,19 @@ class SignUpModal extends Component {
           type="text"
           placeholder="E-mail"
           name="email"
+          value= {this.state.email}
+          onChange={this.handleChange}
           required
         />
-        <label htmlFor="uname">
+        <label htmlFor="username">
           <b>Enter your Username</b>
         </label>
         <input
           type="text"
           placeholder="Username"
-          name="uname"
+          name="username"
+          value= {this.state.username}
+          onChange={this.handleChange}
           required
         />
         <label htmlFor="psw">
@@ -49,7 +89,9 @@ class SignUpModal extends Component {
         <input
           type="password"
           placeholder="Password"
-          name="psw"
+          name="passwordHash"
+          value= {this.state.passwordHash}
+          onChange={this.handleChange}
           required
         />
         <label htmlFor="repsw">
@@ -105,6 +147,20 @@ onClickB(event) {
   modal.style.display = "block";
   modal2.style.display ='none';
 }
+
+onSubmit(event) {
+  console.log(this.state);
+}
+handleChange(event) {
+  const target = event.target;
+    const value = target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value
+    });
+}
+
 
 }
 

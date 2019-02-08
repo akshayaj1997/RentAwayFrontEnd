@@ -4,6 +4,7 @@ import NavBar from "../navBar"
 import SignUpModal from "../signUpModal";
 import SearchBar from "../searchBar";
 import HomeSearch from "../homeSearch";
+import SearchResults from "../searchResults";
 // import DayPicker from "react-day-picker";
 // import 'react-day-picker/lib/style.css';
 // //import HomeSearch from "../homeSearch"

@@ -1,0 +1,42 @@
+a {
+  color: black;
+}
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 35%;
+    height: 20%;
+    float: right;
+    margin-right: 20%;
+
+  }
+  
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    color: black
+  }
+  
+  .container {
+    padding: 2px 16px;
+  }
+  .type1 {
+    font-size: 6px;
+    font-style: oblique;
+    font-weight: 100;
+    position: inherit;
+    text-transform: uppercase;
+    color: darkgrey;
+  }
+  .name1 {
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 500;
+    position: inherit;
+
+  }
+  .cost {
+    font-size: 8px;
+    font-style: oblique;
+    font-weight: 120;
+    position: inherit;
+  }
