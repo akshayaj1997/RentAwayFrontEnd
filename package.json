@@ -4,10 +4,12 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.2.1",
+    "dynamic-filter": "^1.1.1",
     "moment": "^2.24.0",
     "rc-slider": "^8.6.5",
     "react": "^16.7.0",
     "react-bootstrap": "^1.0.0-beta.5",
+    "react-checkbox-group": "^4.0.1",
     "react-day-picker": "^7.2.4",
     "react-dom": "^16.7.0",
     "react-helmet": "^5.2.0",
