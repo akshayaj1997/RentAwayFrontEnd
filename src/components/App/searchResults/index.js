@@ -7,16 +7,18 @@ class SearchResults extends Component {
         this.state = {
            data: [],
            id : ' ',
-           location : ' ',
            fromDate:' ',
+           location : ' ',
+           name:' ',
+           price:' ',
            toDate:' ',
-           guestCount:' '
+           
         }
      
      }
      
      componentDidMount(){
-        const url = "http://10.10.200.42:9000/homes";
+        const url = "http://10.10.200.24:9000/homes";
         let headers = new Headers();
      
         headers.append('Content-Type','application/json');
@@ -43,15 +45,23 @@ class SearchResults extends Component {
         render() {  
             return (
                <div>
-                     <a href= "#"><div class="card">
+                  <ul>
+                     {this.state.data.map((home,index) => {
+               return(
+                  <li key={index}>
+                  <a href='#'><div class="card">
                      <img src={require('./images.png')} alt="Avatar" className='image' />
                      <div class="container">
-                      <p className='type1'>Type</p>
-                      <p className='name1'>Name</p>
-                      <p className= 'cost'> Price</p>
+                      <p className='type1'>{home.name}</p>
+                      <p className='name1'>{home.location}</p>
+                      <p className= 'cost'> {home.Price}</p>
                       </div>
                   </div>
-                  </a>
+                   </a>
+                   </li>
+               )
+            })}
+            </ul>
              </div>
                 )
         }

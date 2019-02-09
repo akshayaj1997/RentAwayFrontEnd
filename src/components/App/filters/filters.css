@@ -1,0 +1,74 @@
+body {
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    color: white;
+    background-color: aliceblue; 
+  }
+  
+  .sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #ffffff;
+    opacity: .99;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    color: black;
+    font-style: oblique;
+    font-weight: 50;
+    float: right;
+  }
+  
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidenav a:hover {
+    color: white;
+  }
+  .sidenav .filters {
+      width: 70%;
+      float: left;
+      margin-left: 15%;
+  }
+  .sidenav .filters .hr {
+      width: 100%;
+  }
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  #main {
+    transition: margin-left .5s;
+    padding: 16px;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+  .sidenav .h4 {
+    font-size: 16px;
+  font-style: oblique;
+  font-weight: 10;
+  position: inherit;
+  margin-left: 20px;
+  }
+  .spp {
+    margin-top: 10%;
+  }
+hr {
+  width: 80%;
+} 
