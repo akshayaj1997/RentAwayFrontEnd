@@ -1,5 +1,6 @@
 p {
     line-height: 5px;
+    
 }
 a {
     color: black;
@@ -9,10 +10,10 @@ a {
   .card {
       box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
       transition: 0.3s;
-      width: 153px;
+      width: 135px;
       height: 155px;
       margin-left: 5%;
-      margin-right: 20%;
+      margin-right: 5%;
       margin-bottom:2%;
       float: right;
           
@@ -24,16 +25,18 @@ a {
     }
     
     .container {
-      padding: 2px 16px;
+      padding: 2px 16px; 
+      float: right;
     }
     .type1 {
       font-size: 6px;
       font-style: oblique;
       font-weight: 100;
-      position: inherit;
+      position: initial;
       text-transform: uppercase;
       color: darkgrey;
       padding-top: 2px;
+     
     }
     .name1 {
       font-size: 10px;
@@ -48,12 +51,21 @@ a {
       font-style: oblique;
       font-weight: 120;
       position: inherit;
+     
     }
     .image {
         width:150px;
-        align-self: auto;
+        float: left;
+        /* align-self: auto; */
     }
+    .car {
+      width: 100%;
+      height: 130px;
+    }
+    
+  
     ul {
       list-style-type: none;
+      align-content: center;
     }
     

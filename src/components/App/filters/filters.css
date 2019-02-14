@@ -44,15 +44,30 @@ body {
   }
   .sidenav .closebtn {
     position: absolute;
-    top: 0;
+    top: 40px;
     right: 25px;
-    font-size: 36px;
+    font-size: 10px;
     margin-left: 50px;
+    float: right; 
+  }
+
+  input[type="checkbox"]{
+    width: 7px; /*Desired width*/
+    height: 7px; /*Desired height*/
+    border-radius: 0px;
+  }
+  
+ label{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    font-size: 7px;
   }
   
   #main {
     transition: margin-left .5s;
     padding: 16px;
+    margin-top: -60px; 
+    font-size: 10px; 
   }
   
   @media screen and (max-height: 450px) {
@@ -72,3 +87,5 @@ body {
 hr {
   width: 80%;
 } 
+
+
