@@ -9,6 +9,7 @@ class ResultsPage extends Component {
             <div className="Container">
                 <div className="way">
                 <NavBar/>
+                
                 <SearchFilters/>
                 <SearchResults/>
                 {/* <SearchResults/> */}

@@ -65,9 +65,11 @@ class SearchResults extends Component {
      }
      
         render() {  
+
             return (
                <div>
                   <ul>
+                     
                      {this.state.data.map((home,index) => {
                return(
                   <li key={index}>
@@ -77,9 +79,9 @@ class SearchResults extends Component {
                   </div>
                      {/* <img src={require('./images.png')} alt="Avatar" className='image' /> */}
                      <div class="container">
-                      <p className='type1'>{home.name}</p>
-                      <p className='name1'>{home.location}</p>
-                      <p className= 'cost'> {home.Price}</p>
+                      <p className='type1'>{home.name} Flat</p>
+                      <p className='name1'>{home.location} Malaysian Township</p>
+                      <p className= 'cost'> {home.Price} Rs. 5000</p>
                       </div>
                   </div>
                    </a>
