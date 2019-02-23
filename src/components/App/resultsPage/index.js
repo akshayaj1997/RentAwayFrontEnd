@@ -11,7 +11,7 @@ class ResultsPage extends Component {
                 <NavBar/>
                 <SearchFilters/>
                 <SearchResults/>
-                <SearchResults/>
+                {/* <SearchResults/> */}
                 </div>
             </div>
         )
