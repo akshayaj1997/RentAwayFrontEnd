@@ -36,7 +36,7 @@ render(){
                <Route exact path = "/homeSearch" component={HomeSearch}/>
                <Route exact path = "/results" component={SearchResults}/>
                <Route exact path = "/filters" component={SearchFilters}/>
-               {/* <Route exact path = "/test" component={Test}/> */}
+               <Route exact path = "/test" component={Test}/>
                <Route exact path = "/resultsPage" component={ResultsPage}/>
                <Redirect to = "/homePreSignin" component={HomePreSignin}/>
             </Switch>
