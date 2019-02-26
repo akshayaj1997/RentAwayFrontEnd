@@ -12,10 +12,10 @@ a {
       transition: 0.3s;
       width: 135px;
       height: 155px;
-      margin-left: 5%;
-      margin-right: 5%;
+      margin-left: 2%;
+      margin-right: 2%;
       margin-bottom:2%;
-      float: right;
+      float: left;
           
     }
     
@@ -55,7 +55,8 @@ a {
     }
     .image {
         width:150px;
-        float: left;
+        height: 50%;
+        float: right;
         /* align-self: auto; */
     }
     .car {
