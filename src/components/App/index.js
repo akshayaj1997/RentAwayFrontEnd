@@ -13,7 +13,8 @@ import{
 } from "react-router-dom";
 import SignUpModal from "./signUpModal";
 import ResultsPage from "./resultsPage";
-import Details from "./details";
+//import Details from "./details";
+import DetailsPage from "./detailsPage";
 
 class App extends React.Component{
 
@@ -25,7 +26,7 @@ class App extends React.Component{
                <Route exact path = "/homePreSignin" component={HomePreSignin}/>
                <Route exact path = "/signUp" component={SignUpModal}/>
                <Route exact path = "/resultsPage" component={ResultsPage}/>
-               <Route exact path = "/detailsPage/:id" component={Details}/>
+               <Route exact path = "/detailsPage/:id" component={DetailsPage}/>
                <Redirect to = "/homePreSignin" component={HomePreSignin}/>
             </Switch>
 

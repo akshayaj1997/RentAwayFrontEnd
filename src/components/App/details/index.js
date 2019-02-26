@@ -9,7 +9,8 @@ class Details extends Component {
         super(props);
         this.state = {
            data: [],
-           id : `${this.props.match.params.id}`,
+         //   id : `${this.props.match.params.id}`,
+           id:" ",
            fromDate:' ',
            location : ' ',
            name:' ',
