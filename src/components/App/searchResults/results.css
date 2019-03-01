@@ -7,8 +7,9 @@ a {
   }
 
   
-  .card {
+  .card1 {
       box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      background-color: white;
       transition: 0.3s;
       width: 165px;
       height: 155px;
@@ -27,6 +28,7 @@ a {
     .container {
       padding: 2px 16px; 
       float: right;
+      margin-top: -40px;
     }
     .type1 {
       font-size: 6px;

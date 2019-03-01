@@ -1,26 +1,29 @@
 import React, {Component} from 'react';
 import './results.css';
 import ImageCarousel from '../imageCarousel';
-
-
+import {createBrowserHistory as createHistory} from 'history';
 
 class SearchResults extends Component {
+   history=createHistory(this.props);
     constructor(props){
         super(props);
         this.state = {
            data: [],
            id : ' ',
-           fromDate:' ',
+         //   fromDate:' ',
            location : ' ',
            name:' ',
            price:' ',
-           toDate:' ',
+           //toDate:' ',
            }
-     
+           this.onForwardClick=this.onForwardClick.bind(this);
      }
-     
+     onForwardClick(id) {
+      const path= `/detailsPage/`+id
+        this.history.push(path)
+     }
      componentDidMount(){
-        const url = "http://10.10.200.24:9000/homes";
+        const url = "http://localhost:9000/homes";
         let headers = new Headers();
      
         headers.append('Content-Type','application/json');
@@ -51,10 +54,12 @@ class SearchResults extends Component {
                   <ul>
                      
                      {this.state.data.map((home,index) => {
-               const ii = `${home.id}`
+               const id = `${home.id}`
+               // const path= `/detailsPage/`+id
                return(
                   <li key={index}>
-                  <a href={'http://localhost:3000/detailsPage/'+ii}><div class="card">
+                  <a href={'http://localhost:3000/detailsPage/'+id} onClick={this.onForwardClick(id)}>
+                  <div class="card1">
                   <div className="car">
                   <ImageCarousel/>
                   </div>
