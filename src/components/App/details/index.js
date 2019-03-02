@@ -24,7 +24,7 @@ class Details extends Component {
      
      componentDidMount(){
          const i =`${this.state.data.id}`
-        const url = `http://10.10.200.24:9000/homes/`+i;
+        const url = `http://10.10.200.24:9000/homes`;
         let headers = new Headers();
      
         headers.append('Content-Type','application/json');
@@ -52,10 +52,9 @@ class Details extends Component {
         return (
             <div>
             <div className="Image">
-            <ImageCarousel/>
+           <ImageCarousel/>
             </div>
            <p>
-           {this.state.data.location}
            </p>
            </div>
         )

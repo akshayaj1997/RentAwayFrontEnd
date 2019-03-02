@@ -8,6 +8,7 @@ body {
   background-attachment: scroll;
     color: black;
     font-size: 18px;
+    background-color: black;
 
 }
 hr {
@@ -18,13 +19,13 @@ hr {
     background-color:white;
     float: right;
     width: 30vw;
-    height: 69vh;
+    height: 75vh;
     margin-top: 2.5vh;
     margin-right: 2.5vw;
     margin-bottom: 2.5vh ;
     border-radius: 5px;
     box-shadow: 1px 4px #888888;
-    padding: 15px;
+    padding: 10px;
 }
 
 .features {

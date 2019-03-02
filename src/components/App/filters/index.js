@@ -4,21 +4,53 @@ import { UncontrolledCollapse, Button, CardBody, Card } from 'reactstrap';
 //import Calender from '../Calender';
 import Slider, { Range } from 'rc-slider';
 import 'rc-slider/assets/index.css';
-import './filters.css'
+import './filters.css';
+import {createBrowserHistory as createHistory} from 'history';
 
 
 class SearchFilters extends Component {
+    history=createHistory(this.props)
     constructor(props) {
         super(props);
         this.openNav = this.openNav.bind(this);
         this.closeNav = this.closeNav.bind(this);
-        //this.toggle = this.toggle.bind(this);
-        //this.state = { collapse: false };
+        this.state = {   
+            type1: [],
+            Amen1: [],
+            HR1:  [],
+            Lang1: []
+        }
+        this.onFiltersChange=this.onFiltersChange.bind(this);
+        this.onCheckBoxT=this.onCheckBoxT.bind(this);
+        this.onCheckBoxAm=this.onCheckBoxAm.bind(this);
+        this.onCheckBoxH=this.onCheckBoxH.bind(this);
+    }
+    onFiltersChange() {
+        let path= `/resultsPage`
+        this.setState({
+            type1: this.state.type1,
+            Amen1: this.state.Amen1,
+            HR1: this.state.HR1
+        }
+        )
+        console.log(this.state);
+        this.history.push(path,this.state)
+    }
+    onCheckBoxT(e) {
+        this.state.type1.push(e.target.value);
+        console.log(this.state.type1);
+        
+    }
+    onCheckBoxAm(e) {
+        this.state.Amen1.push(e.target.value)
+    }
+    onCheckBoxH(e) {
+        this.state.HR1.push(e.target.value)
     }
 
-    // toggle() {
-    //     this.setState({ collapse: !this.state.collapse });
-    // }
+    onCheckBoxL(e) {
+        this.state.Lang1.push(e.target.value)
+    }
 
     render() {
         return (
@@ -30,7 +62,7 @@ class SearchFilters extends Component {
                     <a href="#" className="closebtn" onClick={this.closeNav}>&#10094;</a>
                     <center><h5><i>Filters</i></h5></center>
                     <hr></hr>
-                    <form >
+                    <form onSubmit={this.onFiltersChange}>
                     <div className="filters">
                         <center> Price
                         <Range />
@@ -39,77 +71,53 @@ class SearchFilters extends Component {
                         <Button color="black" id="type" style={{ marginBottom: '1rem' }}>Home Type</Button>
                         <UncontrolledCollapse toggler="#type" style={{ marginLeft: '10%' }}>
                             <div className="leftCheck" style={{ float: "left" }}>
-                                <input id="condo" type="checkbox" name="type[]" value="Condo" />
+                                <input id="condo" type="checkbox" name="type[]" value="Condo" onClick={this.onCheckBoxT} />
                                 <label for="condo">Condo</label>
                                 <br />
-                                <input id="apartment" type="checkbox" name="type[]" value="Apartment" />
+                                <input id="apartment" type="checkbox" name="type[]" value="Apartment" onClick={this.onCheckBoxT} />
                                 <label for="apartment">Apartment</label>
                             </div>
                             <div className="rightCheck" style={{ float: "right" }}>
-                                <input id="house" type="checkbox" name="type[]" value="House" />
+                                <input id="house" type="checkbox" name="type[]" value="House" onClick={this.onCheckBoxT} />
                                 <label for="house">House</label>
                                 <br />
-                                <input id="BnB" type="checkbox" name="type[]" value="BnB" />
+                                <input id="BnB" type="checkbox" name="type[]" value="BnB" onClick={this.onCheckBoxT} />
                                 <label for="BnB">Bed and Breakfast</label>
                             </div>
                         </UncontrolledCollapse>
                         <Button color="black" id="amenities" style={{ marginBottom: '1rem' }}>Amenities</Button>
                         <UncontrolledCollapse toggler="#amenities" style={{ marginLeft: '10%' }}>
                             <div className="leftCheck" style={{ float: "left" }}>
-                                <input id="pool" type="checkbox" name="Amen[]" value="Pool" />
+                                <input id="pool" type="checkbox" name="Amen[]" value="Pool" onClick={this.onCheckBoxAm}/>
                                 <label for="pool">Pool</label>
                                 <br />
-                                <input id="HT" type="checkbox" name="Amen[]" value="Hot Tub" />
+                                <input id="HT" type="checkbox" name="Amen[]" value="Hot Tub" onClick={this.onCheckBoxAm} />
                                 <label for="HT">Hot Tub</label>
                             </div>
                             <div className="rightCheck" style={{ float: "right" }}>
-                                <input id="heat" type="checkbox" name="Amen[]" value="Heater" />
+                                <input id="heat" type="checkbox" name="Amen[]" value="Heater" onClick={this.onCheckBoxAm} />
                                 <label for="heat">Heater</label>
                                 <br />
-                                <input id="WH" type="checkbox" name="Amen[]" value="Water Heater" />
+                                <input id="WH" type="checkbox" name="Amen[]" value="Water Heater" onClick={this.onCheckBoxAm} />
                                 <label for="WH">Water Heater</label>
                             </div>
                         </UncontrolledCollapse>
                         <Button color="black" id="HR" style={{ marginBottom: '1rem' }}>House Rules</Button>
                         <UncontrolledCollapse toggler="#HR" style={{ marginLeft: '10%' }}>
                             <div className="leftCheck" style={{ float: "left" }}>
-                                <input id="event" type="checkbox" name="HR[]" value="Event" />
+                                <input id="event" type="checkbox" name="HR[]" value="Event" onClick={this.onCheckBoxH}/>
                                 <label for="event">Suitable for events</label>
                                 <br />
-                                <input id="smoke" type="checkbox" name="HR[]" value="Smoke" />
+                                <input id="smoke" type="checkbox" name="HR[]" value="Smoke" onClick={this.onCheckBoxH}/>
                                 <label for="smoke">Smoking Allowed</label>
                             </div>
                             <div className="rightCheck" style={{ float: "right" }}>
-                                <input id="pet" type="checkbox" name="HR[]" value="Pets" />
+                                <input id="pet" type="checkbox" name="HR[]" value="Pets" onClick={this.onCheckBoxH} />
                                 <label for="pet">Pets Allowed</label>
                             </div>
                         </UncontrolledCollapse>
-                        <Button color="black" id="Lang" style={{ marginBottom: '1rem' }}>Languages Known by Host</Button>
-                        <UncontrolledCollapse toggler="#Lang">
-                            <div className="leftCheck" style={{ float: "left" }}>
-                                <input id="Eng" type="checkbox" name="Lang[]" value="English" />
-                                <label for="Eng">English</label>
-                                <br />
-                                <input id="Tel" type="checkbox" name="Lang[]" value="Telugu" />
-                                <label for="Tel">Telugu</label>
-                                <br />
-                                <input id="Hin" type="checkbox" name="Lang[]" value="Hindi" />
-                                <label for="Hin">Hindi</label>
-                            </div>
-                            <div className="rightCheck" style={{ float: "right" }}>
-                                <input id="Tam" type="checkbox" name="Lang[]" value="Tamil" />
-                                <label for="Tam">Tamil</label>
-                                <br />
-                                <input id="Fren" type="checkbox" name="Lang[]" value="French" />
-                                <label for="Fren">French</label>
-                                <br/>
-                                <input id="Spa" type="checkbox" name="Lang[]" value="Spanish" />
-                                <label for="Tam">Spanish</label>
-                                <br />
-                            </div>
-                        </UncontrolledCollapse>
                        
-                    </div>
+                    </div> 
                     <br/>
                     <Button color="danger" style={{float:"right", width:"50px",marginRight:"10%"}}>submit</Button>{' '}
                     </form> 

@@ -19,11 +19,11 @@ class SearchResults extends Component {
            this.onForwardClick=this.onForwardClick.bind(this);
      }
      onForwardClick(id) {
-      const path= `/detailsPage/`+id
+      const path= `/resultsPage` //instead add detailsPage URL if it doesnt work
         this.history.push(path)
      }
      componentDidMount(){
-        const url = "http://localhost:9000/homes";
+        const url = "http://10.10.200.24:9000/homes";
         let headers = new Headers();
      
         headers.append('Content-Type','application/json');

@@ -15,11 +15,12 @@ class DetailsPage extends Component {
            name:' ',
            price:' ',
            toDate:' ',
+           amenities:[]
            }
         }
 
         componentDidMount(){
-            const url = "http://localhost:9000/homes";
+            const url = "http://10.10.200.24:9000/homes";
             let headers = new Headers();
          
             headers.append('Content-Type','application/json');
@@ -47,17 +48,15 @@ class DetailsPage extends Component {
         return(
             <div>
             <NavBar/>
-            <Details/>
-            {this.state.data.map((home,index) => {
+            <center><Details/></center>
+            {this.state.data.map((home) => {
                 if(home.id==this.props.match.params.id)
                 {
                     return(
                 <div>
-                <ListGroup className="features">
-        <ListGroupItem color="success">{home.headers}<br/><br/></ListGroupItem>
-        <ListGroupItem color="info">Dapibus ac facilisis in<br/><br/></ListGroupItem>
-        <ListGroupItem color="success">Morbi leo risus<br/><br/></ListGroupItem>
-        <ListGroupItem color="info">Porta ac consectetur ac<br/><br/></ListGroupItem>
+                <ListGroup className="features" style={{height:'100%'}}>
+        <ListGroupItem>Amenities<br/><br/></ListGroupItem>
+        <ListGroupItem>House Rules<br/><br/></ListGroupItem>
       </ListGroup>
                 <Card className="card">
                <b>Hosted By,</b> 
@@ -72,6 +71,7 @@ class DetailsPage extends Component {
                 <b>Price,</b>
                 <i><center>  &#8377;{home.price} </center></i>
                 <hr/>
+                {/* {home.amenities} */}
                 <Button color="danger">Book</Button>
                 <br/>
                 </Card>
@@ -79,7 +79,7 @@ class DetailsPage extends Component {
                 )
                 }
                 else {
-                    return(<div></div>)
+                    return(<div/>)
                 }
             })}
             </div>
