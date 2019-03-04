@@ -15,15 +15,17 @@ class SearchResults extends Component {
            name:' ',
            price:' ',
            //toDate:' ',
+           Amen1:[]
            }
            this.onForwardClick=this.onForwardClick.bind(this);
      }
      onForwardClick(id) {
-      const path= `/resultsPage` //instead add detailsPage URL if it doesnt work
-        this.history.push(path)
+      const path= '/resultsPage' //instead add detailsPage URL if it doesnt work
+        //this.history.push(path)
      }
      componentDidMount(){
-        const url = "http://10.10.200.24:9000/homes";
+        //this.setState({Amen1:this.props.history.location.state.Amen1})
+        const url = "http://localhost:9000/homes";
         let headers = new Headers();
      
         headers.append('Content-Type','application/json');

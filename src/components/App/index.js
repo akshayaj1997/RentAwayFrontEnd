@@ -11,6 +11,7 @@ import{
    Switch,
    Redirect
 } from "react-router-dom";
+import {createBrowserHistory} from 'history';
 import SignUpModal from "./signUpModal";
 import ResultsPage from "./resultsPage";
 //import Details from "./details";

@@ -6,7 +6,7 @@ import Slider, { Range } from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import './filters.css';
 import {createBrowserHistory as createHistory} from 'history';
-
+import { withRouter } from 'react-router-dom'
 
 class SearchFilters extends Component {
     history=createHistory(this.props)
@@ -14,7 +14,7 @@ class SearchFilters extends Component {
         super(props);
         this.openNav = this.openNav.bind(this);
         this.closeNav = this.closeNav.bind(this);
-        this.state = {   
+        this.state = { 
             type1: [],
             Amen1: [],
             HR1:  [],
@@ -25,20 +25,28 @@ class SearchFilters extends Component {
         this.onCheckBoxAm=this.onCheckBoxAm.bind(this);
         this.onCheckBoxH=this.onCheckBoxH.bind(this);
     }
-    onFiltersChange() {
-        let path= `/resultsPage`
+    onFiltersChange(e) {
+        let path= '/resultsPage'
         this.setState({
             type1: this.state.type1,
             Amen1: this.state.Amen1,
             HR1: this.state.HR1
         }
         )
-        console.log(this.state);
-        this.history.push(path,this.state)
+        this.props.history.push(path,this.state)
+        console.log(this.props.history.location.state.Amen1);
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+        document.getElementById("spp").style.color = "rgba(255, 255, 255, 1)";
+        e.preventDefault();
+        this.props.history.go(0)
     }
+      
     onCheckBoxT(e) {
+
         this.state.type1.push(e.target.value);
         console.log(this.state.type1);
+        //console.log(this.props.history)
         
     }
     onCheckBoxAm(e) {
@@ -142,4 +150,4 @@ class SearchFilters extends Component {
 
 }
 
-export default SearchFilters;
+export default withRouter(SearchFilters);

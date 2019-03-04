@@ -6,17 +6,19 @@ import './page.css';
 import {createBrowserHistory as createHistory} from 'history';
 
 class ResultsPage extends Component {
-    history=createHistory(this.props)
+    //history=createHistory(this.props)
     constructor(props){
         super(props);
         this.state = {
-            type1: []
+            type1: [],
+            Amen1: [],
+            HR1:  [],
+            Lang1: []
         }
     }
     componentDidMount(){
-        this.setState({
-            type1:this.props.type1
-        })
+        this.setState(this.props.history.location.state)
+    
     }
 
     render() {
@@ -24,10 +26,9 @@ class ResultsPage extends Component {
             <div className="Container">
                 <div className="way">
                 <NavBar/>
-                {this.state.type1}
+                {this.state.Amen1}
                 <SearchFilters/>
                 <SearchResults/>
-                {/* <SearchResults/> */}
                 </div>
             </div>
         )

@@ -6,13 +6,66 @@ class LoginModal extends Component {
         super();
         //this.onClickB=this.onClickB.bind(this);
         this.onClickN=this.onClickN.bind(this);
+        this.handleUname=this.handleUname.bind(this);
+        this.handlePassword=this.handlePassword.bind(this);
+        this.login=this.login.bind(this)
+        this.state = { 
+          username: ' ',
+          passwordHash:' '
+        }
+    }
+
+    handleUname(e) {
+      this.setState({
+        username: e.target.value
+      })
+    }
+    handlePassword(e) {
+      this.setState({
+        passwordHash: e.target.value
+      })
+     
+    }
+    login(e) {
+      e.preventDefault();
+      let url='http://localhost:9000/users/signin'
+      let obj={}
+      obj.username= this.state.email
+      obj.passwordHash = this.state.password
+      fetch(url,{
+        header: {
+          "Content-Type": "application/json"
+        },
+        method:'PUT',
+        body:JSON.stringify({obj})
+
+      }
+      ).then(function (response) {
+        console.log(response);
+        if(response.data.code == 200){
+        console.log("Login successfull");
+        }
+        else if(response.data.code == 204){
+        console.log("Username password do not match");
+        alert("username password do not match")
+        }
+        else{
+        console.log("Username does not exists");
+        alert("Username does not exist");
+        }
+        })
+        .catch(function (error) {
+        console.log(error);
+        });
+     
+      console.log(this.state)
     }
 
     render() {
         return (
             <div>
   <div id="id01" className="modal">
-    <form className="modal-content animate" action="/action_page.php">
+    <form className="modal-content animate" onSubmit={this.login}>
     <button
           onClick={this.onClickN}
           className="close1"
@@ -30,6 +83,7 @@ class LoginModal extends Component {
           type="text"
           placeholder="Enter Username"
           name="uname"
+          onChangeCapture={this.handleUname}
           required
         />
         <label htmlFor="psw">
@@ -39,6 +93,7 @@ class LoginModal extends Component {
           type="password"
           placeholder="Enter Password"
           name="psw"
+          onChangeCapture={this.handlePassword}
           required
         />
         <button type="submit">Login</button>

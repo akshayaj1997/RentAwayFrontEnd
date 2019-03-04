@@ -10,21 +10,19 @@ class Details extends Component {
         this.state = {
            data: [],
          //   id : `${this.props.match.params.id}`,
-           id:" ",
-           fromDate:' ',
-           location : ' ',
-           name:' ',
-           price:' ',
-           toDate:' ',
-           amenities:[]
-           
+           carParking: ' ',
+           wifi: ' ',
+           pool: ' ',
+           heater: ' ',
+           kitchen: ' ',
+           airConditioner: ' '      
         }
      
      }
      
      componentDidMount(){
          const i =`${this.state.data.id}`
-        const url = `http://10.10.200.24:9000/homes`;
+        const url = `http://localhost:9000/amenities`;
         let headers = new Headers();
      
         headers.append('Content-Type','application/json');
@@ -53,6 +51,22 @@ class Details extends Component {
             <div>
             <div className="Image">
            <ImageCarousel/>
+           {this.state.data.map((home,index) => {
+               const id = `${home.id}`
+               // const path= `/detailsPage/`+id
+               return(
+                  <li key={index}>
+                  
+                     {/* <img src={require('./images.png')} alt="Avatar" className='image' /> */}
+                     <div class="container">
+                      <p className='type1'>{home.carParking}</p>
+                      <p className='location'>{home.pool}</p>
+                      <p className='name1'></p>
+                      <p className= 'cost'> {home.airConditioner}</p>
+                      </div>
+                   </li>
+               )
+            })}
             </div>
            <p>
            </p>
