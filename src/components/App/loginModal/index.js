@@ -42,7 +42,7 @@ class LoginModal extends Component {
 
         },
         method:'PUT',
-        body:JSON.stringify(obj)
+        body: JSON.stringify(obj)
 
       }
       ).then(function (response) {
@@ -59,6 +59,12 @@ class LoginModal extends Component {
         alert("Username does not exist");
         }
         })
+        .then(response => response.json())
+        .then(contents => {console.log("in fetch"+contents);
+                          this.setState({
+                             data:contents
+                          })
+     })
         .catch(function (error) {
         console.log(error);
         });

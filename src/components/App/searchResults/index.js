@@ -60,7 +60,7 @@ class SearchResults extends Component {
                // const path= `/detailsPage/`+id
                return(
                   <li key={index}>
-                  <a href={'http://10.10.200.24:3000/detailsPage/'+id} onClick={this.onForwardClick(id)}>
+                  <a href={'http://localhost:3000/detailsPage/'+id} onClick={this.onForwardClick(id)}>
                   <div class="card1">
                   <div className="car">
                   <ImageCarousel/>
