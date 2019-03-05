@@ -24,28 +24,33 @@ class LoginModal extends Component {
       this.setState({
         passwordHash: e.target.value
       })
-     
     }
     login(e) {
+  
       e.preventDefault();
-      let url='http://localhost:9000/users/signin'
+      let url='http://10.10.200.24:9000/users/signin'
       let obj={}
-      obj.username= this.state.email
-      obj.passwordHash = this.state.password
+      obj.username= this.state.username
+      obj.passwordHash = this.state.passwordHash
+      console.log(obj)
       fetch(url,{
         header: {
-          "Content-Type": "application/json"
+          'Content-Type':'application/json',
+          'Accept':'application/json',
+          'Access-Control-Allow-origin':url,
+          'Access-Control-Allow-Credentials':'true'
+
         },
         method:'PUT',
-        body:JSON.stringify({obj})
+        body:JSON.stringify(obj)
 
       }
       ).then(function (response) {
         console.log(response);
-        if(response.data.code == 200){
+        if(response.statusText == 200){
         console.log("Login successfull");
         }
-        else if(response.data.code == 204){
+        else if(response.statusText == 204){
         console.log("Username password do not match");
         alert("username password do not match")
         }
@@ -58,7 +63,7 @@ class LoginModal extends Component {
         console.log(error);
         });
      
-      console.log(this.state)
+      
     }
 
     render() {

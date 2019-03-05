@@ -18,19 +18,22 @@ class SearchFilters extends Component {
             type1: [],
             Amen1: [],
             HR1:  [],
-            Lang1: []
+            Lang1: [],
+            range1: ''
         }
         this.onFiltersChange=this.onFiltersChange.bind(this);
         this.onCheckBoxT=this.onCheckBoxT.bind(this);
         this.onCheckBoxAm=this.onCheckBoxAm.bind(this);
         this.onCheckBoxH=this.onCheckBoxH.bind(this);
+        this.rangeSet=this.rangeSet.bind(this);
     }
     onFiltersChange(e) {
         let path= '/resultsPage'
         this.setState({
             type1: this.state.type1,
             Amen1: this.state.Amen1,
-            HR1: this.state.HR1
+            HR1: this.state.HR1,
+            range1: this.state.range1
         }
         )
         this.props.history.push(path,this.state)
@@ -60,6 +63,14 @@ class SearchFilters extends Component {
         this.state.Lang1.push(e.target.value)
     }
 
+    rangeSet(e) {
+        this.setState({
+            range1: e.target.value
+        })
+        console.log(this.state.range1)
+    }
+
+
     render() {
         return (
             <div>
@@ -72,8 +83,8 @@ class SearchFilters extends Component {
                     <hr></hr>
                     <form onSubmit={this.onFiltersChange}>
                     <div className="filters">
-                        <center> Price
-                        <Range />
+                    <center> Price {/* Add DropDown list */}
+                        {/* <Range onAfterChange={this.rangeSet}/>  */}
                         </center>
                         <hr />
                         <Button color="black" id="type" style={{ marginBottom: '1rem' }}>Home Type</Button>
@@ -86,11 +97,11 @@ class SearchFilters extends Component {
                                 <label for="apartment">Apartment</label>
                             </div>
                             <div className="rightCheck" style={{ float: "right" }}>
-                                <input id="house" type="checkbox" name="type[]" value="House" onClick={this.onCheckBoxT} />
-                                <label for="house">House</label>
+                                <input id="Bung" type="checkbox" name="type[]" value="Bungalow" onClick={this.onCheckBoxT} />
+                                <label for="Bung">Bungalow</label>
                                 <br />
-                                <input id="BnB" type="checkbox" name="type[]" value="BnB" onClick={this.onCheckBoxT} />
-                                <label for="BnB">Bed and Breakfast</label>
+                                <input id="Service" type="checkbox" name="type[]" value="Service" onClick={this.onCheckBoxT} />
+                                <label for="Service">Serviced Apartment</label>
                             </div>
                         </UncontrolledCollapse>
                         <Button color="black" id="amenities" style={{ marginBottom: '1rem' }}>Amenities</Button>

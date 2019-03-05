@@ -22,7 +22,7 @@ class Details extends Component {
      
      componentDidMount(){
          const i =`${this.state.data.id}`
-        const url = `http://localhost:9000/amenities`;
+        const url = `http://10.10.200.24:9000/amenities`;
         let headers = new Headers();
      
         headers.append('Content-Type','application/json');

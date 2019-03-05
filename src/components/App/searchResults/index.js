@@ -25,7 +25,7 @@ class SearchResults extends Component {
      }
      componentDidMount(){
         //this.setState({Amen1:this.props.history.location.state.Amen1})
-        const url = "http://localhost:9000/homes";
+        const url = "http://10.10.200.24:9000/homes";
         let headers = new Headers();
      
         headers.append('Content-Type','application/json');
@@ -60,7 +60,7 @@ class SearchResults extends Component {
                // const path= `/detailsPage/`+id
                return(
                   <li key={index}>
-                  <a href={'http://localhost:3000/detailsPage/'+id} onClick={this.onForwardClick(id)}>
+                  <a href={'http://10.10.200.24:3000/detailsPage/'+id} onClick={this.onForwardClick(id)}>
                   <div class="card1">
                   <div className="car">
                   <ImageCarousel/>

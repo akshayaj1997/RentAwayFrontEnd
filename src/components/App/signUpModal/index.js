@@ -7,6 +7,71 @@ class SignUpModal extends Component {
         super();
         //this.onClickB=this.onClickB.bind(this);
         this.onClickN=this.onClickN.bind(this);
+        this.handleUname=this.handleUname.bind(this);
+        this.handlePassword=this.handlePassword.bind(this);
+        this.handleEmail=this.handleEmail.bind(this);
+        this.signUp=this.signUp.bind(this);
+        this.state = { 
+          username: ' ',
+          password:' ',
+          email:' '
+        }
+    }
+
+    handleUname(e) {
+      this.setState({
+        username: e.target.value
+      })
+    }
+    handlePassword(e) {
+      this.setState({
+        password: e.target.value
+      })
+    }
+    handleEmail(e) {
+      this.setState({
+        email: e.target.value
+      })
+    }
+
+    signUp(e){
+      //this.setState({Amen1:this.props.history.location.state.Amen1})
+      e.preventDefault();
+      let url='http://10.10.200.24:9000/users'
+      let obj={}
+      obj.username= this.state.username
+      obj.passwordHash = this.state.password
+      obj.email = this.state.email
+      console.log(obj)
+      fetch(url,{
+        header: {
+          'Content-Type':'application/json',
+          'Accept':'application/json',
+          'Access-Control-Allow-origin':url,
+          'Access-Control-Allow-Credentials':'true'
+
+        },
+        method:'POST',
+        body:JSON.stringify(obj)
+
+      }
+      ).then(function (response) {
+        console.log(response);
+        if(response.statusText == 200){
+        console.log("Login successfull");
+        }
+        else if(response.statusText == 204){
+        console.log("Username password do not match");
+        alert("username password do not match")
+        }
+        else{
+        console.log("Username does not exists");
+        alert("Username does not exist");
+        }
+        })
+        .catch(function (error) {
+        console.log(error);
+        });
     }
 
     render() {
@@ -14,7 +79,7 @@ class SignUpModal extends Component {
             <div>
   {/* <button onClick={this.onClickB} style={{ width: "auto" }} className="b1">Login</button> */}
   <div id="id02" className="modal">
-    <form className="modal-content animate" action="/action_page.php">
+    <form className="modal-content animate" onSubmit={this.signUp}>
     <button
           onClick={this.onClickN}
           className="close1"
@@ -32,6 +97,7 @@ class SignUpModal extends Component {
           type="text"
           placeholder="E-mail"
           name="email"
+          onChangeCapture={this.handleEmail}
           required
         />
         <label htmlFor="uname">
@@ -41,6 +107,7 @@ class SignUpModal extends Component {
           type="text"
           placeholder="Username"
           name="uname"
+          onChangeCapture={this.handleUname}
           required
         />
         <label htmlFor="psw">
@@ -50,6 +117,7 @@ class SignUpModal extends Component {
           type="password"
           placeholder="Password"
           name="psw"
+          onChangeCapture={this.handlePassword}
           required
         />
         <label htmlFor="repsw">
