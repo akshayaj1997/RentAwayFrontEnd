@@ -58,8 +58,11 @@ class LoginModal extends Component {
         console.log(response.status);
        response.json()
               .then((responseData)=>{localStorage.setItem('accessToken',responseData.accessToken)
+                                     localStorage.setItem('role',responseData.role)
                                       this.setState(
-                                        {accessToken:responseData.accessToken}
+                                        {accessToken:responseData.accessToken,
+                                          role:responseData.role
+                                        }
                                       )
                                       console.log("bearerToken:"+this.state.accessToken)
                                       //localStorage.setItem('accessToken',this.state.accessToken)
