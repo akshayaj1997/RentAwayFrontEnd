@@ -34,7 +34,7 @@ class LoginModal extends Component {
       obj.passwordHash = this.state.passwordHash
       console.log(obj)
       fetch(url,{
-        header: {
+        headers: {
           'Content-Type':'application/json',
           'Accept':'application/json',
           'Access-Control-Allow-origin':url,

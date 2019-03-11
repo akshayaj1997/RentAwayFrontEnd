@@ -8,7 +8,7 @@ import './calender.css';
 
 import { formatDate, parseDate } from 'react-day-picker/moment';
 
-export default class Example extends React.Component {
+export default class Calender extends React.Component {
   constructor(props) {
     super(props);
     this.handleFromChange = this.handleFromChange.bind(this);

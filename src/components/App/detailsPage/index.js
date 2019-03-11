@@ -3,7 +3,7 @@ import Details from "../details";
 import NavBar from "../navBar";
 import './pageD.css';
 import { Card, Button,ListGroup,ListGroupItem } from 'reactstrap';
-import PaymentBox from './paymentBox';
+//import PaymentBox from './paymentBox';
 class DetailsPage extends Component {
 
     constructor(props){
