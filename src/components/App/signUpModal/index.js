@@ -36,7 +36,7 @@ class SignUpModal extends Component {
 
     signUp(e){
       //this.setState({Amen1:this.props.history.location.state.Amen1})
-      e.preventDefault();
+     // e.preventDefault();
       console.log("after submit"+this.state.password)
      let body = {
 
@@ -50,7 +50,7 @@ class SignUpModal extends Component {
       
       
    
-      const url = "http://10.10.200.24:9000/users";
+      const url = "http://localhost:9000/users";
       let headers = new Headers();
    
       headers.append('Content-Type','application/json');

@@ -16,6 +16,7 @@ import SignUpModal from "./signUpModal";
 import ResultsPage from "./resultsPage";
 //import Details from "./details";
 import DetailsPage from "./detailsPage";
+import CheckOut from "./checkoutForm";
 
 class App extends React.Component{
 
@@ -29,6 +30,7 @@ class App extends React.Component{
                <Route exact path = "/resultsPage" component={ResultsPage}/>
                <Route exact path = "/detailsPage/:id" component={DetailsPage}/>
                <Route exact path = "/userPage" component={UserNavBar}/>
+               <Route exact path = "/checkOut" component={CheckOut}/>
                <Redirect to = "/homePreSignin" component={HomePreSignin}/>
             </Switch>
 

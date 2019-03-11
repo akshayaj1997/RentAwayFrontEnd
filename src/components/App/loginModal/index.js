@@ -59,9 +59,11 @@ class LoginModal extends Component {
        response.json()
               .then((responseData)=>{localStorage.setItem('accessToken',responseData.accessToken)
                                      localStorage.setItem('role',responseData.role)
+                                     localStorage.setItem('username',responseData.username)
                                       this.setState(
                                         {accessToken:responseData.accessToken,
-                                          role:responseData.role
+                                          role:responseData.role,
+                                          username:responseData.username
                                         }
                                       )
                                       console.log("bearerToken:"+this.state.accessToken)
@@ -70,9 +72,7 @@ class LoginModal extends Component {
             if(response.status===200)
             {
               console.log("hellllllll")
-              history.push({
-                pathname: '/userPage'
-               })
+              window.assign('http://localhost:3000/homePreSignin');
                
             }
             })

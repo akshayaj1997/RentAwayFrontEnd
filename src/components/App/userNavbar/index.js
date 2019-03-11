@@ -20,6 +20,7 @@ class UserNavBar extends React.Component {
   constructor(props) {
     super(props);
     this.toggle = this.toggle.bind(this);
+    this.SignOut=this.SignOut.bind(this);
     this.state = {
       isOpen: false
     };
@@ -28,6 +29,10 @@ class UserNavBar extends React.Component {
     this.setState({
       isOpen: !this.state.isOpen
     });
+  }
+  SignOut(){
+    localStorage.clear();
+    window.location.assign("http://localhost:3000/homePreSignin");
   }
 
   render() {
@@ -63,6 +68,9 @@ class UserNavBar extends React.Component {
                   <i class="fa fa-user-o"></i>
                 </DropdownToggle>
                 <DropdownMenu right>
+                <DropdownItem disabled>
+                  Hey, {localStorage.getItem('username')}
+                  </DropdownItem>
                   <DropdownItem>
                    <i class="fa fa-user-plus"></i> Edit Profile
                   </DropdownItem>
@@ -71,7 +79,9 @@ class UserNavBar extends React.Component {
                   </DropdownItem>
                   <DropdownItem divider />
                   <DropdownItem>
+                  <div onClick={this.SignOut}>
                     <i class="fa fa-sign-out"></i> Sign Out
+                  </div>
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>

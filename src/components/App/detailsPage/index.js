@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Details from "../details";
-import NavBar from "../navBar";
+import CondNavBar from "../condNavbar";
 import './pageD.css';
 import { Card, Button,ListGroup,ListGroupItem } from 'reactstrap';
 //import PaymentBox from './paymentBox';
@@ -18,10 +18,10 @@ class DetailsPage extends Component {
            toDate:' ',
            amenities:[]
            }
+           
         }
-
         componentDidMount(){
-            const url = "http://10.10.200.24:9000/homes";
+            const url = "http://localhost:9000/homes";
             let headers = new Headers();
          
             headers.append('Content-Type','application/json');
@@ -48,7 +48,7 @@ class DetailsPage extends Component {
     render() {
         return(
             <div>
-            <NavBar/>
+            <CondNavBar/>
             <center><Details/></center>
             {this.state.data.map((home) => {
                 if(home.id==this.props.match.params.id)
@@ -73,7 +73,7 @@ class DetailsPage extends Component {
                 <i><center>  &#8377;{home.price} </center></i>
                 <hr/>
                 {/* {home.amenities} */}
-                <Button color="danger">Book</Button>
+                <Button color="danger" href='http://localhost:3000/checkOut'>Book</Button>
                 <br/>
                 </Card>
                 </div>

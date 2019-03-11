@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import NavBar from "../navBar";
+import CondNavBar from "../condNavbar";
 import SearchResults from "../searchResults";
 import SearchFilters from "../filters";
 import './page.css';
@@ -25,7 +25,7 @@ class ResultsPage extends Component {
         return(
             <div className="Container">
                 <div className="way">
-                <NavBar/>
+                <CondNavBar/>
                 {this.state.Amen1}
                 <SearchFilters/>
                 <SearchResults/>
