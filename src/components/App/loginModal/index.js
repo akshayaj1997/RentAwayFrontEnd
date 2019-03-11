@@ -72,7 +72,7 @@ class LoginModal extends Component {
             if(response.status===200)
             {
               console.log("hellllllll")
-              window.assign('http://localhost:3000/homePreSignin');
+              window.location.assign('http://localhost:3000/homePreSignin');
                
             }
             })
