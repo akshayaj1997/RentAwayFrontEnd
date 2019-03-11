@@ -1,0 +1,15 @@
+.navBar{
+  font-size: 16px;
+  font-style: oblique;
+  font-weight: 100;
+  position: inherit;
+  /* color: white; */
+}
+.navBar .text-white {
+  padding: 20px;
+}
+.fa fa-user-o
+{
+  color: white;
+}
+

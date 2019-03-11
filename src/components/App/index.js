@@ -3,7 +3,7 @@ import React from "react";
 //import HomeSearch from "./homeSearch";
 import HomePreSignin from "./homePreSignin";
 //import signUpModal from "./signUpModal";
-//import HomeSearch from "./homeSearch";
+import UserNavBar from "./userNavbar";
 
 import{
    BrowserRouter as Router,
@@ -28,6 +28,7 @@ class App extends React.Component{
                <Route exact path = "/signUp" component={SignUpModal}/>
                <Route exact path = "/resultsPage" component={ResultsPage}/>
                <Route exact path = "/detailsPage/:id" component={DetailsPage}/>
+               <Route exact path = "/userPage" component={UserNavBar}/>
                <Redirect to = "/homePreSignin" component={HomePreSignin}/>
             </Switch>
 
