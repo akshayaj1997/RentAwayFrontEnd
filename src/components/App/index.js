@@ -2,7 +2,7 @@ import React from "react";
 //import App from "./Components/App";
 //import HomeSearch from "./homeSearch";
 import HomePreSignin from "./homePreSignin";
-//import signUpModal from "./signUpModal";
+import HostPage from "./hostPage";
 //import HomeSearch from "./homeSearch";
 
 import{
@@ -28,6 +28,7 @@ class App extends React.Component{
                <Route exact path = "/signUp" component={SignUpModal}/>
                <Route exact path = "/resultsPage" component={ResultsPage}/>
                <Route exact path = "/detailsPage/:id" component={DetailsPage}/>
+               <Route exact path = "/hostPage" component={HostPage}/>
                <Redirect to = "/homePreSignin" component={HomePreSignin}/>
             </Switch>
 

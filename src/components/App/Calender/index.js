@@ -8,7 +8,7 @@ import './calender.css';
 
 import { formatDate, parseDate } from 'react-day-picker/moment';
 
-export default class Calender extends React.Component {
+export default class Example extends React.Component {
   constructor(props) {
     super(props);
     this.handleFromChange = this.handleFromChange.bind(this);
@@ -29,16 +29,20 @@ export default class Calender extends React.Component {
   }
   handleFromChange(from) {
     // Change the from date and focus the "to" input field
-    this.setState({ from });
+    this.setState({ from }, ()=> {
+      this.props.onfromDateDataChanged(this.state.from)
+    });
   }
   handleToChange(to) {
-    this.setState({ to }, this.showFromMonth);
+    this.setState({ to }, ()=>{
+      this.props.ontoDateDataChanged(this.state.to)
+    }, this.showFromMonth);
   }
   render() {
     const { from, to } = this.state;
     const modifiers = { start: from, end: to };
     return (
-      <div className="InputFromTo">
+      <div className="InputFromTo" >
         <DayPickerInput
           value={from}
           placeholder="From"
@@ -56,7 +60,7 @@ export default class Calender extends React.Component {
           onDayChange={this.handleFromChange}
         />{' '}
         {' '}
-        <span className="InputFromTo-to">
+        <span className="InputFromTo-to" >
           <DayPickerInput
             ref={el => (this.to = el)}
             value={to}

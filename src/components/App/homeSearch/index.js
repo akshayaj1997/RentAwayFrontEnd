@@ -2,73 +2,93 @@ import React from "react";
 import "./index.css"
 import SearchBar from "../searchBar";
 import Calender from "../Calender";
-import ReactSearchBox from 'react-search-box'
-class HomeSearch extends React.Component {
-    data = [
-        {
-          key: 'hyderabad',
-          value: 'Hyderabad, India',
-        },
-        {
-          key: 'paris',
-          value: 'Paris, France',
-        },
-        {
-          key: 'maryland',
-          value: 'Mary Land, USA',
-        },
-        {
-          key: 'melbourne',
-          value: 'Melbourne, Australia',
-        },
-      ]
-    constructor(props) {
-        super(props)
+import {createBrowserHistory as createHistory} from 'history';
+import { withRouter } from 'react-router-dom';
+class HomeSearch extends React.Component{
+    history=createHistory(this.props)
+    constructor(props){
+        super(props);
+        this.onFormSubmit = this.onFormSubmit.bind(this);
+        this.onGuestChange = this.onGuestChange.bind(this);
+        this.onLocationDataChanged = this.onLocationDataChanged.bind(this);
+        this.ontoDateDataChanged=this.ontoDateDataChanged.bind(this);
+        this.onfromDateDataChanged=this.onfromDateDataChanged.bind(this);
         this.state = {
-            location:' ',
-            guests: ' '
+            id: ' ',
+            location1:' ',
+            fromDate:' ',
+            toDate:' ',
+            guestCount:' '
+          }
+
+    }
+
+    onGuestChange(event){
+        //console.log(event.target.value);
+        this.setState({guestCount: event.target.value})
+        
+    }
+    onLocationDataChanged(newData){
+        this.setState({location1:newData})
+       
+    }
+
+    ontoDateDataChanged(newData){
+        this.setState({toDate:newData})
+       
+    }
+
+    onfromDateDataChanged(newData){
+        this.setState({fromDate:newData})
+       
+    }
+
+    onFormSubmit(event){
+        event.preventDefault()
+        console.log(this.state.location1)
+        console.log(this.state.guestCount)
+        console.log(this.state.toDate)
+        console.log(this.state.fromDate)
+        let path= '/resultsPage'
+        this.setState({
+            location1: this.state.location1,
+            guestCount: this.state.guestCount,
+            toDate: this.state.toDate,
+            fromDate: this.state.fromDate
         }
-        this.onSearch = this.onSearch.bind(this)
-        this.onGuest = this.onGuest.bind(this)
+        )
+        this.props.history.push(path,this.state)
+        console.log(this.props.history.location.state.location1);
+        event.preventDefault();
+        this.props.history.go(0)
     }
 
-    onSearch(e){
-        console.log(e.target.value);
-    }
-
-    onGuest(e){
-        console.log(e.target.value);
-    }
-    render() {
-        return (
-            <form>
-                <div class="aa">
-                    <center><h2> Book unique homes and  experiences. </h2></center>
-                    <div className="nextt"><center><h4> Your Place, Our safety. </h4></center></div>
-                    <br></br>
+    
+    
+    render(){
+        
+        return(
+           <form onSubmit = {this.onFormSubmit}>
+               <div className="aa">
+               <center><h2> Book unique homes and  experiences. </h2></center>
+               <div className="nextt"><center><h4> Your Place, Our safety. </h4></center></div>
+               <br></br>
                     <h5>WHERE</h5>
-                    <ReactSearchBox
-                        placeholder="Search"
-                        data={this.data}
-                        value={this.data[0]}
-                        onSelect={this.onSearch}
-                        onChange={this.onSearch}
-                    />
+                    <SearchBar location1 = {this.state.location1} onLocationDataChanged={this.onLocationDataChanged}/>
                     {/* <input type="text" name="location" placeholder="Location" required=""/><br/><br/> */}
                     <h5>CHECK-IN AND CHECK-OUT</h5>
                     <br></br>
-                    <Calender/>
+                    <Calender fromDate={this.state.fromDate} toDate={this.state.toDate} ontoDateDataChanged={this.ontoDateDataChanged} onfromDateDataChanged={this.onfromDateDataChanged}/>
                     <br></br>
                     <h5>NUMBER OF GUESTS</h5>
-                    <input type="number" name="guests" placeholder="Guests" min="1" required="" onChange={this. onGuest} /><br /><br />
+                    <input type="text" name="guests" placeholder="Guests" required="" onChange={this.onGuestChange}/><br/><br/>
                     <div id="logincontent" >
-                        <input className="target" id="target" type="submit" name="search" value="search" />
+                        <input className="target" id = "target" type="submit" name = "search" value = "search"/>
                     </div>
-
+                   
                 </div>
-
-            </form>
-        )
-    }
+                
+           </form>
+        )}
 }
 export default HomeSearch;
