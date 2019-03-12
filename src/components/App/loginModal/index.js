@@ -1,15 +1,24 @@
 import React,{ Component } from 'react';
 import './login.css';
-
+import {createBrowserHistory as createHistory} from 'history';
+import{
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from "react-router-dom";
+import UserNavBar from "../userNavbar";
 class LoginModal extends Component {
-    constructor(){
-        super();
+  history=createHistory(this.props);
+    constructor(props){
+        super(props);
         //this.onClickB=this.onClickB.bind(this);
         this.onClickN=this.onClickN.bind(this);
         this.handleUname=this.handleUname.bind(this);
         this.handlePassword=this.handlePassword.bind(this);
         this.login=this.login.bind(this)
         this.state = { 
+          data:[],
           username: ' ',
           passwordHash:' '
         }
@@ -26,9 +35,9 @@ class LoginModal extends Component {
       })
     }
     login(e) {
-  
-      e.preventDefault();
-      let url='http://10.10.200.24:9000/users/signin'
+      let { history } = this.props;
+     //e.preventDefault();
+      let url='http://localhost:9000/users/signin'
       let obj={}
       obj.username= this.state.username
       obj.passwordHash = this.state.passwordHash
@@ -45,22 +54,30 @@ class LoginModal extends Component {
         body: JSON.stringify(obj)
 
       }
-      ).then(function (response) {
-        console.log(response);
-        if(response.statusText == 200){
-        console.log("Login successfull");
-        }
-        else if(response.statusText == 204){
-        console.log("Username password do not match");
-        alert("username password do not match")
-        }
-        else{
-        console.log("Username does not exists");
-        alert("Username does not exist");
-        }
+      ).then(response => {
+        console.log(response.status);
+       response.json()
+              .then((responseData)=>{localStorage.setItem('accessToken',responseData.accessToken)
+                                     localStorage.setItem('role',responseData.role)
+                                     localStorage.setItem('username',responseData.username)
+                                      this.setState(
+                                        {accessToken:responseData.accessToken,
+                                          role:responseData.role,
+                                          username:responseData.username
+                                        }
+                                      )
+                                      console.log("bearerToken:"+this.state.accessToken)
+                                      //localStorage.setItem('accessToken',this.state.accessToken)
+            
+            if(response.status===200)
+            {
+              console.log("hellllllll")
+              window.location.assign('http://localhost:3000/homePreSignin');
+               
+            }
+            })
         })
-        .then(response => response.json())
-        .then(contents => {console.log("in fetch"+contents);
+        .then(contents => {console.log("in fetch "+contents);
                           this.setState({
                              data:contents
                           })

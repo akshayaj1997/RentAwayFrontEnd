@@ -1,6 +1,6 @@
 import React from "react"
 import "./img.css"
-import NavBar from "../navBar"
+import CondNavBar from "../condNavbar";
 import SignUpModal from "../signUpModal";
 import SearchBar from "../searchBar";
 import HomeSearch from "../homeSearch";
@@ -15,7 +15,7 @@ class  Image extends React.Component{
     render(){
         
         return(<div className="myImg">
-            <NavBar/>
+            <CondNavBar/>
            <div className='hello'><HomeSearch/></div> 
         </div>
         );
