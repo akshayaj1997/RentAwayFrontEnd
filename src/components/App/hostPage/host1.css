@@ -1,37 +1,13 @@
 .bg {
     background-image: url("./bgg.jpg");
     background-repeat: no-repeat;
+   
     height:60vh;
     width: auto;
     object-fit: cover;
     background-size: cover;
     background-position: center; 
     
-}
-div .container0 {
-  margin-top: 0vh;
-  background: white;
-  padding: 8vh;
-  height: 45vh;
-}
-div .container1 {
-  margin-top: 0vh;
-  background: white;
-  padding-bottom: 30vh;
-}
-div .cs1 label {
-  font-size: 16px;
-}
-div .cs1 input[type='checkbox'] {
-  width:10px;
-  height: 10px;
-}
-div .cs input[type='checkbox'] {
-  width:10px;
-  height: 10px;
-}
-div .cs label {
-  font-size: 16px;
 }
 
 
@@ -71,8 +47,8 @@ div .cs label {
   width: 33.33%;
   position: relative;
   text-align: center;
-  padding-right:5%;
-  padding-left:5%;
+  padding-right:2%;
+  padding-left:2%;
   
 }
   
@@ -95,7 +71,7 @@ div .cs label {
 .progressbar li:after{
   content: '';
   position: absolute;
-  width:100%;
+  width:50%;
   height:1px;
   background-color: #ddd;
   top:15px;
@@ -116,10 +92,10 @@ div .cs label {
 .page{
   font-size: 18px;
   text-align: justify;
-  padding-top: 5%;
-  padding-right:5%;
-  padding-left:5%;
-  line-height: 200%;
+  padding-top: 10%;
+  padding-right:10%;
+  padding-left:10%;
+  
   
 }
 
@@ -129,7 +105,7 @@ div .cs label {
   padding-top: 5%;
   padding-right:10%;
   padding-left:10%;
-  line-height: 200%;
+  
   
 }
 
@@ -144,7 +120,7 @@ div .cs label {
 
 .align li:before{
 
-  width:20px;
+  width:30px;
   height:30px;
 
 }
@@ -180,6 +156,8 @@ div .cs label {
 #bg2{
   background-image: url("./img1.jpg");
   background-repeat: no-repeat;
+   
+    
     width: auto;
     object-fit: cover;
     background-size: cover;
@@ -187,22 +165,22 @@ div .cs label {
 }
 
 .box1{
-  width:30%;
-  height:80%;
-  background-color:rgba(255,255,255,0.8);
-  margin:0 auto;
-  margin-top:auto;
-  font-style: oblique;  
-  font-weight: 100;
-  padding-left:10px;
-  padding-bottom: 10px;
-  padding-right: 10px;
-  padding-top: 10px; 
-  border-radius:5px;
-  -webkit-border-radius:5px;
-  -o-border-radius:5px;
-  -moz-border-radius:5px;
-  color:black;
+  width:400px;
+height:80%;
+background-color:rgba(255,255,255,0.8);
+margin:0 auto;
+margin-top:auto;
+font-style: oblique;  
+font-weight: 100;
+padding-left:10px;
+padding-bottom: 10px;
+padding-right: 10px;
+padding-top: 10px; 
+border-radius:5px;
+-webkit-border-radius:5px;
+-o-border-radius:5px;
+-moz-border-radius:5px;
+color:black;
 }
 
 
@@ -213,7 +191,7 @@ div .cs label {
   padding-left: 15px;
   margin-bottom: 12px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: normal;
 
   -webkit-user-select: none;
@@ -229,7 +207,7 @@ div .cs label {
   padding-right:50px;
   margin-bottom: 12px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: normal;
 
   -webkit-user-select: none;
@@ -250,7 +228,7 @@ border-radius:5px;
 -moz-border-radius:5px;
 padding-left:5px;
 border-color: black;
-font-size: 16px;
+font-size: 15px;
 background-color:#f9fafc;
 }
 
@@ -280,6 +258,8 @@ label{
 #calender{
   background-image: url("./img1.jpg");
   background-repeat: no-repeat;
+   
+    
     width: auto;
     object-fit: cover;
     background-size: cover;

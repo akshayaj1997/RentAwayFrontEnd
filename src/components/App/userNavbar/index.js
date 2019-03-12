@@ -12,8 +12,7 @@ import {
   DropdownMenu,
   DropdownItem } from 'reactstrap';
   import "./index.css";
-  import LoginModal from "../loginModal";
-  import SignUpModal from "../signUpModal";
+  
 
 
 class UserNavBar extends React.Component {
@@ -61,7 +60,7 @@ class UserNavBar extends React.Component {
                 </DropdownMenu>
               </UncontrolledDropdown>
               <NavItem>
-                <NavLink className="text-white" onClick={this.onClickN} href="#">Become a host</NavLink>
+                <NavLink className="text-white" onClick={this.onClickN} href="http://localhost:3000/hostPage">Become a host</NavLink>
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret className="text-white">

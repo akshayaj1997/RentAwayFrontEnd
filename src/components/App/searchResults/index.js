@@ -2,19 +2,17 @@ import React, {Component} from 'react';
 import './results.css';
 import ImageCarousel from '../imageCarousel';
 import {createBrowserHistory as createHistory} from 'history';
-
+var body;
 class SearchResults extends Component {
    history=createHistory(this.props);
     constructor(props){
         super(props);
         this.state = {
            data: [],
-           id : ' ',
-         //   fromDate:' ',
+           homeId : ' ',
            location : ' ',
            name:' ',
            price:' ',
-           //toDate:' ',
            Amen1:[]
            }
            this.onForwardClick=this.onForwardClick.bind(this);
@@ -25,7 +23,10 @@ class SearchResults extends Component {
      }
      componentDidMount(){
         //this.setState({Amen1:this.props.history.location.state.Amen1})
-        const url = "http://localhost:9000/homes";
+        const url = "http://10.10.200.32:9000/homes1";
+        body={
+           location: sessionStorage.getItem('location1')
+        }
         let headers = new Headers();
      
         headers.append('Content-Type','application/json');
@@ -38,7 +39,9 @@ class SearchResults extends Component {
      
         fetch(url, {
            headers:headers,
-           method: 'GET'
+           method: 'POST',
+           body:JSON.stringify(body)
+
         })
         .then(response => response.json())
         .then(contents => {console.log("in fetch"+contents);
@@ -56,7 +59,7 @@ class SearchResults extends Component {
                   <ul>
                      
                      {this.state.data.map((home,index) => {
-               const id = `${home.id}`
+               const id = `${home.homeId}`
                // const path= `/detailsPage/`+id
                return(
                   <li key={index}>
@@ -69,8 +72,7 @@ class SearchResults extends Component {
                      <div class="container">
                       <p className='type1'>{home.name} Flat</p>
                       <p className='location'>{home.location}</p>
-                      <p className='name1'> Malaysian Township</p>
-                      <p className= 'cost'> {home.Price} Rs. 5000</p>
+                      <p className= 'cost'> &#8377; {home.price}</p>
                       </div>
                   </div>
                    </a>

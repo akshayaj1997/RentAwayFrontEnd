@@ -50,9 +50,10 @@ class HostPage extends React.Component{
             </div></section>
             </center>
             <section>
-           <div className = "container">
+           <div className = "container0">
+           <center>
            <p className="title">Hosting in 3 steps</p> 
-           <br/>
+           <br/><br/> 
            <ul className="progressbar">
           <li><h1>List your space for free</h1>
            <p className="page">No matter what kind of home or room you have to share, Rent@way makes it simple and secure to host travelers. </p>
@@ -65,6 +66,7 @@ class HostPage extends React.Component{
            </li>
 
            </ul>
+           </center>
            </div>   
             </section>
 
@@ -75,7 +77,7 @@ class HostPage extends React.Component{
              
                   <br></br>
              
-               <div className="box">
+               <div className="box1">
                <center><h2><b>LIST YOUR SPACE FOR FREE</b></h2></center>
                <div className="nextt"><center></center></div>
                <br></br>
@@ -189,7 +191,7 @@ class HostPage extends React.Component{
           <div id="upload">
                     <br></br>
                     <br></br>
-                    <div className="box">
+                    <div className="box1">
                     <center><h2><b> UPLOAD IMAGES</b></h2></center>
                     <br></br>
                     <br></br>
@@ -210,7 +212,7 @@ class HostPage extends React.Component{
                 <div id="calender">
                     <br></br>
                     <br></br>
-                    <div className="box">
+                    <div className="box1">
                     <center><h2><b> DECIDE HOW YOU WANT TO HOST</b></h2></center>
                     <br></br>
                     <br></br>
@@ -227,7 +229,7 @@ class HostPage extends React.Component{
                     <br></br>
                     <br></br>
                     <center>
-                    <input className="next1" id = "next3" type="button" name = "Edit" value = " Edit!!  " onClick={this.myFunction3}/>
+                    <input className="next1" id = "next3" type="button" name = "Edit" value = " Edit  " onClick={this.myFunction3}/>
                     <input className="next1" id = "next4" type="button" name = "Submit" value = "Submit"  onSubmit={this.onClickSubmit}/>
                     
                     </center>

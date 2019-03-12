@@ -1,5 +1,6 @@
+
 label{
-    font-size: 25px;
+    font-size: 7px;
 }
 .name
 {
@@ -14,15 +15,21 @@ label{
 	left:500px;
     
 }
+div .boxC {
+  margin-top: 30px;
+  margin-right: 40px;
+
+}
 .name1
 {
 position:fixed;
 	left:460px;
 }
 
-.aa{
-width:56%;
+div .aaa{
+width:30%;
 height:70%;
+float: right;
 background-color:#ffff;
 margin:0 auto;
 margin-top:auto;
@@ -41,7 +48,7 @@ color:black;
 
 
 }
-.aa input[type="number"]{
+.aaa input[type="number"]{
 width:10%;
 height:35px;
 border:3px;
@@ -50,10 +57,10 @@ border-color: black;
 font-size: 16px;
 background-color:#f9fafc;
 }
-.aa input[type="text"]:focus {
+.aaa input[type="text"]:focus {
 background-color: white;
 }
-.aa input[type="date"]{
+.aaa input[type="date"]{
 width:200px;
 height:35px;
 border:0;
@@ -64,7 +71,7 @@ border-radius:5px;
 -moz-border-radius:5px;
 }
 
-.aa input[type="submit"]{
+.aaa input[type="submit"]{
   border: 2px solid black;
   border-radius: 3px;
   background-color: #f94141 ;
@@ -76,7 +83,7 @@ border-radius:5px;
   color: white;
   align-self: right; 
 }
-.aa input[type="submit"]:hover
+.aaa input[type="submit"]:hover
 {
 background-color:white;
   color: #f94141;

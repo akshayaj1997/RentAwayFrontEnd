@@ -6,7 +6,7 @@ import Slider, { Range } from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import './filters.css';
 import {createBrowserHistory as createHistory} from 'history';
-import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom';
 
 class SearchFilters extends Component {
     history=createHistory(this.props)
@@ -26,8 +26,11 @@ class SearchFilters extends Component {
         this.onCheckBoxAm=this.onCheckBoxAm.bind(this);
         this.onCheckBoxH=this.onCheckBoxH.bind(this);
         this.rangeSet=this.rangeSet.bind(this);
+        
     }
+    
     onFiltersChange(e) {
+        
         let path= '/resultsPage'
         this.setState({
             type1: this.state.type1,
@@ -83,9 +86,16 @@ class SearchFilters extends Component {
                     <hr></hr>
                     <form onSubmit={this.onFiltersChange}>
                     <div className="filters">
-                    <center> Price {/* Add DropDown list */}
+                    
+                    <center> 
+                        <Button color="black" id="Price" style={{ marginBottom: '1rem' }}>Price</Button>
+                        <UncontrolledCollapse toggler="#Price" style={{ marginLeft: '0%' }}>
                         {/* <Range onAfterChange={this.rangeSet}/>  */}
+                        <input type="number" name="Price" min="1000" max="50000"/>- 
+                        <input type="number" name="Price" min="1000" max="100000"/>
+                        </UncontrolledCollapse>
                         </center>
+
                         <hr />
                         <Button color="black" id="type" style={{ marginBottom: '1rem' }}>Home Type</Button>
                         <UncontrolledCollapse toggler="#type" style={{ marginLeft: '10%' }}>
@@ -134,6 +144,14 @@ class SearchFilters extends Component {
                                 <input id="pet" type="checkbox" name="HR[]" value="Pets" onClick={this.onCheckBoxH} />
                                 <label for="pet">Pets Allowed</label>
                             </div>
+                        </UncontrolledCollapse>
+                        <Button color="black" id="Additional" style={{ marginBottom: '1rem' }}>Edit Previous Filters</Button>
+                        <UncontrolledCollapse toggler="#Additional" style={{ marginLeft: '0%' }}>
+                        {/* <Range onAfterChange={this.rangeSet}/>  */}
+                        <input type="text" name="Location"/>
+                        <input type="date" name="fromDate"/>
+                        <input type="date" name="toDate"/>
+                        <input type="number" name="guestCount"/>
                         </UncontrolledCollapse>
                        
                     </div> 

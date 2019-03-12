@@ -36,8 +36,8 @@ class LoginModal extends Component {
     }
     login(e) {
       let { history } = this.props;
-     //e.preventDefault();
-      let url='http://localhost:9000/users/signin'
+       e.preventDefault();
+      let url='http://10.10.200.32:9000/users/signin'
       let obj={}
       obj.username= this.state.username
       obj.passwordHash = this.state.passwordHash
@@ -56,6 +56,22 @@ class LoginModal extends Component {
       }
       ).then(response => {
         console.log(response.status);
+        if(response.status===200)
+            {
+              window.location.assign('http://localhost:3000/homePreSignin');
+            }
+            else if(response.status===400){
+              alert("Username or password does not exist");
+              window.location.assign('http://localhost:3000/homePreSignin');
+            }
+            else if(response.status===401){
+              alert("Username or password is incorrect");
+              window.location.assign('http://localhost:3000/homePreSignin');
+            }
+            else{
+              alert("Unauthorized");
+              window.location.assign('http://localhost:3000/homePreSignin');
+            }
        response.json()
               .then((responseData)=>{localStorage.setItem('accessToken',responseData.accessToken)
                                      localStorage.setItem('role',responseData.role)
@@ -68,13 +84,11 @@ class LoginModal extends Component {
                                       )
                                       console.log("bearerToken:"+this.state.accessToken)
                                       //localStorage.setItem('accessToken',this.state.accessToken)
+                                      // if(response.status===200)
+                                      // {
+                                      //   window.location.assign('http://localhost:3000/homePreSignin');
+                                      // }
             
-            if(response.status===200)
-            {
-              console.log("hellllllll")
-              window.location.assign('http://localhost:3000/homePreSignin');
-               
-            }
             })
         })
         .then(contents => {console.log("in fetch "+contents);

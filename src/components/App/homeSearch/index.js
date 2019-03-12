@@ -3,7 +3,6 @@ import "./index.css"
 import SearchBar from "../searchBar";
 import Calender from "../Calender";
 import {createBrowserHistory as createHistory} from 'history';
-import { withRouter } from 'react-router-dom';
 class HomeSearch extends React.Component{
     history=createHistory(this.props)
     constructor(props){
@@ -57,10 +56,12 @@ class HomeSearch extends React.Component{
             fromDate: this.state.fromDate
         }
         )
-        this.props.history.push(path,this.state)
-        console.log(this.props.history.location.state.location1);
-        event.preventDefault();
-        this.props.history.go(0)
+       sessionStorage.setItem('location1',this.state.location1)
+       sessionStorage.setItem('guestCount',this.state.guestCount) 
+       sessionStorage.setItem('toDate',this.state.toDate)  
+       sessionStorage.setItem('fromDate',this.state.fromDate) 
+       window.location.assign('http://localhost:3000/resultsPage')
+       event.preventDefault();
     }
 
     

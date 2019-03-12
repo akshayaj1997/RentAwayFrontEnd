@@ -1,15 +1,15 @@
 import React, {Component} from 'react';
 import CondNavBar from '../condNavbar';
+import './checkout.css';
 class CheckOut extends Component{
     
     render(){
         
         return(<div>
             <CondNavBar/>
-            <div className='box'>
+            <div className='boxC'>
             <form>
-                <div class="aa">
-                <br/>
+                <div class="aaa">
                     <center><h1>CheckOut</h1></center>
                     <form action="/action_page.php">
   <div >

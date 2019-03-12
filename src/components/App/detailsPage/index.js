@@ -10,10 +10,10 @@ class DetailsPage extends Component {
         super(props);
         this.state = {
            data: [],
-           id : ' ',
+           homeId : ' ',
            fromDate:' ',
            location : ' ',
-           name:' ',
+           homeName:' ',
            price:' ',
            toDate:' ',
            amenities:[]
@@ -21,7 +21,7 @@ class DetailsPage extends Component {
            
         }
         componentDidMount(){
-            const url = "http://localhost:9000/homes";
+            const url = "http://10.10.200.32:9000/homes/"+this.props.match.params.id;
             let headers = new Headers();
          
             headers.append('Content-Type','application/json');
@@ -46,43 +46,39 @@ class DetailsPage extends Component {
          }
 
     render() {
+        console.log(this.state.data);
         return(
             <div>
             <CondNavBar/>
             <center><Details/></center>
-            {this.state.data.map((home) => {
-                if(home.id==this.props.match.params.id)
-                {
-                    return(
-                <div>
+            <div>
                 <ListGroup className="features" style={{height:'100%'}}>
-        <ListGroupItem>Amenities<br/><br/></ListGroupItem>
+        <ListGroupItem>Amenities<br/><br/>
+        {this.state.data.amenityId}
+        </ListGroupItem>
         <ListGroupItem>House Rules<br/><br/></ListGroupItem>
       </ListGroup>
-                <Card className="card">
-               <b>Hosted By,</b> 
-                <i><center>{home.name}</center></i>
+                <Card className="cardD">
+               <b>House Name</b> 
+                <i><center>{this.state.data.homeName}</center></i>
                 <hr/>
                 <b>On the Dates,</b>
-               <center> <i>{home.fromDate} through {home.toDate}</i> </center>
+               <center> <i>{this.state.data.fromDate} through {this.state.data.toDate}</i> </center>
                 <hr/>
                 <b>At,</b>
-                <center><i>{home.location}</i></center>
+                <center><i>{this.state.data.location}</i></center>
                 <hr/>
                 <b>Price,</b>
-                <i><center>  &#8377;{home.price} </center></i>
+                <i><center>  &#8377;{this.state.data.price} </center></i>
                 <hr/>
                 {/* {home.amenities} */}
                 <Button color="danger" href='http://localhost:3000/checkOut'>Book</Button>
                 <br/>
                 </Card>
                 </div>
-                )
-                }
-                else {
-                    return(<div/>)
-                }
-            })}
+    
+                
+                
             </div>
         )
     }
