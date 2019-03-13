@@ -52,7 +52,6 @@ class HomeSearch extends React.Component{
 
     onFormSubmit(event){
         event.preventDefault();
-       
         console.log(this.state.location1)
         console.log(this.state.guestCount)
         console.log(this.state.toDate)

@@ -19,7 +19,7 @@ class SearchFilters extends Component {
             Amen1: [],
             HR1:  [],
             Lang1: [],
-            range1: ''
+            price: ''
         }
         this.onFiltersChange=this.onFiltersChange.bind(this);
         this.onCheckBoxT=this.onCheckBoxT.bind(this);
@@ -31,7 +31,9 @@ class SearchFilters extends Component {
     }
 
     priceChange(e){
-        sessionStorage.setItem('price',e.target.value)
+        this.setState({
+            price: e.target.value
+        })
     }
     
     onFiltersChange(e) {
@@ -41,9 +43,14 @@ class SearchFilters extends Component {
             type1: this.state.type1,
             Amen1: this.state.Amen1,
             HR1: this.state.HR1,
-            range1: this.state.range1
+            range1: this.state.range1,
+            price: this.state.price
         }
         )
+        sessionStorage.setItem('propertyType',this.state.type1)
+        sessionStorage.setItem('amenities',this.state.Amen1)
+        sessionStorage.setItem('rules',this.state.HR1)
+        sessionStorage.setItem('price',this.state.price)
         this.props.history.push(path,this.state)
         console.log(this.props.history.location.state.Amen1);
         document.getElementById("mySidenav").style.width = "0";

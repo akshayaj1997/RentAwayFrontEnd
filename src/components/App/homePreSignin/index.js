@@ -7,6 +7,9 @@ import Image from "../image"
 //import SignUpModal from '../signUpModal';
 
 class HomePreSignin extends React.Component{
+  componentDidMount(){
+    sessionStorage.clear();
+  }
     
     render(){
       return( 
