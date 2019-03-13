@@ -27,19 +27,19 @@ export default class SearchBar extends Component {
   data = [
     {
       key: 'hyderabad',
-      value: 'hyd',
+      value: 'Hyderabad',
     },
     {
-      key: 'paris',
-      value: 'Paris',
+      key: 'bangalore',
+      value: 'Bangalore',
     },
     {
-      key: 'maryland',
-      value: 'Mary Land',
+      key: 'indore',
+      value: 'Indore',
     },
     {
-      key: 'melbourne',
-      value: 'Melbourne',
+      key: 'kolkata',
+      value: 'Kolkata',
     },
   ]
 

@@ -26,7 +26,6 @@ class ResultsPage extends Component {
             <div className="Container">
                 <div className="way">
                 <CondNavBar/>
-                {this.state.Amen1}
                 <SearchFilters/>
                 <SearchResults/>
                 </div>

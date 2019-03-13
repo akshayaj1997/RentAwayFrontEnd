@@ -3,6 +3,8 @@ import "./index.css"
 import SearchBar from "../searchBar";
 import Calender from "../Calender";
 import {createBrowserHistory as createHistory} from 'history';
+import moment from 'moment';
+import SearchResults from "../searchResults";
 class HomeSearch extends React.Component{
     history=createHistory(this.props)
     constructor(props){
@@ -14,10 +16,10 @@ class HomeSearch extends React.Component{
         this.onfromDateDataChanged=this.onfromDateDataChanged.bind(this);
         this.state = {
             id: ' ',
-            location1:' ',
-            fromDate:' ',
-            toDate:' ',
-            guestCount:' '
+            location1:null,
+            fromDate:null,
+            toDate:null,
+            guestCount:null
           }
 
     }
@@ -33,17 +35,24 @@ class HomeSearch extends React.Component{
     }
 
     ontoDateDataChanged(newData){
-        this.setState({toDate:newData})
+        var dateObj = new Date(newData);
+    var momentObj = moment(dateObj);
+    var momentString = momentObj.format('YYYY-MM-DD');
+        this.setState({toDate:momentString})
        
     }
 
     onfromDateDataChanged(newData){
-        this.setState({fromDate:newData})
+        var dateObj = new Date(newData);
+    var momentObj = moment(dateObj);
+    var momentString = momentObj.format('YYYY-MM-DD');
+        this.setState({fromDate:momentString})
        
     }
 
     onFormSubmit(event){
-        event.preventDefault()
+        event.preventDefault();
+       
         console.log(this.state.location1)
         console.log(this.state.guestCount)
         console.log(this.state.toDate)
@@ -55,13 +64,15 @@ class HomeSearch extends React.Component{
             toDate: this.state.toDate,
             fromDate: this.state.fromDate
         }
-        )
+        );
+        
        sessionStorage.setItem('location1',this.state.location1)
        sessionStorage.setItem('guestCount',this.state.guestCount) 
        sessionStorage.setItem('toDate',this.state.toDate)  
        sessionStorage.setItem('fromDate',this.state.fromDate) 
        window.location.assign('http://localhost:3000/resultsPage')
        event.preventDefault();
+
     }
 
     
@@ -70,6 +81,11 @@ class HomeSearch extends React.Component{
         
         return(
            <form onSubmit = {this.onFormSubmit}>
+           <br></br>
+           <br></br>
+           <br></br>
+           <br></br>
+           <br></br>
                <div className="aa">
                <center><h2> Book unique homes and  experiences. </h2></center>
                <div className="nextt"><center><h4> Your Place, Our safety. </h4></center></div>

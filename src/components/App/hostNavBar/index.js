@@ -14,7 +14,7 @@ import {
   import "./index.css";
   import EditProfile from "../editProfile";
 
-class UserNavBar extends React.Component {
+class HostNavBar extends React.Component {
   constructor(props) {
     super(props);
     this.toggle = this.toggle.bind(this);
@@ -50,7 +50,7 @@ class UserNavBar extends React.Component {
                 </DropdownToggle>
                 <DropdownMenu right>
                   <DropdownItem>
-                  <a href="http://localhost:3000/homePreSignin">Homes</a> 
+                  <NavLink href="http://localhost:3000/homePreSignin">Homes</NavLink> 
                   </DropdownItem>
                   <DropdownItem>
                     Office Spaces
@@ -61,7 +61,8 @@ class UserNavBar extends React.Component {
                 </DropdownMenu>
               </UncontrolledDropdown>
               <NavItem>
-                <NavLink className="text-white" onClick={this.onClickN} href="http://localhost:3000/hostPage">Become a host</NavLink>
+                <NavLink className="text-white" onClick={this.onClickN} href="http://localhost:3000/hostPage">Add Listing 
+                </NavLink>
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret className="text-white">
@@ -81,6 +82,9 @@ class UserNavBar extends React.Component {
               
                   <DropdownItem>
                     <i class="fa fa-vcard-o"></i>View Profile
+                  </DropdownItem>
+                  <DropdownItem>
+                    <i class="fa fa-close"></i>Remove Listings
                   </DropdownItem>
                   <DropdownItem divider />
                   <DropdownItem>
@@ -103,4 +107,4 @@ class UserNavBar extends React.Component {
     
   }
 }
-export default UserNavBar;
+export default HostNavBar;

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import NavBar from '../navBar';
 import UserNavBar from '../userNavbar';
+import HostNavBar from '../hostNavBar';
 class  CondNavBar extends React.Component{
 
     
@@ -9,6 +10,10 @@ class  CondNavBar extends React.Component{
         {
             return(<UserNavBar/>)
             
+        }
+        else if(localStorage.getItem('role')==='HOST')
+        {
+            return(<HostNavBar/>)
         }
        else {
            return(<NavBar/>)

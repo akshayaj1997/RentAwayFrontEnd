@@ -13,7 +13,10 @@ class SearchResults extends Component {
            location : ' ',
            name:' ',
            price:' ',
-           Amen1:[]
+           guestCount:'',
+           toDate:'',
+           fromDate:'',
+          Amen1:[]
            }
            this.onForwardClick=this.onForwardClick.bind(this);
      }
@@ -24,9 +27,61 @@ class SearchResults extends Component {
      componentDidMount(){
         //this.setState({Amen1:this.props.history.location.state.Amen1})
         const url = "http://10.10.200.32:9000/homes1";
-        body={
-           location: sessionStorage.getItem('location1')
+        if(sessionStorage.getItem('location1')=="null"){
+           this.state.location=null;
         }
+        else{
+           this.state.location=sessionStorage.getItem('location1')
+        }
+        if(sessionStorage.getItem('guestCount')=="null"){
+         this.state.guestCount=null;
+      }
+      else{
+         this.state.guestCount=sessionStorage.getItem('guestCount')
+      }
+
+      if(sessionStorage.getItem('fromDate')=="null" && sessionStorage.getItem('toDate')!="null" ){
+         body={
+            location:this.state.location,
+             guestCount:this.state.guestCount,
+             toDate:sessionStorage.getItem('toDate'),
+             price:sessionStorage.getItem('price')
+       }
+      }
+
+      if(sessionStorage.getItem('fromDate')!="null" && sessionStorage.getItem('toDate')=="null" ){
+         body={
+            location:this.state.location,
+             guestCount:this.state.guestCount,
+             fromDate:sessionStorage.getItem('fromDate'),
+             price:sessionStorage.getItem('price')
+       }
+      }
+         
+      if(sessionStorage.getItem('fromDate')=="null" && sessionStorage.getItem('toDate')=="null"){
+            console.log("1");
+            body={
+              location:this.state.location,
+               guestCount:this.state.guestCount,
+               price:sessionStorage.getItem('price')
+         }
+         console.log("2");
+      }
+      else{
+         console.log("3");
+            body={
+           location:this.state.location,
+           guestCount:this.state.guestCount,
+           toDate:sessionStorage.getItem('toDate'),
+           fromDate:sessionStorage.getItem('fromDate'),
+           price:sessionStorage.getItem('price')
+        }
+      }
+     
+
+        
+       
+       
         let headers = new Headers();
      
         headers.append('Content-Type','application/json');
@@ -70,7 +125,9 @@ class SearchResults extends Component {
                   </div>
                      {/* <img src={require('./images.png')} alt="Avatar" className='image' /> */}
                      <div class="container">
-                      <p className='type1'>{home.name} Flat</p>
+
+                      <p className='type1'>{home.propertyType} </p>
+                      <p className='location'>{home.homeName} </p>
                       <p className='location'>{home.location}</p>
                       <p className= 'cost'> &#8377; {home.price}</p>
                       </div>

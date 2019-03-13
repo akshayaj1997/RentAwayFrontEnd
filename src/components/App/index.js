@@ -22,6 +22,7 @@ import ResultsPage from "./resultsPage";
 //import Details from "./details";
 import DetailsPage from "./detailsPage";
 import CheckOut from "./checkoutForm";
+import SearchResults from "./searchResults";
 
 class App extends React.Component{
 
@@ -34,7 +35,7 @@ class App extends React.Component{
                <Route exact path = "/signUp" component={SignUpModal}/>
                <Route exact path = "/resultsPage" component={ResultsPage}/>
                <Route exact path = "/detailsPage/:id" component={DetailsPage}/>
-
+               <Route exact path = "/searchResults" component={SearchResults}/>
                <Route exact path = "/hostPage" component={HostPage}/>
 
                <Route exact path = "/userPage" component={UserNavBar}/>

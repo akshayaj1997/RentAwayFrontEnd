@@ -29,9 +29,13 @@ export default class Example extends React.Component {
   }
   handleFromChange(from) {
     // Change the from date and focus the "to" input field
+    
+
     this.setState({ from }, ()=> {
       this.props.onfromDateDataChanged(this.state.from)
     });
+
+   
   }
   handleToChange(to) {
     this.setState({ to }, ()=>{

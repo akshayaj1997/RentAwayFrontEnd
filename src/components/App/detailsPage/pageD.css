@@ -1,10 +1,10 @@
 body {
-    /* background-image:url("./Home.jpeg") ; */
+     background-image:url("./Home1.jpg") ; 
     background-repeat: no-repeat;
     background-position: cover;
   background-size: cover;
   position: relative;
-  height: 150vh;
+  height: 100vh;
   background-attachment: scroll;
     color: black;
     font-size: 18px;
@@ -19,7 +19,7 @@ hr {
     background-color:white;
     float: right;
     width: 30vw;
-    height: 60vh;
+    height: 40vh;
     margin-top: 2.5vh;
     margin-right: 2.5vw;
     margin-bottom: 2.5vh ;

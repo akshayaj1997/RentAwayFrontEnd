@@ -26,7 +26,12 @@ class SearchFilters extends Component {
         this.onCheckBoxAm=this.onCheckBoxAm.bind(this);
         this.onCheckBoxH=this.onCheckBoxH.bind(this);
         this.rangeSet=this.rangeSet.bind(this);
+        this.priceChange=this.priceChange.bind(this);
         
+    }
+
+    priceChange(e){
+        sessionStorage.setItem('price',e.target.value)
     }
     
     onFiltersChange(e) {
@@ -47,6 +52,7 @@ class SearchFilters extends Component {
         e.preventDefault();
         this.props.history.go(0)
     }
+    
       
     onCheckBoxT(e) {
 
@@ -91,8 +97,8 @@ class SearchFilters extends Component {
                         <Button color="black" id="Price" style={{ marginBottom: '1rem' }}>Price</Button>
                         <UncontrolledCollapse toggler="#Price" style={{ marginLeft: '0%' }}>
                         {/* <Range onAfterChange={this.rangeSet}/>  */}
-                        <input type="number" name="Price" min="1000" max="50000"/>- 
-                        <input type="number" name="Price" min="1000" max="100000"/>
+                        <input type="number" name="Price" min="1000" max="50000" onChange={this.priceChange}/> 
+                        {/* <input type="number" name="Price" min="1000" max="100000"/> */}
                         </UncontrolledCollapse>
                         </center>
 
@@ -144,16 +150,16 @@ class SearchFilters extends Component {
                                 <input id="pet" type="checkbox" name="HR[]" value="Pets" onClick={this.onCheckBoxH} />
                                 <label for="pet">Pets Allowed</label>
                             </div>
+                           
                         </UncontrolledCollapse>
+                        <div className="Add">
                         <Button color="black" id="Additional" style={{ marginBottom: '1rem' }}>Edit Previous Filters</Button>
                         <UncontrolledCollapse toggler="#Additional" style={{ marginLeft: '0%' }}>
                         {/* <Range onAfterChange={this.rangeSet}/>  */}
-                        <input type="text" name="Location"/>
-                        <input type="date" name="fromDate"/>
-                        <input type="date" name="toDate"/>
-                        <input type="number" name="guestCount"/>
+                        <input type="text" name="Location" placeholder="Where?" style={{width:"200px",height:"30px"}}/>
+                        <input type="number" name="guestCount" placeholder="Guest Count"/>
                         </UncontrolledCollapse>
-                       
+                        </div>
                     </div> 
                     <br/>
                     <Button color="danger" style={{float:"right", width:"50px",marginRight:"10%"}}>submit</Button>{' '}

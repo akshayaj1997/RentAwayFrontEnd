@@ -15,11 +15,12 @@ a {
       box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
       background-color: white;
       transition: 0.3s;
-      width: 165px;
-      height: 155px;
+      width: 305px;
+      height: 295px;
       margin-left: 4%;
       margin-right: 2%;
       margin-bottom:4%;
+      margin-top: 4%;
       float: left;
           
     }
@@ -32,36 +33,37 @@ a {
     .container {
       padding: 2px 16px; 
       float: right;
-      margin-top: -40px;
+      margin-top: 30px;
     }
     .type1 {
-      font-size: 6px;
+      font-size: 16px;
       font-style: oblique;
       font-weight: 100;
       position: initial;
       text-transform: uppercase;
       color: darkgrey;
-      padding-top: 2px;
+      padding-top: 16px;
+      padding-bottom: 16px;
      
     }
     .name1 {
-      font-size: 10px;
+      font-size: 20px;
       font-style: normal;
       font-weight: 500;
       position: inherit;
-      padding-bottom: 2px; 
+      padding-bottom: 16px; 
   
     }
     .location {
-      font-size: 8px;
+      font-size: 16px;
       font-style: italic;
       font-weight: 300;
       position: inherit;
-      padding-bottom: 2px; 
+      padding-bottom: 16px; 
   
     }
     .cost {
-      font-size: 8px;
+      font-size: 16px;
       font-style: oblique;
       font-weight: 120;
       position: inherit;

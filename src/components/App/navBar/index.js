@@ -37,7 +37,7 @@ class NavBar extends React.Component {
   render() {
     return (
       <div>
-        <Navbar  className="navBar" light expand="md" >
+        <Navbar className="navBar" color="none"  light expand="md" >
           <NavbarBrand className="navBar" href="/">
           <img src={require('./Capture.png')} width='120' height='40' /></NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
@@ -49,7 +49,8 @@ class NavBar extends React.Component {
                 </DropdownToggle>
                 <DropdownMenu right>
                   <DropdownItem>
-                    Homes
+                  <NavLink href="http://localhost:3000/homePreSignin">Homes
+                </NavLink>
                   </DropdownItem>
                   <DropdownItem>
                     Office Spaces
@@ -73,7 +74,7 @@ class NavBar extends React.Component {
                 </NavLink>
                 <SignUpModal/>
               </NavItem>
-             
+    
             </Nav>
           </Collapse>
         </Navbar>

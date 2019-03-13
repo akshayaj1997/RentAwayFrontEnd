@@ -14,7 +14,8 @@ class SignUpModal extends Component {
         this.state = { 
           username: ' ',
           password:' ',
-          email:' '
+          email:' ',
+         
         }
     }
 
@@ -42,7 +43,8 @@ class SignUpModal extends Component {
 
         email : this.state.email,
           username : this.state.username,
-          passwordHash : this.state.password
+          passwordHash : this.state.password,
+          dob:'0000-00-00'
          
        
       }
@@ -66,7 +68,24 @@ class SignUpModal extends Component {
          method: 'POST',
          body: JSON.stringify(body)
       })
-      .then(response => response.json())
+      .then(response => {
+        console.log(response.status);
+        if(response.status===200)
+            {
+              window.location.assign('http://localhost:3000/homePreSignin');
+            }
+            else if(response.status===400){
+              alert("Usernamealready exists");
+              window.location.assign('http://localhost:3000/homePreSignin');
+            }
+            else if(response.status===401){
+              alert("Username or password is incorrect");
+              window.location.assign('http://localhost:3000/homePreSignin');
+            }
+            else{
+              alert("Unauthorized");
+              window.location.assign('http://localhost:3000/homePreSignin');
+            }})
       .then(contents => {console.log("in fetch"+contents);
                   
                         
