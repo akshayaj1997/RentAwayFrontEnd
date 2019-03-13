@@ -26,6 +26,7 @@ hr {
     border-radius: 5px;
     box-shadow: 1px 4px #888888;
     padding: 10px;
+    opacity: .9;
 }
 
 .features {
@@ -39,5 +40,6 @@ hr {
     border-radius: 5px;
     box-shadow: 1px 4px #888888;
     padding: 15px;
+    opacity: .9;
 
 }
