@@ -25,15 +25,12 @@ class SearchFilters extends Component {
             Amen1: {},
             HR1:  {},
             Lang1: [],
-<<<<<<< HEAD
             price: '',
             location1:'',
             fromDate:null,
             toDate:null,
-            guestCount:null
-=======
+            guestCount:null,
             price: ''
->>>>>>> c61dd44ebff87f30246cc0173170458d7a50a731
         }
         this.onFiltersChange=this.onFiltersChange.bind(this);
         this.onCheckBoxT=this.onCheckBoxT.bind(this);
@@ -68,14 +65,8 @@ class SearchFilters extends Component {
     }
 
     priceChange(e){
-<<<<<<< HEAD
         this.setState({'price':e.target.value})
         sessionStorage.setItem('price',e.target.value)
-=======
-        this.setState({
-            price: e.target.value
-        })
->>>>>>> c61dd44ebff87f30246cc0173170458d7a50a731
     }
     
     onFiltersChange(e) {
@@ -89,7 +80,6 @@ class SearchFilters extends Component {
             price: this.state.price
         }
         )
-<<<<<<< HEAD
        
         sessionStorage.setItem('propertyType',JSON.stringify(this.state.type1))
         sessionStorage.setItem('amenities',JSON.stringify(this.state.Amen1))
@@ -101,12 +91,6 @@ class SearchFilters extends Component {
     //     sessionStorage.setItem('toDate',this.state.toDate)  
     //    sessionStorage.setItem('fromDate',this.state.fromDate)
     //    sessionStorage.setItem('guestCount',this.state.guestCount) 
-=======
-        sessionStorage.setItem('propertyType',this.state.type1)
-        sessionStorage.setItem('amenities',this.state.Amen1)
-        sessionStorage.setItem('rules',this.state.HR1)
-        sessionStorage.setItem('price',this.state.price)
->>>>>>> c61dd44ebff87f30246cc0173170458d7a50a731
         this.props.history.push(path,this.state)
         document.getElementById("mySidenav").style.width = "0";
         document.getElementById("main").style.marginLeft = "0";

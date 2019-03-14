@@ -8,11 +8,7 @@ import Image from "../image"
 
 class HomePreSignin extends React.Component{
   componentDidMount(){
-<<<<<<< HEAD
     sessionStorage.clear()
-=======
-    sessionStorage.clear();
->>>>>>> c61dd44ebff87f30246cc0173170458d7a50a731
   }
     
     render(){
