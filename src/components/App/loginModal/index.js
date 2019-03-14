@@ -58,19 +58,19 @@ class LoginModal extends Component {
         console.log(response.status);
         if(response.status===200)
             {
-              window.location.assign('http://localhost:3000/homePreSignin');
+              window.location.reload();
             }
             else if(response.status===400){
               alert("Username or password does not exist");
-              window.location.assign('http://localhost:3000/homePreSignin');
+              window.location.reload();
             }
             else if(response.status===401){
               alert("Username or password is incorrect");
-              window.location.assign('http://localhost:3000/homePreSignin');
+              window.location.reload();
             }
             else{
               alert("Unauthorized");
-              window.location.assign('http://localhost:3000/homePreSignin');
+              window.location.reload();
             }
        response.json()
               .then((responseData)=>{localStorage.setItem('accessToken',responseData.accessToken)

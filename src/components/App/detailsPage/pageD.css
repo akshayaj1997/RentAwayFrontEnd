@@ -1,14 +1,14 @@
-body {
-     background-image:url("./Home1.jpg") ; 
+div .details {
+     background-image:url("./bg2.jpg") ; 
     background-repeat: no-repeat;
     background-position: cover;
   background-size: cover;
   position: relative;
-  height: 100vh;
+  height: 175vh;
   background-attachment: scroll;
     color: black;
     font-size: 18px;
-    background-color: black;
+    
 
 }
 hr {

@@ -18,12 +18,14 @@ class ResultsPage extends Component {
     }
     componentDidMount(){
         this.setState(this.props.history.location.state)
+        console.log(this.props.history.location.state)
     
     }
 
     render() {
         return(
-            <div className="Container">
+           
+            <div className="results">
                 <div className="way">
                 <CondNavBar/>
                 <SearchFilters/>

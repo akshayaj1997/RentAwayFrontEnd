@@ -50,7 +50,7 @@ export default class SearchBar extends Component {
 render() {
     return (
       <ReactSearchBox
-        placeholder="Search"
+        placeholder="Where?"
         value="Doe"
         data={this.data}
         callback={record => console.log(record)}

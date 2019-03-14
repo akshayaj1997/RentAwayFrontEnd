@@ -32,7 +32,7 @@ class App extends React.Component{
          <Router>
             <Switch>            
                <Route exact path = "/homePreSignin" component={HomePreSignin}/>
-               <Route exact path = "/signUp" component={SignUpModal}/>
+               {/* <Route exact path = "/signUp" component={signUpModal}/> */}
                <Route exact path = "/resultsPage" component={ResultsPage}/>
                <Route exact path = "/detailsPage/:id" component={DetailsPage}/>
                <Route exact path = "/searchResults" component={SearchResults}/>

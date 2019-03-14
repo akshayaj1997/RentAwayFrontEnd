@@ -1,4 +1,14 @@
-
+div .CheckImg {
+  background-image:url("./Checkout.jpg");
+  background-repeat: no-repeat;
+    background-position: cover;
+  background-size: cover;
+  position: relative;
+  height: 175vh;
+  background-attachment: scroll;
+    color: black;
+    font-size: 18px;
+}
 label{
     font-size: 7px;
 }
@@ -17,7 +27,7 @@ label{
 }
 div .boxC {
   margin-top: 30px;
-  margin-right: 40px;
+  margin-left: 40px;
 
 }
 .name1
@@ -29,7 +39,7 @@ position:fixed;
 div .aaa{
 width:30%;
 height:70%;
-float: right;
+float: left;
 background-color:#ffff;
 margin:0 auto;
 margin-top:auto;

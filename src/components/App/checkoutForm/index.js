@@ -1,11 +1,20 @@
 import React, {Component} from 'react';
 import CondNavBar from '../condNavbar';
 import './checkout.css';
+
 class CheckOut extends Component{
+
+  constructor(props){
+    super(props);
+    
+  }
+
+ 
+ 
     
     render(){
         
-        return(<div>
+        return(<div className="CheckImg">
             <CondNavBar/>
             <div className='boxC'>
             <form>
@@ -66,6 +75,7 @@ class CheckOut extends Component{
   </label>
   <br/>
  <center><input type="submit" value="Continue to checkout" className="btn" /><a href='#'></a></center> 
+ 
 </form>
 </div>
  </form>

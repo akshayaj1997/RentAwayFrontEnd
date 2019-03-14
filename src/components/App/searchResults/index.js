@@ -16,7 +16,7 @@ class SearchResults extends Component {
            guestCount:'',
            toDate:'',
            fromDate:'',
-          Amen1:[]
+           Amen1:[]
            }
            this.onForwardClick=this.onForwardClick.bind(this);
      }
@@ -45,8 +45,12 @@ class SearchResults extends Component {
             location:this.state.location,
              guestCount:this.state.guestCount,
              toDate:sessionStorage.getItem('toDate'),
-             price:sessionStorage.getItem('price')
+             price:sessionStorage.getItem('price'),    
+             amenities:JSON.parse(sessionStorage.getItem('amenities')),
+             amenities:JSON.parse(sessionStorage.getItem('rules')),
+             propertyType:JSON.parse(sessionStorage.getItem('propertyType'))
        }
+       
       }
 
       if(sessionStorage.getItem('fromDate')!="null" && sessionStorage.getItem('toDate')=="null" ){
@@ -54,7 +58,10 @@ class SearchResults extends Component {
             location:this.state.location,
              guestCount:this.state.guestCount,
              fromDate:sessionStorage.getItem('fromDate'),
-             price:sessionStorage.getItem('price')
+             price:sessionStorage.getItem('price'),
+             amenities:JSON.parse(sessionStorage.getItem('amenities')),
+             amenities:JSON.parse(sessionStorage.getItem('rules')),
+             propertyType:JSON.parse(sessionStorage.getItem('propertyType'))
        }
       }
          
@@ -63,7 +70,10 @@ class SearchResults extends Component {
             body={
               location:this.state.location,
                guestCount:this.state.guestCount,
-               price:sessionStorage.getItem('price')
+               price:sessionStorage.getItem('price'),
+              amenities:JSON.parse(sessionStorage.getItem('amenities')),
+              amenities :JSON.parse(sessionStorage.getItem('rules')),
+              propertyType:JSON.parse(sessionStorage.getItem('propertyType'))
          }
          console.log("2");
       }
@@ -74,10 +84,13 @@ class SearchResults extends Component {
            guestCount:this.state.guestCount,
            toDate:sessionStorage.getItem('toDate'),
            fromDate:sessionStorage.getItem('fromDate'),
-           price:sessionStorage.getItem('price')
+           price:sessionStorage.getItem('price'),
+           amenities:JSON.parse(sessionStorage.getItem('amenities')),
+            amenities:JSON.parse(sessionStorage.getItem('rules')),
+            propertyType:JSON.parse(sessionStorage.getItem('propertyType'))
         }
+        console.log(body)
       }
-     
 
         
        

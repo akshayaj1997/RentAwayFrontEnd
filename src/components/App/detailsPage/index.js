@@ -5,12 +5,14 @@ import './pageD.css';
 import { Card, Button,ListGroup,ListGroupItem } from 'reactstrap';
 import { STATUS_CODES } from 'http';
 //import PaymentBox from './paymentBox';
+import LoginModal from "../loginModal";
 var print = []
 
 class DetailsPage extends Component {
 
     constructor(props){
         super(props);
+        this.submitCheckout=this.submitCheckout.bind(this);
         this.state = {
            data: [],
            homeId : ' ',
@@ -25,6 +27,23 @@ class DetailsPage extends Component {
            
            }
            
+        }
+
+        submitCheckout(){
+            if(localStorage.getItem('role')===null)
+            {
+              
+              var modal = document.getElementById('id01');
+              modal.style.display = "block";
+             return(
+                 <LoginModal/>
+             )
+
+            } 
+           
+            else{
+                window.location.assign('http://localhost:3000/checkOut')
+            }   
         }
         componentDidMount(){
             const url = "http://10.10.200.32:9000/homes/"+this.props.match.params.id;
@@ -189,7 +208,7 @@ class DetailsPage extends Component {
         
         
         return(
-            <div className="img3">
+            <div className="details">
              
                
             <CondNavBar/>
@@ -197,12 +216,12 @@ class DetailsPage extends Component {
             <div>
             
                 <ListGroup className="features" style={{height:'100%'}}>
-        <ListGroupItem>Amenities<br/><br/>    
+        <ListGroupItem><b>Amenities</b><br/><br/>    
         <i>{this.state.output}</i>  
         </ListGroupItem>
        
                 
-        <ListGroupItem>House Rules<br/><br/>
+        <ListGroupItem><b>House Rules</b><br/><br/>
         <i>{this.state.rules}</i> 
         </ListGroupItem>
       </ListGroup>
@@ -220,7 +239,7 @@ class DetailsPage extends Component {
                 <i><center>  &#8377;{this.state.data.price} </center></i>
                 <hr/>
                 {/* {home.amenities} */}
-                <Button color="danger" href='http://localhost:3000/checkOut'>Book</Button>
+                <Button color="danger" onClick={this.submitCheckout}>Book</Button>
                 <br/>
                 </Card>
                 </div>

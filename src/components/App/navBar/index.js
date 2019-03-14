@@ -61,7 +61,7 @@ class NavBar extends React.Component {
                 </DropdownMenu>
               </UncontrolledDropdown>
               <NavItem>
-                <NavLink className="text-white" onClick={this.onClickN} href="#">Become a host</NavLink>
+                <NavLink className="text-white" onClick={this.onClickN} href="#" style={{fontWeight:'150px'}}>Become a host</NavLink>
               </NavItem>
               <NavItem >
                 <NavLink className="text-white"  onClick={this.onClickB} href="#">Login
