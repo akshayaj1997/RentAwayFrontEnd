@@ -42,7 +42,7 @@ class DetailsPage extends Component {
             } 
            
             else{
-                window.location.assign('http://localhost:3000/checkOut')
+                window.location.assign('http://10.10.200.32:3000/checkOut')
             }   
         }
         componentDidMount(){

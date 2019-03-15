@@ -1,6 +1,7 @@
 import React from 'react';
 import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
 import classnames from 'classnames';
+import Listings from '../listings';
 
 export default class ProfileTabs extends React.Component {
   constructor(props) {
@@ -126,14 +127,14 @@ export default class ProfileTabs extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className='profTabs'>
         <Nav tabs>
           <NavItem>
             <NavLink
               className={classnames({ active: this.state.activeTab === '1' })}
               onClick={() => { this.toggle('1'); }}
             >
-              Tab1
+              View Listings
             </NavLink>
           </NavItem>
           <NavItem>
@@ -147,15 +148,11 @@ export default class ProfileTabs extends React.Component {
         </Nav>
         <TabContent activeTab={this.state.activeTab}>
           <TabPane tabId="1">
-            <Row>
-              <Col sm="12">
-               
-              </Col>
-            </Row>
+          <Listings/>
           </TabPane>
           <TabPane tabId="2">
           <form  onSubmit={this.editProfile}>
-      <div className="container">
+      <div className="containerprof">
         <label htmlFor="uname">
           <b>User Name</b>
         </label>

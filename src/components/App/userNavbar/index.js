@@ -32,7 +32,7 @@ class UserNavBar extends React.Component {
   }
   SignOut(){
     localStorage.clear();
-    window.location.assign("http://localhost:3000/homePreSignin");
+    window.location.assign("http://10.10.200.32:3000/homePreSignin");
   }
 
   render() {
@@ -50,7 +50,7 @@ class UserNavBar extends React.Component {
                 </DropdownToggle>
                 <DropdownMenu right>
                   <DropdownItem>
-                  <a href="http://localhost:3000/homePreSignin">Homes</a> 
+                  <a href="http://10.10.200.32:3000/homePreSignin">Homes</a> 
                   </DropdownItem>
                   <DropdownItem>
                     Office Spaces
@@ -61,7 +61,7 @@ class UserNavBar extends React.Component {
                 </DropdownMenu>
               </UncontrolledDropdown>
               <NavItem>
-                <NavLink className="text-white" onClick={this.onClickN} href="http://localhost:3000/hostPage">Become a host</NavLink>
+                <NavLink className="text-white" onClick={this.onClickN} href="http://10.10.200.32:3000/hostPage">Become a host</NavLink>
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret className="text-white">
@@ -73,14 +73,13 @@ class UserNavBar extends React.Component {
                   </DropdownItem>
                   
                   <NavItem >
-                <NavLink onClick={this.onClickE} href="#" >
-                <a href='http://localhost:3000/profile'><p className='ep'><i class="fa fa-user-plus"/>Edit Profile</p></a>
-                </NavLink>
+                <NavLink  href="http://10.10.200.32:3000/profile" >
+                <p className='ep'><i class="fa fa-user-plus"/>Edit Profile</p>                </NavLink>
                 
               </NavItem>
               
                   <DropdownItem>
-                    <a href='http://localhost:3000/profile'><i class="fa fa-vcard-o"></i>View Profile</a>
+                    <a href='http://10.10.200.32:3000/profile'><i class="fa fa-vcard-o"></i>View Profile</a>
                   </DropdownItem>
                   <DropdownItem divider />
                   <DropdownItem>

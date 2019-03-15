@@ -49,7 +49,7 @@ class NavBar extends React.Component {
                 </DropdownToggle>
                 <DropdownMenu right>
                   <DropdownItem>
-                  <NavLink href="http://localhost:3000/homePreSignin">Homes
+                  <NavLink href="http://10.10.200.32:3000/homePreSignin">Homes
                 </NavLink>
                   </DropdownItem>
                   <DropdownItem>

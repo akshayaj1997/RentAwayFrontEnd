@@ -32,7 +32,7 @@ class HostNavBar extends React.Component {
   }
   SignOut(){
     localStorage.clear();
-    window.location.assign("http://localhost:3000/homePreSignin");
+    window.location.assign("http://10.10.200.32:3000/homePreSignin");
   }
 
   render() {
@@ -50,7 +50,7 @@ class HostNavBar extends React.Component {
                 </DropdownToggle>
                 <DropdownMenu right>
                   <DropdownItem>
-                  <NavLink href="http://localhost:3000/homePreSignin">Homes</NavLink> 
+                  <NavLink href="http://10.10.200.32:3000/homePreSignin">Homes</NavLink> 
                   </DropdownItem>
                   <DropdownItem>
                     Office Spaces
@@ -61,7 +61,7 @@ class HostNavBar extends React.Component {
                 </DropdownMenu>
               </UncontrolledDropdown>
               <NavItem>
-                <NavLink className="text-white" onClick={this.onClickN} href="http://localhost:3000/hostPage">Add Listing 
+                <NavLink className="text-white" onClick={this.onClickN} href="http://10.10.200.32:3000/hostPage">Add Listing 
                 </NavLink>
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
@@ -75,12 +75,12 @@ class HostNavBar extends React.Component {
                   
                   <NavItem >
                 <NavLink onClick={this.onClickE} href="#" >
-                <a href='http://localhost:3000/profile'><p className='ep'><i class="fa fa-user-plus"/>Edit Profile</p></a>
+                <a href='http://10.10.200.32:3000/profile'><p className='ep'><i class="fa fa-user-plus"/>Edit Profile</p></a>
                 </NavLink>
               </NavItem>
               
                   <DropdownItem>
-                  <a href='http://localhost:3000/profile'><p className='ep'><i class="fa fa-user-plus"/>View Profile</p></a>
+                  <a href='http://10.10.200.32:3000/profile'><p className='ep'><i class="fa fa-user-plus"/>View Profile</p></a>
                   </DropdownItem>
                   <DropdownItem>
                     <i class="fa fa-close"></i>Remove Listings

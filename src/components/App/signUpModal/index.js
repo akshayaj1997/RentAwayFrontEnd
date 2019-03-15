@@ -72,19 +72,19 @@ class SignUpModal extends Component {
         console.log(response.status);
         if(response.status===200)
             {
-              window.location.assign('http://localhost:3000/homePreSignin');
+              window.location.assign('http://10.10.200.32:3000/homePreSignin');
             }
             else if(response.status===400){
               alert("Usernamealready exists");
-              window.location.assign('http://localhost:3000/homePreSignin');
+              window.location.assign('http://10.10.200.32:3000/homePreSignin');
             }
             else if(response.status===401){
               alert("Username or password is incorrect");
-              window.location.assign('http://localhost:3000/homePreSignin');
+              window.location.assign('http://10.10.200.32:3000/homePreSignin');
             }
             else{
               alert("Unauthorized");
-              window.location.assign('http://localhost:3000/homePreSignin');
+              window.location.assign('http://10.10.200.32:3000/homePreSignin');
             }})
       .then(contents => {console.log("in fetch"+contents);
                   
