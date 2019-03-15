@@ -75,13 +75,12 @@ class HostNavBar extends React.Component {
                   
                   <NavItem >
                 <NavLink onClick={this.onClickE} href="#" >
-                <p className='ep'><i class="fa fa-user-plus"/>Edit Profile</p>
+                <a href='http://localhost:3000/profile'><p className='ep'><i class="fa fa-user-plus"/>Edit Profile</p></a>
                 </NavLink>
-                <EditProfile/>
               </NavItem>
               
                   <DropdownItem>
-                    <i class="fa fa-vcard-o"></i>View Profile
+                  <a href='http://localhost:3000/profile'><p className='ep'><i class="fa fa-user-plus"/>View Profile</p></a>
                   </DropdownItem>
                   <DropdownItem>
                     <i class="fa fa-close"></i>Remove Listings

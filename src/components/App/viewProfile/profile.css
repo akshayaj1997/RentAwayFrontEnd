@@ -1,0 +1,24 @@
+.profilebg {
+    background-image:url("./bg4.jpg") ; 
+    background-repeat: no-repeat;
+    background-position: cover;
+    background-size: cover;
+    position: relative;
+    height: 200vh;
+    background-attachment: scroll;
+    font-size: 18px;
+    font-weight: 100;
+    width: 100%;
+   
+}
+
+.Tabprof {
+  float: right;
+  margin-right: 30vw;
+  margin-top:30vh; 
+  padding: 50px;
+  width: 50vw;
+  height: 100 vh;
+  background-color:white; 
+  border-radius: 5%;
+}

@@ -23,6 +23,7 @@ import ResultsPage from "./resultsPage";
 import DetailsPage from "./detailsPage";
 import CheckOut from "./checkoutForm";
 import SearchResults from "./searchResults";
+import ViewProfile from "./viewProfile";
 
 class App extends React.Component{
 
@@ -37,7 +38,7 @@ class App extends React.Component{
                <Route exact path = "/detailsPage/:id" component={DetailsPage}/>
                <Route exact path = "/searchResults" component={SearchResults}/>
                <Route exact path = "/hostPage" component={HostPage}/>
-
+               <Route exact path ='/profile' component={ViewProfile}/>
                <Route exact path = "/userPage" component={UserNavBar}/>
                <Route exact path = "/checkOut" component={CheckOut}/>
                <Redirect to = "/homePreSignin" component={HomePreSignin}/>

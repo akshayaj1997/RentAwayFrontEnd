@@ -76,6 +76,7 @@ class LoginModal extends Component {
               .then((responseData)=>{localStorage.setItem('accessToken',responseData.accessToken)
                                      localStorage.setItem('role',responseData.role)
                                      localStorage.setItem('username',responseData.username)
+                                     localStorage.setItem('id',responseData.userId)
                                       this.setState(
                                         {accessToken:responseData.accessToken,
                                           role:responseData.role,

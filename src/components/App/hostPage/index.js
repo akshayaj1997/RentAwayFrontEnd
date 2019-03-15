@@ -3,7 +3,7 @@ import "./host.css";
 import Calender from "../Calender";
 
 var currentTab = 0; 
-
+var x;
 
 class HostPage extends React.Component{
     
@@ -14,18 +14,60 @@ class HostPage extends React.Component{
             this.myFunction1=this.myFunction1.bind(this);
             this.myFunction2=this.myFunction2.bind(this);
             this.myFunction3=this.myFunction3.bind(this);
+            this.onPropertyChange=this.onPropertyChange.bind(this);
+            this.onGuestsChange=this.onGuestsChange.bind(this);
+            this.onHomeNameChange=this.onHomeNameChange.bind(this);
+            this.onLocationChange=this.onLocationChange.bind(this);
+            this.onAmenityChange=this.onAmenityChange.bind(this);
+            this.onPriceChange=this.onPriceChange.bind(this);
+            this.onClickSubmit=this.onClickSubmit.bind(this);
             this.ontoDateDataChanged=this.ontoDateDataChanged.bind(this);
             this.onfromDateDataChanged=this.onfromDateDataChanged.bind(this);
            // this.onClickSubmit=this.onClickSubmit.bind(this);
        
     
             this.state = {
-                
+                propertyType:' ',
+                homeName:' ',
+                guestCount:' ',
+                location:' ',
+                price:' ',
+                houseStatus:' ',
+                amenities: {},
                 fromDate:' ',
                 toDate:' ',
+
                 
               }
       
+    }
+    onPropertyChange(event){
+        x=document.getElementById("propertyType").value;
+        console.log(x);
+        this.state.propertyType=x;
+        //this.setState({propertyType:x})
+        console.log(this.state.propertyType);
+       
+    }
+
+    onGuestsChange(event){
+        this.setState({guestCount:event.target.value})
+    }
+
+    onHomeNameChange(event){
+        this.setState({homeName:event.target.value})
+    }
+
+    onLocationChange(event){
+        this.setState({location:event.target.value})
+        console.log(this.state.location)
+    }
+
+    onAmenityChange(e){
+        this.state.amenities[e.target.value]=true;
+    }
+    onPriceChange(e){
+        this.setState({'price':e.target.value})
     }
 
     ontoDateDataChanged(newData){
@@ -38,7 +80,74 @@ class HostPage extends React.Component{
        
     }
 
-    onClickSubmit
+    onClickSubmit(e){
+        console.log("entered");
+     
+     let body = {
+    
+         propertyType:this.state.propertyType,
+         homeName:this.state.homeName,
+         guestCount:this.state.guestCount,
+         location:this.state.location,
+         price:this.state.price,
+         houseStatus:"PENDING",
+         amenities:this.state.amenities,
+         toDate:this.state.toDate,
+         fromDate:this.state.fromDate
+       
+      }
+      console.log("become a host"+body);
+      var bearerToken = localStorage.getItem('accessToken');
+      const url = "http://10.10.200.32:9000/homes";
+      var accesstoken = 'Bearer ' + bearerToken;
+      console.log(accesstoken);
+      let headers = new Headers();
+   
+      headers.append('Content-Type','application/json');
+      headers.append('Accept','application/json');
+   
+      headers.append('Access-Control-Allow-origin',url);
+      headers.append('Access-Control-Allow-Credentials','true');
+   
+      headers.append('GET','POST');
+   
+      fetch(url, {
+        headers: headers,
+        method: 'POST',
+        withCredentials:true,
+        credentials:'include',
+        headers:{
+          'Authorization':accesstoken,
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': url
+        },
+        body: JSON.stringify(body) 
+    })
+      .then(response => {
+        console.log(response.status);
+        if(response.status===200)
+            {
+              window.location.reload();
+            }
+            else if(response.status===400){
+              alert("Username already exists");
+              window.location.reload();
+            }
+            else if(response.status===401){
+              alert("Username or password is incorrect");
+              window.location.reload();
+            }
+            else{
+              alert("Unauthorized");
+              window.location.reload();
+            }})
+      .then(contents => {console.log("in fetch"+contents);
+                  
+                        
+   })
+   .catch(()=> console.log("can't access" + url))
+
+    }
     
     render(){
         return(
@@ -72,7 +181,7 @@ class HostPage extends React.Component{
 
 
             <section>
-                <form>
+                <form onSubmit={this.onClickSubmit}>
           <div id="bg2">
              
                   <br></br>
@@ -83,13 +192,13 @@ class HostPage extends React.Component{
                <br></br>
               
                     <h5><b>PROPERTY TYPE</b></h5>
-                    <select required className="prop">
+                    <select id="propertyType" required className="prop" onChange={this.onPropertyChange} >
                     <option value="">Choose the Property type</option>
-            <option value="Apartment">Apartment</option>
+            <option value="APARTMENT" >Apartment</option>
             
-            <option value="house">House</option>
-            <option value="condo">Condo</option>
-            <option value="serviced apartments">Serviced Apartment</option>
+            <option value="HOUSE" >House</option>
+            <option value="CONDO" >Condo</option>
+            <option value="SERVICEDAPARTMENTS" >Serviced Apartment</option>
           </select>
                
                     <br></br>
@@ -98,42 +207,45 @@ class HostPage extends React.Component{
                     {/* <input type="text" name="location" placeholder="Location" required=""/><br/><br/> */}
                     
                     <h5><b>GUEST COUNT</b></h5>
-                    <input  className = "prop" type="number" min="1" name="guests" placeholder="Guests" required=""/><br></br><br></br>
+                    <input  className = "prop" type="number" min="1" name="guestCount" placeholder="Guests" required="" onChange={this.onGuestsChange}/><br></br><br></br>
+                    <h5><b>HOUSE NAME</b></h5>
+                    <input  className = "prop" type="text" name="homeName" placeholder="HomeName" required="" onChange={this.onHomeNameChange}/><br></br><br></br>
+
                     <h5><b>WHERE</b></h5>
-                    <input  className = "ts" type="text" name="location" placeholder="Location" required=""/><br></br><br></br>
+                    <input  className = "ts" type="text" name="location" placeholder="Location" required="" onChange={this.onLocationChange}/><br></br><br></br>
                     <h5><b>BASIC AMENITIES</b></h5>
                    
                                
 
-                    <div className="cs1" style={{ float: "right" }}>      
-                                <input id="pool" type="checkbox" name="amenity" value="pool"/>
+                    <div className="cs1" >      
+                                <input id="pool" type="checkbox" name="amenity" value="pool" onChange={this.onAmenityChange}/>
                                 <label for="pool">Pool</label>
                                 <br/>
-                                <input id="gym" type="checkbox" name="amenity" value="gym"/>
+                                <input id="gym" type="checkbox" name="amenity" value="gym" onChange={this.onAmenityChange}/>
                                 <label for="gym">Gym</label>
                                 <br/>
 
-                                <input id="parking" type="checkbox" name="amenity" value="checkbox"/>
+                                <input id="parking" type="checkbox" name="amenity" value="parking" onChange={this.onAmenityChange}/>
                                 <label for="parking">Parking</label>
                                 <br/>
-                                <input id="workspace" type="checkbox" name="amenity" value="workspace"/>
+                                <input id="workspace" type="checkbox" name="amenity" value="workspace" onChange={this.onAmenityChange}/>
                                 <label for="workspace">Workspace</label>
                                 <br/>
 
                       </div> 
                                 
                         <div className="cs">      
-                                <input id="wifi" type="checkbox" name="amenity" value="wifi"/>
+                                <input id="wifi" type="checkbox" name="amenity" value="wifi" onChange={this.onAmenityChange}/>
                                 <label for="wifi">Wifi</label>
                                 <br/>
-                                <input id="airConditioning" type="checkbox" name="amenity" value="airConditioning"/>
+                                <input id="airConditioning" type="checkbox" name="amenity" value="airConditioner" onChange={this.onAmenityChange}/>
                                 <label for="airConditioning">Air Conditioning</label>
                                 <br/>
 
-                                <input id="Tv" type="checkbox" name="amenity" value="Tv"/>
+                                <input id="Tv" type="checkbox" name="amenity" value="tv"onChange={this.onAmenityChange}/>
                                 <label for="Tv">Tv</label>
                                 <br/>
-                                <input id="breakfast" type="checkbox" name="amenity" value="breakfast"/>
+                                <input id="breakfast" type="checkbox" name="amenity" value="breakfast" onChange={this.onAmenityChange}/>
                                 <label for="breakfast">Breakfast</label>
                                 <br/>
 
@@ -141,14 +253,14 @@ class HostPage extends React.Component{
                       <br></br>     
                         <h5><b>SAFETY AMENITIES</b></h5>
                         <div className="cs">      
-                                <input id="fak" type="checkbox" name="amenity" value="fak"/>
+                                <input id="fak" type="checkbox" name="amenity" value="firstAidKit" onChange={this.onAmenityChange}/>
                                 <label for="fak">First Aid Kit</label>
                                 <br/>
-                                <input id="fe" type="checkbox" name="amenity" value="fe"/>
+                                <input id="fe" type="checkbox" name="amenity" value="fireExtinguisher" onChange={this.onAmenityChange}/>
                                 <label for="fe">Fire Extinguisher</label>
                                 <br/>
 
-                                <input id="sd" type="checkbox" name="amenity" value="sd"/>
+                                <input id="sd" type="checkbox" name="amenity" value="smokeDetector" onChange={this.onAmenityChange}/>
                                 <label for="sd">Smoke Detector</label>
                                 <br/>
                                 
@@ -157,14 +269,14 @@ class HostPage extends React.Component{
 
                       <h5><b>HOUSE RULES</b></h5>
                         <div className="cs">      
-                                <input id="nopets" type="checkbox" name="rules" value="nopets"/>
+                                <input id="nopets" type="checkbox" name="rules" value="noPets" onChange={this.onAmenityChange}/>
                                 <label for="nopets">No Pets</label>
                                 <br/>
-                                <input id="nodrinking" type="checkbox" name="rules" value="nodrinking"/>
+                                <input id="nodrinking" type="checkbox" name="rules" value="noDrinking" onChange={this.onAmenityChange}/>
                                 <label for="nodrinking">No Drinking</label>
                                 <br/>
 
-                                <input id="nosmoking" type="checkbox" name="rules" value="nosmoking"/>
+                                <input id="nosmoking" type="checkbox" name="rules" value="noSmoking" onChange={this.onAmenityChange}/>
                                 <label for="nosmoking">No Smoking</label>
                                 <br/>
                                 
@@ -223,14 +335,14 @@ class HostPage extends React.Component{
                     </div>
                     <br></br>
                     <h5><b>PRICE</b></h5>
-                    <input  className = "ts" type="text" name="price" placeholder="price"/><br></br>
+                    <input  className = "ts" type="text" name="price" placeholder="price" onChange={this.onPriceChange}/><br></br>
                     <br></br>
 
                     <br></br>
                     <br></br>
                     <center>
                     <input className="next1" id = "next3" type="button" name = "Edit" value = " Edit  " onClick={this.myFunction3}/>
-                    <input className="next1" id = "next4" type="button" name = "Submit" value = "Submit"  onSubmit={this.onClickSubmit}/>
+                    <button className="next1" id = "next4" type="submit" name = "Submit" value = "Submit"/>
                     
                     </center>
                     <br></br>
