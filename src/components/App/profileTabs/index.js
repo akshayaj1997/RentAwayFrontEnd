@@ -57,7 +57,6 @@ export default class ProfileTabs extends React.Component {
   }
   
   editProfile(event){
-    console.log("entered");
    
    let body = {
   
@@ -75,7 +74,7 @@ export default class ProfileTabs extends React.Component {
     
     
  
-    const url = "http://10.10.200.32:9000/users/update";
+    const url = "http://10.10.200.24:9000/users/update";
     let headers = new Headers();
  
     headers.append('Content-Type','application/json');
@@ -134,7 +133,7 @@ export default class ProfileTabs extends React.Component {
               className={classnames({ active: this.state.activeTab === '1' })}
               onClick={() => { this.toggle('1'); }}
             >
-              View Listings
+              <h2><b><i>View Listings</i></b></h2>
             </NavLink>
           </NavItem>
           <NavItem>
@@ -142,7 +141,7 @@ export default class ProfileTabs extends React.Component {
               className={classnames({ active: this.state.activeTab === '2' })}
               onClick={() => { this.toggle('2'); }}
             >
-              Edit Profile
+              <h2><b><i>Edit Profile</i></b></h2>
             </NavLink>
           </NavItem>
         </Nav>
@@ -151,6 +150,7 @@ export default class ProfileTabs extends React.Component {
           <Listings/>
           </TabPane>
           <TabPane tabId="2">
+          <br/>
           <form  onSubmit={this.editProfile}>
       <div className="containerprof">
         <label htmlFor="uname">
@@ -242,6 +242,7 @@ export default class ProfileTabs extends React.Component {
 </form>
           </TabPane>
         </TabContent>
+        <Button style={{width:'150px',height:'50px',backgroundColor:'rgb(255,255,255,0)',color:'black',float:'right',border:'rgb(255,255,255,0)',paddingTop:'20px'}} href='http://localhost:3000/homePreSignin'><i className='fa fa-home'/> Return to Home Page</Button>
       </div>
     );
   }

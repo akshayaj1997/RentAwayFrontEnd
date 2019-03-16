@@ -35,7 +35,9 @@ class App extends React.Component{
                <Route exact path = "/homePreSignin" component={HomePreSignin}/>
                {/* <Route exact path = "/signUp" component={signUpModal}/> */}
                <Route exact path = "/resultsPage" component={ResultsPage}/>
+               <Route exact path = "/detailsPage/profile" component={ViewProfile}/>
                <Route exact path = "/detailsPage/:id" component={DetailsPage}/>
+              
                <Route exact path = "/searchResults" component={SearchResults}/>
                <Route exact path = "/hostPage" component={HostPage}/>
                <Route exact path ='/profile' component={ViewProfile}/>

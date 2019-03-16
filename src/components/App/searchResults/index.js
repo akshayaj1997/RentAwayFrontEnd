@@ -26,7 +26,7 @@ class SearchResults extends Component {
      }
      componentDidMount(){
         //this.setState({Amen1:this.props.history.location.state.Amen1})
-        const url = "http://10.10.200.32:9000/homes1";
+        const url = "http://10.10.200.24:9000/homes1";
         if(sessionStorage.getItem('location1')=="null"){
            this.state.location=null;
         }
@@ -131,7 +131,7 @@ class SearchResults extends Component {
                // const path= `/detailsPage/`+id
                return(
                   <li key={index}>
-                  <a href={'http://10.10.200.32:3000/detailsPage/'+id} onClick={this.onForwardClick(id)}>
+                  <a href={'http://localhost:3000/detailsPage/'+id} onClick={this.onForwardClick(id)}>
                   <div class="card1">
                   <div className="car">
                   <ImageCarousel/>

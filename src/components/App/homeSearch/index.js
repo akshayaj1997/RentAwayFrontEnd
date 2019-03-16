@@ -69,7 +69,7 @@ class HomeSearch extends React.Component{
        sessionStorage.setItem('guestCount',this.state.guestCount) 
        sessionStorage.setItem('toDate',this.state.toDate)  
        sessionStorage.setItem('fromDate',this.state.fromDate) 
-       window.location.assign('http://10.10.200.32:3000/resultsPage')
+       window.location.assign('http://localhost:3000/resultsPage')
        event.preventDefault();
 
     }

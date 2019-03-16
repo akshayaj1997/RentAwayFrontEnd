@@ -1,23 +1,30 @@
 import React from "react";
-// import './profile.css';
-import ProfileTabs from "../profileTabs";
+ import './listings.css';
+import {Button } from 'reactstrap';
 
 class Listings extends React.Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: [],
+      homeId:'',
+      homeName : ' ',
+      propertyType:' ',
+      location: ' '
+      }
+  }
     
-    editProfile(event){
+   componentDidMount(){
+     
         console.log("entered");
-       
+        console.log(typeof localStorage.getItem('id'))
        let body = {
       
-            username : localStorage.getItem('id'),
+            username : localStorage.getItem('id')
          
         }
-        console.log("edit profile"+body);
-    
-        
-        
-     
-        const url = "http://10.10.200.32:9000/homelist";
+        console.log("Listings"+body);
+        const url = "http://10.10.200.24:9000/homelist";
         let headers = new Headers();
      
         headers.append('Content-Type','application/json');
@@ -35,22 +42,17 @@ class Listings extends React.Component{
         })
         .then(response => {
           console.log(response.status);
-          if(response.status===200)
+          if(response.status===401)
               {
-                window.location.reload();
-              }
-              else if(response.status===400){
-                alert("Username already exists");
-                window.location.reload();
-              }
-              else if(response.status===401){
-                alert("Username or password is incorrect");
-                window.location.reload();
-              }
-              else{
                 alert("Unauthorized");
                 window.location.reload();
-              }})
+              }
+              response.json()
+              .then((responseData)=>{
+                                     console.log(responseData[0].homeId)
+                                     this.setState({data:responseData})
+              })})
+              
         .then(contents => {console.log("in fetch"+contents);
                     
                           
@@ -58,13 +60,25 @@ class Listings extends React.Component{
      .catch(()=> console.log("can't access" + url))
      
       }
-    render(){
+
+      
+    render(){  
       return( 
-        <div className='profilebg'>
-        <div className='Tabprof'>
-        <ProfileTabs/>
-        </div>
-        </div>
+        <div className='ViewListings'>
+  
+        <ul>
+          <br/>
+           {this.state.data.map((home,index) => {
+     return(
+        <li key={index}>
+      <i><b>{home.homeName}</b> </i>   <input type='button' style={{backgroundColor:'#DC143C',width:'150px',borderRadius:'10%',fontWeight:'200px'}} className='DeleteListing' value='Delete Listing'></input>
+        <br/>
+        <br/>
+         </li>
+     )
+  })}
+  </ul>
+   </div>
         
       )
     }

@@ -1,6 +1,7 @@
 import React from "react";
 import "./host.css";
 import Calender from "../Calender";
+import ImageUpload from "../imageUpload";
 
 var currentTab = 0; 
 var x;
@@ -93,12 +94,13 @@ class HostPage extends React.Component{
          houseStatus:"PENDING",
          amenities:this.state.amenities,
          toDate:this.state.toDate,
-         fromDate:this.state.fromDate
+         fromDate:this.state.fromDate,
+         imageUrls:[sessionStorage.getItem('ImgURLS')]
        
       }
       console.log("become a host"+body);
       var bearerToken = localStorage.getItem('accessToken');
-      const url = "http://10.10.200.32:9000/homes";
+      const url = "http://10.10.200.24:9000/homes";
       var accesstoken = 'Bearer ' + bearerToken;
       console.log(accesstoken);
       let headers = new Headers();
@@ -307,8 +309,8 @@ class HostPage extends React.Component{
                     <center><h2><b> UPLOAD IMAGES</b></h2></center>
                     <br></br>
                     <br></br>
-                    
-                    <input className="prop" type="file" name="file" accept="image/*"/>
+                    <ImageUpload/>
+                    {/* <input className="prop" type="file" name="file" accept="image/*"/> */}
                     <br></br>
                     <br></br>
                     <center>
@@ -342,7 +344,7 @@ class HostPage extends React.Component{
                     <br></br>
                     <center>
                     <input className="next1" id = "next3" type="button" name = "Edit" value = " Edit  " onClick={this.myFunction3}/>
-                    <button className="next1" id = "next4" type="submit" name = "Submit" value = "Submit"/>
+                    <button className="next1" id = "next4" type="submit" name = "Submit" value = "Submit" style={{width:'100px'}}>Submit</button>
                     
                     </center>
                     <br></br>
