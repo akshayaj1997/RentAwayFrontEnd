@@ -95,7 +95,7 @@ class HostPage extends React.Component{
          amenities:this.state.amenities,
          toDate:this.state.toDate,
          fromDate:this.state.fromDate,
-         imageUrls:[sessionStorage.getItem('ImgURLS')]
+         imageUrls:JSON.parse(sessionStorage.getItem('imgURLs'))
        
       }
       console.log("become a host"+body);

@@ -33,8 +33,7 @@ constructor() {
     console.log('handle uploading-', this.state.file);
     const url = "http://10.10.200.24:9000/images"; 
     const formdata=new FormData()
-      formdata.append("file",this.state.file);
-      
+   
     let headers = new Headers();
 
         formdata.append("file",this.state.file);
@@ -58,35 +57,18 @@ constructor() {
             'Access-Control-Allow-Origin': url
           },
           body: formdata
-        })               
-        .then(r=> {r.json()
-         .then(response=>{console.log(response)
-            this.setState ({
-              result: JSON.stringify(response.image_url)
-            })
-            console.log(response.image_url)
-            console.log("result image:"+this.state.result.replace('\"','',))
-            this.setState ({
-              result: this.state.result.replace('\"','',)
-            })
-            console.log("result image:"+this.state.result.replace('\"','',))
-            this.setState ({
-              result: this.state.result.replace('\"','',)
-            })
-            if(r.status==200){
-              console.log("success")
-              this.setState(
-                {
-                  img:this.state.img.concat(this.state.result)
-                })
-                sessionStorage.setItem('ImgURLS',this.state.img);
-                console.log("img in state appending "+this.state.img)
-            }
-           
-         })
+        })       
+        .then(response=>{
+          console.log(response);
+          response.json().then((responseData)=>{console.log(responseData.image_url)
+            this.state.img.push(responseData.image_url)
+          console.log(this.state.img)
+          sessionStorage.setItem('imgURLs',JSON.stringify(this.state.img))
+          })
+         
         })
-        .catch(() => console.log("Can’t access " + url + " response. "))
-      
+
+        
    }
   _handleImageChange(e) {
     e.preventDefault();
