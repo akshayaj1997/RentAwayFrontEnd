@@ -24,6 +24,7 @@ import DetailsPage from "./detailsPage";
 import CheckOut from "./checkoutForm";
 import SearchResults from "./searchResults";
 import ViewProfile from "./viewProfile";
+import SimpleMap from "./map";
 
 class App extends React.Component{
 
@@ -43,6 +44,7 @@ class App extends React.Component{
                <Route exact path ='/profile' component={ViewProfile}/>
                <Route exact path = "/userPage" component={UserNavBar}/>
                <Route exact path = "/checkOut" component={CheckOut}/>
+               <Route exact path = "/maps" component={SimpleMap}/>
                <Redirect to = "/homePreSignin" component={HomePreSignin}/>
             </Switch>
 
