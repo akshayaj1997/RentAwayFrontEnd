@@ -37,7 +37,7 @@ class LoginModal extends Component {
     login(e) {
       let { history } = this.props;
        e.preventDefault();
-      let url='http://10.10.200.32:9000/users/signin'
+      let url='http://10.10.200.24:9000/users/signin'
       let obj={}
       obj.username= this.state.username
       obj.passwordHash = this.state.passwordHash

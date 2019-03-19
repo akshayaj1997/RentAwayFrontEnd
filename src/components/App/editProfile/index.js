@@ -79,7 +79,7 @@ class EditProfile extends Component {
       
       
    
-      const url = "http://10.10.200.32:9000/users/update";
+      const url = "http://10.10.200.24:9000/users/update";
       let headers = new Headers();
    
       headers.append('Content-Type','application/json');

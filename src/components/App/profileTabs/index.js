@@ -32,7 +32,7 @@ export default class ProfileTabs extends React.Component {
 
   getProfile() {
      
-    const url = "http://10.10.200.32:9000/users/me";
+    const url = "http://10.10.200.24:9000/users/me";
     var bearerToken = localStorage.getItem('accessToken');
       var accesstoken = 'Bearer ' + bearerToken;
     let headers = new Headers();
@@ -125,7 +125,7 @@ export default class ProfileTabs extends React.Component {
     
     
  
-    const url = "http://10.10.200.32:9000/users/update";
+    const url = "http://10.10.200.24:9000/users/update";
     let headers = new Headers();
  
     headers.append('Content-Type','application/json');

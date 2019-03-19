@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Details from "../details";
+import { UncontrolledCarousel } from 'reactstrap';
 import CondNavBar from "../condNavbar";
 import './pageD.css';
 import { Card, Button,ListGroup,ListGroupItem } from 'reactstrap';
@@ -23,8 +23,8 @@ class DetailsPage extends Component {
            toDate:' ',
            amenities:[],
            output:[],
-           rules:[]
-           
+           rules:[],
+           imageUrls:[]
            }
            
         }
@@ -46,7 +46,7 @@ class DetailsPage extends Component {
             }   
         }
         componentDidMount(){
-            const url = "http://10.10.200.32:9000/homes/"+this.props.match.params.id;
+            const url = "http://10.10.200.24:9000/homes/"+this.props.match.params.id;
             let headers = new Headers();
          
             headers.append('Content-Type','application/json');
@@ -65,7 +65,8 @@ class DetailsPage extends Component {
             .then(contents => {console.log("in fetch"+contents);
                               this.setState({
                                  data:contents,
-                                 amenities: contents.amenities
+                                 amenities: contents.amenities,
+                                 imageUrls:contents.imageUrls
                               })
                               
          })
@@ -79,6 +80,7 @@ class DetailsPage extends Component {
         
         console.log(this.state.data);
         console.log(this.state.amenities);
+        console.log("Images"+this.state.imageUrls)
         console.log("amenities keys"+this.state.amenities);
         if(this.state.amenities.wifi == true){
             console.log("wifi");
@@ -209,10 +211,21 @@ class DetailsPage extends Component {
         
         return(
             <div className="details">
-             
-               
             <CondNavBar/>
-            <center><Details/></center>
+            <center>  <div className="images"><UncontrolledCarousel indicators={false}  style ={{width:'0px',height:'0px'}} items={[
+      {
+        src: this.state.imageUrls[0],
+        
+      },
+      {
+        src: this.state.imageUrls[1],
+        
+      },
+      {
+        src: this.state.imageUrls[2],
+        
+      }
+    ]} /> </div>  </center>
             <div>
             
                 <ListGroup className="features" style={{height:'100%'}}>

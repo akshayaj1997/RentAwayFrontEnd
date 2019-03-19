@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
 import './results.css';
-import ImageCarousel from '../imageCarousel';
+//import ImageCarousel from '../imageCarousel';
 import {createBrowserHistory as createHistory} from 'history';
+import { UncontrolledCarousel } from 'reactstrap';
+
 var body;
+var items;
 class SearchResults extends Component {
    history=createHistory(this.props);
     constructor(props){
@@ -16,7 +19,8 @@ class SearchResults extends Component {
            guestCount:'',
            toDate:'',
            fromDate:'',
-           Amen1:[]
+           Amen1:[],
+           imageUrls:[]
            }
            this.onForwardClick=this.onForwardClick.bind(this);
      }
@@ -26,7 +30,7 @@ class SearchResults extends Component {
      }
      componentDidMount(){
         //this.setState({Amen1:this.props.history.location.state.Amen1})
-        const url = "http://10.10.200.32:9000/homes1";
+        const url = "http://10.10.200.24:9000/homes1";
         if(sessionStorage.getItem('location1')=="null"){
            this.state.location=null;
         }
@@ -134,7 +138,20 @@ class SearchResults extends Component {
                   <a href={'http://localhost:3000/detailsPage/'+id} onClick={this.onForwardClick(id)}>
                   <div class="card1">
                   <div className="car">
-                  <ImageCarousel/>
+                  <UncontrolledCarousel style={{width:'100%',height:'50px'}} indicators={false} items={[
+      {
+        src: home.imageUrls[0],
+        
+      },
+      {
+        src: home.imageUrls[1],
+        
+      },
+      {
+        src: home.imageUrls[2],
+        
+      }
+    ]} />
                   </div>
                      {/* <img src={require('./images.png')} alt="Avatar" className='image' /> */}
                      <div class="container">

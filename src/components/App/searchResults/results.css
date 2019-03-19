@@ -15,8 +15,8 @@ a {
       box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
       background-color: white;
       transition: 0.3s;
-      width: 305px;
-      height: 295px;
+      width: 315px;
+      height: 335px;
       margin-left: 4%;
       margin-right: 2%;
       margin-bottom:4%;
@@ -31,9 +31,9 @@ a {
     }
     
     .container {
-      padding: 2px 16px; 
+      padding: 10px 16px; 
       float: right;
-      margin-top: 30px;
+      margin-top: 60px;
     }
     .type1 {
       font-size: 16px;
@@ -70,14 +70,15 @@ a {
      
     }
     .image {
-        width:150px;
-        height: 50%;
+        width:100px;
+        height:100%;
         float: right;
         /* align-self: auto; */
     }
     .car {
       width: 100%;
-      height: 130px;
+      height: 40%;
+      padding-bottom:40px; 
     }
     
   
