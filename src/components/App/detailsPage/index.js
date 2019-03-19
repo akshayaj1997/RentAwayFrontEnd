@@ -46,7 +46,7 @@ class DetailsPage extends Component {
             }   
         }
         componentDidMount(){
-            const url = "http://10.10.200.24:9000/homes/"+this.props.match.params.id;
+            const url = "http://10.10.200.32:9000/homes/"+this.props.match.params.id;
             let headers = new Headers();
          
             headers.append('Content-Type','application/json');
