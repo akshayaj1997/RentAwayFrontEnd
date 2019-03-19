@@ -31,7 +31,7 @@ constructor() {
   _handleSubmit(e) {
     e.preventDefault();
     console.log('handle uploading-', this.state.file);
-    const url = "http://10.10.200.24:9000/images"; 
+    const url = "http://10.10.200.32:9000/images"; 
     const formdata=new FormData()
    
     let headers = new Headers();

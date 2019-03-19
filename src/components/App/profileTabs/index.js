@@ -27,8 +27,59 @@ export default class ProfileTabs extends React.Component {
         this.onAddressChange=this.onAddressChange.bind(this);
         this.onAadharChange=this.onAadharChange.bind(this);
         this.editProfile=this.editProfile.bind(this);
+        this.getProfile=this.getProfile.bind(this);
+  }
+
+  getProfile() {
+     
+    const url = "http://10.10.200.32:9000/users/me";
+    var bearerToken = localStorage.getItem('accessToken');
+      var accesstoken = 'Bearer ' + bearerToken;
+    let headers = new Headers();
+ 
+    headers.append('Content-Type','application/json');
+    headers.append('Accept','application/json');
+ 
+    headers.append('Access-Control-Allow-origin',url);
+    headers.append('Access-Control-Allow-Credentials','true');
+    headers.append('Authorization',accesstoken)
+    headers.append('GET','POST');
+ 
+    fetch(url, {
+       headers:headers,
+       method: 'GET',
+       
+    })
+    .then(response => {
+      console.log(response.status);
+      response.json()
+              .then((responseData)=>{
+                console.log("Aadhar "+responseData.aadharcard)
+                this.setState({
+                  username: responseData.username,
+                  name: responseData.name,
+                  dob: responseData.dob,
+                  aadhar: responseData.aadharcard,
+                  gender:responseData.gender,
+                  mobile: responseData.mobilenbr,
+                  address: responseData.address
+                })
+              })
+       
+        if(response.status===401){
+            alert("Go and Sign in");
+            window.location.reload();
+          }
+          })
+    .then(contents => {console.log("in fetch"+contents);
+                
+                      
+ })
+ .catch(()=> console.log("can't access" + url))
+ this.toggle('2');
 
   }
+
   onUsernameChange(event){
     this.setState({username:event.target.value})
   }
@@ -74,7 +125,7 @@ export default class ProfileTabs extends React.Component {
     
     
  
-    const url = "http://10.10.200.24:9000/users/update";
+    const url = "http://10.10.200.32:9000/users/update";
     let headers = new Headers();
  
     headers.append('Content-Type','application/json');
@@ -121,7 +172,8 @@ export default class ProfileTabs extends React.Component {
     if (this.state.activeTab !== tab) {
       this.setState({
         activeTab: tab
-      });
+      })
+      
     }
   }
   render() {
@@ -139,7 +191,7 @@ export default class ProfileTabs extends React.Component {
           <NavItem>
             <NavLink
               className={classnames({ active: this.state.activeTab === '2' })}
-              onClick={() => { this.toggle('2'); }}
+              onClick={() => { this.toggle('2'); this.getProfile();}}
             >
               <h2><b><i>Edit Profile</i></b></h2>
             </NavLink>
@@ -159,8 +211,10 @@ export default class ProfileTabs extends React.Component {
         <input
           type="text"
           placeholder="Enter Username"
+          value={this.state.username}
           name="uname"
           onChange={this.onUsernameChange}
+          disabled
           required
         />
 
@@ -170,7 +224,8 @@ export default class ProfileTabs extends React.Component {
         <input
           type="text"
           placeholder="Enter Name"
-          name="uname"
+          name="name"
+          value={this.state.name}
           onChange={this.onNameChange}
           required
         />
@@ -200,6 +255,7 @@ export default class ProfileTabs extends React.Component {
         <input 
         type="date"
         name="dob"
+        value={this.state.dob}
         onChange={this.onDOBChange}
         required/>
         <br></br>
@@ -211,6 +267,7 @@ export default class ProfileTabs extends React.Component {
                     type="tel"
                     placeholder="Enter Mobile Number"
                     name="mbr"
+                    value={this.state.mobile}
                     onChange={this.onMobileChange}
                     required
         />
@@ -222,6 +279,7 @@ export default class ProfileTabs extends React.Component {
                     type="text"
                     placeholder="Enter Address"
                     name="addr"
+                    value={this.state.address}
                     onChange={this.onAddressChange}
                     required
         />
@@ -233,6 +291,7 @@ export default class ProfileTabs extends React.Component {
                     type="text"
                     placeholder="Enter Number"
                     name="AdhrNbr"
+                    value={this.state.aadhar}
                     onChange={this.onAadharChange}
                     required/>
 
