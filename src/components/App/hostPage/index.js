@@ -25,6 +25,8 @@ class HostPage extends React.Component{
             this.ontoDateDataChanged=this.ontoDateDataChanged.bind(this);
             this.onfromDateDataChanged=this.onfromDateDataChanged.bind(this);
            // this.onClickSubmit=this.onClickSubmit.bind(this);
+           this.onAddressChange=this.onAddressChange.bind(this);
+           this.onPincodeChange=this.onPincodeChange.bind(this);
        
     
             this.state = {
@@ -37,10 +39,18 @@ class HostPage extends React.Component{
                 amenities: {},
                 fromDate:' ',
                 toDate:' ',
-
+                address:' ',
+                pincode:' '
                 
               }
       
+    }
+    
+    onAddressChange(event) {
+        this.setState({address:event.target.value})
+    }
+    onPincodeChange(event) {
+        this.setState({pincode:event.target.value})
     }
     onPropertyChange(event){
         x=document.getElementById("propertyType").value;
@@ -95,7 +105,9 @@ class HostPage extends React.Component{
          amenities:this.state.amenities,
          toDate:this.state.toDate,
          fromDate:this.state.fromDate,
-         imageUrls:JSON.parse(sessionStorage.getItem('imgURLs'))
+         imageUrls:JSON.parse(sessionStorage.getItem('imgURLs')),
+         address: this.state.address,
+         pincode: this.state.pincode
        
       }
       console.log("become a host"+body);
@@ -130,6 +142,7 @@ class HostPage extends React.Component{
         if(response.status===200)
             {
               window.location.reload();
+              localStorage.setItem('role',response.role)
             }
             else if(response.status===400){
               alert("Username already exists");
@@ -193,7 +206,7 @@ class HostPage extends React.Component{
                <div className="nextt"><center></center></div>
                <br></br>
               
-                    <h5><b>PROPERTY TYPE</b></h5>
+                    <h5><b>Property Type</b></h5>
                     <select id="propertyType" required className="prop" onChange={this.onPropertyChange} >
                     <option value="">Choose the Property type</option>
             <option value="APARTMENT" >Apartment</option>
@@ -208,13 +221,16 @@ class HostPage extends React.Component{
                     <br></br>
                     {/* <input type="text" name="location" placeholder="Location" required=""/><br/><br/> */}
                     
-                    <h5><b>GUEST COUNT</b></h5>
+                    <h5><b>Guest Count</b></h5>
                     <input  className = "prop" type="number" min="1" name="guestCount" placeholder="Guests" required="" onChange={this.onGuestsChange}/><br></br><br></br>
-                    <h5><b>HOUSE NAME</b></h5>
+                    <h5><b>House Name</b></h5>
                     <input  className = "prop" type="text" name="homeName" placeholder="HomeName" required="" onChange={this.onHomeNameChange}/><br></br><br></br>
-
-                    <h5><b>WHERE</b></h5>
+                    <h5><b>Address</b></h5>
+                    <input  className = "ts" type="text" name="address" placeholder="Address" required="" onChange={this.onAddressChange}/><br></br><br></br>
+                    <h5><b>City</b></h5>
                     <input  className = "ts" type="text" name="location" placeholder="Location" required="" onChange={this.onLocationChange}/><br></br><br></br>
+                    <h5><b>Pin Code</b></h5>
+                    <input  className = "ts" type="text" name="PIN" placeholder="Pin Code" required="" onChange={this.onPincodeChange}/><br></br><br></br>
                     <h5><b>BASIC AMENITIES</b></h5>
                    
                                

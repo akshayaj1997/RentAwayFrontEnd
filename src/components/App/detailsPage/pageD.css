@@ -1,5 +1,6 @@
 div .details {
-     background-image:url("./bg2.jpg") ; 
+     /* background-image:url("./bg2.jpg") ;  */
+     background-color: white;
     background-repeat: no-repeat;
     background-position: cover;
   background-size: cover;
@@ -14,20 +15,22 @@ div .details {
 
 hr {
     width: 100%;
+    padding: 20px;
     
 }
 .cardD {
     background-color:white;
     float: right;
     width: 30vw;
-    height: 40vh;
-    margin-top: 2.5vh;
-    margin-right: 2.5vw;
+    height: 30vh;
+    margin-top: 75vh;
+    margin-right: -33.33vw;
     margin-bottom: 2.5vh ;
+    padding-top: 20px;
     border-radius: 5px;
-    box-shadow: 1px 4px #888888;
     padding: 10px;
     opacity: .9;
+
 }
 
 .features {
@@ -43,4 +46,38 @@ hr {
     padding: 15px;
     opacity: .9;
 
+}
+
+div .listitemsAmen {
+    background-color: #e6e6e6;
+    width: 150px;
+    height: 120px;
+    padding: 20px;
+    border-radius: 6%;
+    align-content: center;
+}
+
+div .amHr1 {
+    padding-top: 15%;
+}
+
+div .HomenameBox{
+    width:30vw;
+    height: 70vh;
+    float: left;
+    padding-top: 5vh;
+    background-color: #e6e6e6;
+    margin-left: 20px;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-bottom: 5vh;
+}
+div .HR {
+    padding-top: 30%;
+    margin-top: auto;
+    size: auto;
+}
+
+div .amen {
+    padding-bottom: 20%;
 }

@@ -6,6 +6,7 @@ import { Card, Button,ListGroup,ListGroupItem } from 'reactstrap';
 import { STATUS_CODES } from 'http';
 //import PaymentBox from './paymentBox';
 import LoginModal from "../loginModal";
+import { timingSafeEqual } from 'crypto';
 var print = []
 
 class DetailsPage extends Component {
@@ -23,8 +24,11 @@ class DetailsPage extends Component {
            toDate:' ',
            amenities:[],
            output:[],
+           output1:[],
            rules:[],
-           imageUrls:[]
+           rules1:[],
+           imageUrls:[],
+           propertyType:''
            }
            
         }
@@ -83,125 +87,96 @@ class DetailsPage extends Component {
         console.log("Images"+this.state.imageUrls)
         console.log("amenities keys"+this.state.amenities);
         if(this.state.amenities.wifi == true){
-            console.log("wifi");
+            
+            this.state.output1.push(<i class="fa fa-wifi" aria-hidden="true"></i>)
            
-             this.state.output.push("Wifi,  ");
+            this.state.output.push("Wifi  ");
              
            
-            console.log(this.state.output+"outputtt");
+           
         }
 
         if(this.state.amenities.airConditioner == true){
-            console.log("wifi");
-           
-             this.state.output.push("Air Conditioner,  ");
+            
+            this.state.output1.push(<i class="fa fa-snowflake-o fa-2x" aria-hidden="true"></i>)
+            
+            this.state.output.push("Air Conditioner  ");
              
            
-            console.log(this.state.output+"outputtt");
+           
         }
         if(this.state.amenities.breakfast == true){
-            console.log("wifi");
-           
-             this.state.output.push("Breakfast,  ");
-             
-           
-            console.log(this.state.output+"outputtt");
+           this.state.output1.push(<i class="fa fa-bath fa-2x" aria-hidden="true"></i>)
+            
+            this.state.output.push("Breakfast  ");
+      
         }
         if(this.state.amenities.fireExtinguisher == true){
-            console.log("wifi");
-           
-             this.state.output.push("Fire Extinguisher,  ");
-             
-           
-            console.log(this.state.output+"outputtt");
+           this.state.output1.push(<i class="fa fa-bath fa-2x" aria-hidden="true"></i>)
+            
+            this.state.output.push("Fire Extinguisher ");
         }
         if(this.state.amenities.firstAidKit == true){
-            console.log("wifi");
-           
-             this.state.output.push("First Aid Kit,  ");
-             
-           
-            console.log(this.state.output+"outputtt");
+           this.state.output1.push(<i class="fa fa-medkit fa-2x" aria-hidden="true"></i>)
+            
+            this.state.output.push("First Aid Kit  ");
         }
         if(this.state.amenities.gym == true){
-            console.log("wifi");
-           
-             this.state.output.push("Gym,  ");
-             
-           
-            console.log(this.state.output+"outputtt");
+           this.state.output1.push(<i class="fa fa-bath fa-2x" aria-hidden="true"></i>)
+            
+            this.state.output.push("Gym  ");
         }
         if(this.state.amenities.parking == true){
-            console.log("wifi");
-           
-             this.state.output.push("Parking,  ");
-             
-           
-            console.log(this.state.output+"outputtt");
-        }
-        if(this.state.amenities.parking == true){
-            console.log("wifi");
-           
-             this.state.output.push("Parking,  ");
-             
-           
-            console.log(this.state.output+"outputtt");
+           this.state.output1.push(<i class="fa fa-car fa-2x" aria-hidden="true"></i>)
+            
+            this.state.output.push("Parking  ");
         }
         if(this.state.amenities.pool == true){
-            console.log("wifi");
+           this.state.output1.push(<i class="fa fa-bath fa-2x"></i>)
            
-             this.state.output.push("Pool,  ");
-             
-           
-            console.log(this.state.output+"outputtt");
+            this.state.output.push("Pool  ");
         }
         if(this.state.amenities.tv == true){
-            console.log("wifi");
-           
-             this.state.output.push("TV,  ");
-             
-           
-            console.log(this.state.output+"outputtt");
+           this.state.output1.push(<i class="fa fa-bath fa-2x" aria-hidden="true"></i>)
+            
+            this.state.output.push("TV  ");
         }
         if(this.state.amenities.workspace == true){
-            console.log("wifi");
-           
-             this.state.output.push("workspace,  ");
-             
-           
-            console.log(this.state.output+"outputtt");
+           this.state.output1.push(<i class="fa fa-bath fa-2x" aria-hidden="true"></i>)
+            
+            this.state.output.push("Work Space  ");
+            
         }
         if(this.state.amenities.smokeDetector == true){
-            console.log("wifi");
-           
-             this.state.output.push("Smoke Detector,  ");
+            this.state.output1.push(<i class="fa fa-bath fa-2x" aria-hidden="true"></i>)
              
-           
-            console.log(this.state.output+"outputtt");
+             this.state.output.push("Smoke Detector  ");
+            
         }
         if(this.state.amenities.noPets == true){
-            console.log("wifi");
-           
-             this.state.rules.push(" No Pets,  ");
+            
+            this.state.rules1.push(<i class="fa fa-bath fa-2x" aria-hidden="true"></i>)
+            
+            this.state.rules.push(" No Pets  ");
              
            
-            console.log(this.state.rules+"rules");
+            
         }
         if(this.state.amenities.noDrinking == true){
-            console.log("wifi");
-           
-             this.state.rules.push(" No Drinking,  ");
+            this.state.rules1.push(<i class="fa fa-bath fa-2x" aria-hidden="true"></i>)
+             this.state.rules.push(" No Drinking  ");
              
            
-            console.log(this.state.rules+"rules");
+           
         }
         if(this.state.amenities.noSmoking == true){
-            console.log("wifi");
-           
-             this.state.rules.push(" No Smoking,  ");
+            
+            this.state.rules1.push(<i class="fa fa-bath fa-2x" aria-hidden="true"></i>)
+            
+            this.state.rules.push(" No Smoking  ");
              
            
-            console.log(this.state.rules+"rules");
+            
         }
 
         
@@ -212,35 +187,54 @@ class DetailsPage extends Component {
         return(
             <div className="details">
             <CondNavBar/>
-            <center>  <div className="images"><UncontrolledCarousel indicators={false}  style ={{width:'0px',height:'0px'}} items={[
-      {
-        src: this.state.imageUrls[0],
-        
-      },
-      {
-        src: this.state.imageUrls[1],
-        
-      },
-      {
-        src: this.state.imageUrls[2],
-        
-      }
-    ]} /> </div>  </center>
+              <div className="HomenameBox">
+              <div style={{fontSize:'16px'}}>{this.state.data.propertyType} in {this.state.data.location} </div>
+              <br/>
+                <i style={{fontSize:'40px'}}>{this.state.data.homeName}
+                </i></div>
+             <div className="images"><img src={this.state.imageUrls[1]} style={{width:'140vh', float:'right', marginRight:'10px',height:'70vh'}}/></div> 
             <div>
-            
-                <ListGroup className="features" style={{height:'100%'}}>
-        <ListGroupItem><b>Amenities</b><br/><br/>    
-        <i>{this.state.output}</i>  
-        </ListGroupItem>
+           
+        <div className="cardD" > 
+        <div className='amen'>
+        <b>Amenities</b> 
+        <br/>
+        <center>
        
-                
-        <ListGroupItem><b>House Rules</b><br/><br/>
-        <i>{this.state.rules}</i> 
-        </ListGroupItem>
-      </ListGroup>
-                <Card className="cardD">
-               <b>House Name</b> 
-                <i><center>{this.state.data.homeName}</center></i>
+        {this.state.output.map((home,index) => {
+               const id = `${home.id}`
+               // const path= `/detailsPage/`+id
+               return(
+                  <li key={index} style={{listStyle:'none',float:'left',paddingLeft:'5px',paddingBottom:'5px',paddingRight:'5px',paddingTop:'20px',display:'inline'}}>
+                  <div className='listitemsAmen' >
+                  {this.state.output1[index]}
+                  <br/> 
+                  {this.state.output[index]}
+                  </div>
+                   </li>
+               )
+            })}
+            </center>
+            </div>
+        <div className='HR'>
+        <b>House Rules</b><br/> <br/>
+        {this.state.rules.map((home,index) => {
+               const id = `${home.id}`
+               // const path= `/detailsPage/`+id
+               return(
+                  <li key={index} style={{listStyle:'none',display:'inline',float:'left',paddingLeft:'10px',paddingBottom:'10px' }}>
+                  <div className='listitemsAmen' >
+                  {this.state.rules1[index]}<br/>
+                  {this.state.rules[index]}
+                  </div>
+                   </li>
+               )
+            })}
+            </div>
+            
+           
+              
+              {/* <div style={{marginTop:'5%',paddingTop:'30%'}}>
                 <hr/>
                 <b>On the Dates</b>
                <center> <i>{this.state.data.fromDate} through {this.state.data.toDate}</i> </center>
@@ -251,10 +245,11 @@ class DetailsPage extends Component {
                 <b>Price</b>
                 <i><center>  &#8377;{this.state.data.price} </center></i>
                 <hr/>
-                {/* {home.amenities} */}
+                
                 <Button color="danger" onClick={this.submitCheckout}>Book</Button>
                 <br/>
-                </Card>
+                </div> */}
+                </div>
                 </div>
     
                 

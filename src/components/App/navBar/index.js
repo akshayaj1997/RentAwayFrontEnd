@@ -44,7 +44,7 @@ class NavBar extends React.Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
             <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret className="text-white"> 
+                <DropdownToggle nav caret className="text-black"> 
                   Services
                 </DropdownToggle>
                 <DropdownMenu right>
@@ -61,16 +61,16 @@ class NavBar extends React.Component {
                 </DropdownMenu>
               </UncontrolledDropdown>
               <NavItem>
-                <NavLink className="text-white" onClick={this.onClickN} href="#" style={{fontWeight:'150px'}}>Become a host</NavLink>
+                <NavLink className="text-black" onClick={this.onClickN} href="#" style={{fontWeight:'150px'}}>Become a host</NavLink>
               </NavItem>
               <NavItem >
-                <NavLink className="text-white"  onClick={this.onClickB} href="#">Login
+                <NavLink className="text-black"  onClick={this.onClickB} href="#">Login
                 </NavLink>
                 <LoginModal/>
                
               </NavItem>
               <NavItem>
-                <NavLink className="text-white" onClick={this.onClickN} href="#">SignUp
+                <NavLink className="text-black" onClick={this.onClickN} href="#">SignUp
                 </NavLink>
                 <SignUpModal/>
               </NavItem>

@@ -45,7 +45,7 @@ class UserNavBar extends React.Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
             <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret className="text-white"> 
+                <DropdownToggle nav caret className="text-black"> 
                   Services
                 </DropdownToggle>
                 <DropdownMenu right>
@@ -61,10 +61,10 @@ class UserNavBar extends React.Component {
                 </DropdownMenu>
               </UncontrolledDropdown>
               <NavItem>
-                <NavLink className="text-white" onClick={this.onClickN} href="http://localhost:3000/hostPage">Become a host</NavLink>
+                <NavLink className="text-black" onClick={this.onClickN} href="http://localhost:3000/hostPage">Become a host</NavLink>
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret className="text-white">
+                <DropdownToggle nav caret className="text-black">
                   <i class="fa fa-user-o"></i>
                 </DropdownToggle>
                 <DropdownMenu right>

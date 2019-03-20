@@ -32,6 +32,9 @@ constructor() {
     e.preventDefault();
     console.log('handle uploading-', this.state.file);
     const url = "http://10.10.200.24:9000/images"; 
+    var bearerToken = localStorage.getItem('accessToken');
+    var accesstoken = 'Bearer ' + bearerToken;
+    console.log(accesstoken)
     const formdata=new FormData()
    
     let headers = new Headers();
@@ -43,7 +46,6 @@ constructor() {
     
         headers.append('Access-Control-Allow-Origin', url);
         headers.append('Access-Control-Allow-Credentials', 'true');
-    
         headers.append('GET', 'POST');
         
         e.preventDefault();
@@ -54,7 +56,8 @@ constructor() {
           withCredentials:true,
           credentials:'include',
           headers:{
-            'Access-Control-Allow-Origin': url
+            'Access-Control-Allow-Origin': url,
+            'Authorization':accesstoken
           },
           body: formdata
         })       
