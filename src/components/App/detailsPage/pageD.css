@@ -52,7 +52,7 @@ div .listitemsAmen {
     background-color: #e6e6e6;
     width: 150px;
     height: 120px;
-    padding: 20px;
+    padding: 10px;
     border-radius: 6%;
     align-content: center;
 }
@@ -72,12 +72,11 @@ div .HomenameBox{
     padding-right: 2vw;
     padding-bottom: 5vh;
 }
-div .HR {
-    padding-top: 30%;
-    margin-top: auto;
-    size: auto;
+.HR {
+    padding-left:20px;
 }
 
-div .amen {
-    padding-bottom: 20%;
+.amen {
+ 
+    
 }

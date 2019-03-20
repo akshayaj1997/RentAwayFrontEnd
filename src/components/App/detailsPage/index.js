@@ -196,7 +196,7 @@ class DetailsPage extends Component {
             <div>
            
         <div className="cardD" > 
-        <div className='amen'>
+        <Card className='amen'>
         <b>Amenities</b> 
         <br/>
         <center>
@@ -205,7 +205,7 @@ class DetailsPage extends Component {
                const id = `${home.id}`
                // const path= `/detailsPage/`+id
                return(
-                  <li key={index} style={{listStyle:'none',float:'left',paddingLeft:'5px',paddingBottom:'5px',paddingRight:'5px',paddingTop:'20px',display:'inline'}}>
+                  <li key={index} style={{listStyle:'none',float:'left',paddingLeft:'10px',paddingBottom:'10px',paddingRight:'10px',paddingTop:'20px',display:'inline'}}>
                   <div className='listitemsAmen' >
                   {this.state.output1[index]}
                   <br/> 
@@ -215,14 +215,14 @@ class DetailsPage extends Component {
                )
             })}
             </center>
-            </div>
-        <div className='HR'>
+            </Card>
+        <Card className='HR'>
         <b>House Rules</b><br/> <br/>
         {this.state.rules.map((home,index) => {
                const id = `${home.id}`
                // const path= `/detailsPage/`+id
                return(
-                  <li key={index} style={{listStyle:'none',display:'inline',float:'left',paddingLeft:'10px',paddingBottom:'10px' }}>
+                  <li key={index} style={{listStyle:'none',display:'inline',paddingLeft:'5px',paddingBottom:'5px' }}>
                   <div className='listitemsAmen' >
                   {this.state.rules1[index]}<br/>
                   {this.state.rules[index]}
@@ -230,7 +230,7 @@ class DetailsPage extends Component {
                    </li>
                )
             })}
-            </div>
+            </Card>
             
            
               
