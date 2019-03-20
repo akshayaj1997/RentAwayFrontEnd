@@ -280,7 +280,9 @@ class DetailsPage extends Component {
                         <Card className='HR'>
                         <h1 style={{fontSize:'50px'}}>Location</h1>
                         <br/>
-                        <i style={{fontSize:'25px'}}>{this.state.data.address}</i>
+                        <i style={{fontSize:'25px',textTransform:'uppercase',float:'left'}}>{this.state.data.location}</i>
+                        <br/>
+                        <i style={{fontSize:'30px',float:'right'}}>{this.state.data.address}</i>
                         <br/>
                         </Card>
                         <hr/>
@@ -294,7 +296,17 @@ class DetailsPage extends Component {
                         Contact me at
                         {this.state.user.mobilenbr}</b>
                         </i>
-
+                        <br/>
+                        </Card>
+                        <hr/>
+                        <Card className='HR'>
+                        <h1 style={{fontSize:'50px'}}>Cancellation Policy and House Rules</h1>
+                        <br/>
+                        <i style={{fontSize:'25px'}}>
+                        This home has a Strict (grace period) cancellation policy.
+                        <br/>
+                         Cancel within 48 hours of booking and at least 14 days prior to check-in to get a full refund.
+                        </i>
                         </Card>
                         <br /><br />
                         <br /> <br /> <br /> <br />
@@ -303,13 +315,14 @@ class DetailsPage extends Component {
 
                 <div className="fixed-footer">
 
-                    <span style={{ fontSize: '16px', marginLeft: '25px', textTransform: 'uppercase', marginTop: '20px', fontWeight: '500', fontStyle: 'oblique' }}>{this.state.data.propertyType} in {this.state.data.location} </span>
+                    <span style={{ fontSize: '16px', marginLeft: '25px', textTransform: 'uppercase', marginTop: '20px', fontWeight: '500', fontStyle: 'oblique' }}><i class="fa fa-home fa-3x" aria-hidden="true"></i> &nbsp; &nbsp; {this.state.data.propertyType} in {this.state.data.location} </span>
                     <Button style={{
-                        width: '5%',
+                        width: '7%',
                         padding: '10px 30px',
                         marginRight: '15px',
                         backgroundColor: '#f44336',
-                        float: 'right'
+                        float: 'right',
+                        borderRadius:'10%'
                     }} onClick={this.submitCheckout}><h4>Book</h4></Button>
                     <i style={{ float: 'right', marginRight: '30px', marginTop: '20px' }}>  &#8377;{this.state.data.price}/ night</i>
                 </div>
