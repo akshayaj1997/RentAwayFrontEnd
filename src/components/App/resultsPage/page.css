@@ -1,5 +1,6 @@
 .results {
-    background-image:url("./Home1.jpg") ; 
+    /* background-image:url("./Home1.jpg") ;  */
+    background-color: white;
     background-repeat: no-repeat;
     background-position: cover;
     background-size: cover;

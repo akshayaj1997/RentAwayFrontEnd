@@ -1,9 +1,10 @@
 .navBar{
   font-size: 16px;
   font-style: oblique;
-  font-weight: 300  ;
+  font-weight: 400  ;
   position: inherit;
   /* color: white; */
+  
 }
 .navBar .text-black {
   padding: 20px;

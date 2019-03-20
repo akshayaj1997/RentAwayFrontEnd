@@ -40,7 +40,7 @@ class HostNavBar extends React.Component {
       <div>
         <Navbar  className="navBar" light expand="md" >
           <NavbarBrand className="navBar" href="/">
-          <img src={require('./Capture.png')} width='120' height='40' /></NavbarBrand>
+          <i class="fab fa-houzz"></i></NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>

@@ -14,22 +14,23 @@ div .details {
 }
 
 hr {
-    width: 100%;
+    width: 85%;
     padding: 20px;
     
 }
 .cardD {
     background-color:white;
     float: right;
-    width: 30vw;
+    width: 40vw;
     height: 30vh;
-    margin-top: 75vh;
-    margin-right: -33.33vw;
+    margin-top: 5vh;
+    margin-right: 30vw;
     margin-bottom: 2.5vh ;
     padding-top: 20px;
     border-radius: 5px;
     padding: 10px;
     opacity: .9;
+    border: white;
 
 }
 
@@ -51,7 +52,7 @@ hr {
 div .listitemsAmen {
     background-color: #e6e6e6;
     width: 150px;
-    height: 120px;
+    height: 127px;
     padding: 10px;
     border-radius: 6%;
     align-content: center;
@@ -62,8 +63,8 @@ div .amHr1 {
 }
 
 div .HomenameBox{
-    width:30vw;
-    height: 70vh;
+    width:40vw;
+    height: 73vh;
     float: left;
     padding-top: 5vh;
     background-color: #e6e6e6;
@@ -74,6 +75,7 @@ div .HomenameBox{
 }
 .HR {
     padding-left:20px;
+    border: #fff;
 }
 
 .fixed-footer{
@@ -83,11 +85,17 @@ div .HomenameBox{
     padding: 10px 0;
     color: #333;
     height:8%;
-
-
     border-top: solid whitesmoke 2px;
-  bottom:0px;
+    bottom:0px;
 }
 
+.carousel-item > img { 
+    width: 30%; 
+  }
+
+div .images {
+    width: 57vw;
+    float: right;
+}
 
 
