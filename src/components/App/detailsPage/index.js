@@ -191,12 +191,13 @@ class DetailsPage extends Component {
               <div style={{fontSize:'16px'}}>{this.state.data.propertyType} in {this.state.data.location} </div>
               <br/>
                 <i style={{fontSize:'40px'}}>{this.state.data.homeName}
-                </i></div>
-             <div className="images"><img src={this.state.imageUrls[1]} style={{width:'140vh', float:'right', marginRight:'10px',height:'70vh'}}/></div> 
+                </i>
+                </div>
+             <div className="images"><img src={this.state.imageUrls[1]} style={{width:'140vh', float:'right', marginRight:'4px',height:'70vh'}}/></div> 
             <div>
            
         <div className="cardD" > 
-        <Card className='amen'>
+        <Card className='HR'>
         <b>Amenities</b> 
         <br/>
         <center>
@@ -217,20 +218,29 @@ class DetailsPage extends Component {
             </center>
             </Card>
         <Card className='HR'>
-        <b>House Rules</b><br/> <br/>
+        <b>House Rules</b><br/>
+        <center>
         {this.state.rules.map((home,index) => {
                const id = `${home.id}`
                // const path= `/detailsPage/`+id
                return(
-                  <li key={index} style={{listStyle:'none',display:'inline',paddingLeft:'5px',paddingBottom:'5px' }}>
+                  <li key={index} style={{listStyle:'none',float:'left',paddingLeft:'10px',paddingBottom:'10px',paddingRight:'10px',paddingTop:'20px',display:'inline'}}>
                   <div className='listitemsAmen' >
                   {this.state.rules1[index]}<br/>
                   {this.state.rules[index]}
                   </div>
+                 
                    </li>
+                   
                )
             })}
+            </center>
+
+            
+
             </Card>
+            <br/><br/>
+            <br/> <br/> <br/> <br/>
             
            
               
@@ -252,7 +262,16 @@ class DetailsPage extends Component {
                 </div>
                 </div>
     
-                
+                <div className="fixed-footer">
+                   
+                <span style={{fontSize:'16px', marginLeft:'25px'}}>{this.state.data.propertyType} in {this.state.data.location} </span> 
+                    <Button style={{ width: '5%',
+                            padding: '10px 30px',
+                            marginRight:'15px',
+                            backgroundColor: '#f44336',
+                            float:'right'}} onClick={this.submitCheckout}><h4>Book</h4></Button>
+                             
+                 </div>
                 
             </div>
         )

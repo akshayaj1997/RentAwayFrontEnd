@@ -76,7 +76,18 @@ div .HomenameBox{
     padding-left:20px;
 }
 
-.amen {
- 
-    
+.fixed-footer{
+    width: 100%;
+    position: fixed;        
+    background: #fff;
+    padding: 10px 0;
+    color: #333;
+    height:8%;
+
+
+    border-top: solid whitesmoke 2px;
+  bottom:0px;
 }
+
+
+
