@@ -4,9 +4,7 @@ import React from "react";
 import HomePreSignin from "./homePreSignin";
 
 import HostPage from "./hostPage";
-//import HomeSearch from "./homeSearch";
-
-//import signUpModal from "./signUpModal";
+import AdminTabs from './adminTabs';
 import UserNavBar from "./userNavbar";
 
 
@@ -44,6 +42,7 @@ class App extends React.Component{
                <Route exact path ='/profile' component={ViewProfile}/>
                <Route exact path = "/userPage" component={UserNavBar}/>
                <Route exact path = "/checkOut" component={CheckOut}/>
+               <Route exact path = "/admin" component={AdminTabs}/>
                <Redirect to = "/homePreSignin" component={HomePreSignin}/>
             </Switch>
 
