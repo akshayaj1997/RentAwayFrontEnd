@@ -4,6 +4,7 @@ import SearchResults from "../searchResults";
 import SearchFilters from "../filters";
 import './page.css';
 import {createBrowserHistory as createHistory} from 'history';
+import ResultMaps from '../resultsMap';
 
 class ResultsPage extends Component {
     //history=createHistory(this.props)
@@ -29,7 +30,8 @@ class ResultsPage extends Component {
                 <div className="way">
                 <CondNavBar/>
                 <SearchFilters/>
-                <SearchResults/>
+                <div style={{width:'50%'}}><SearchResults/></div>
+                <ResultMaps/>
                 </div>
             </div>
         )

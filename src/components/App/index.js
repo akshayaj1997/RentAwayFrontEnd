@@ -22,6 +22,7 @@ import CheckOut from "./checkoutForm";
 import SearchResults from "./searchResults";
 import ViewProfile from "./viewProfile";
 import Maps from "./maps";
+import ResultMaps from "./resultsMap";
 
 
 class App extends React.Component{
@@ -44,6 +45,7 @@ class App extends React.Component{
                <Route exact path = "/checkOut" component={CheckOut}/>
                <Route exact path = "/admin" component={AdminTabs}/>
                <Route exact path='/map' component={Maps}/>
+               <Route exact path='/resultmap' component={ResultMaps}/>
                <Redirect to = "/homePreSignin" component={HomePreSignin}/>
             </Switch>
 

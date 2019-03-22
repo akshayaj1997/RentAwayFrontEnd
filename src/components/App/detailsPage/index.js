@@ -7,7 +7,7 @@ import LoginModal from "../loginModal";
 import DayPicker from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
 import ReactMapGL,{Marker,Popup} from 'react-map-gl';
-import MapsDetails from '../../mapsDetails';
+import MapsDetails from '../mapsDetails';
 var print = []
 
 class DetailsPage extends Component {
