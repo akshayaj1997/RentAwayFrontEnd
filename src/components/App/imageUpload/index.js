@@ -102,7 +102,7 @@ render() {
   let {imagePreviewUrl} = this.state;
       let $imagePreview = null;
       if (imagePreviewUrl) {
-        $imagePreview = (<img style={{width:"20%",height:"20%"}} src={imagePreviewUrl} />);
+        $imagePreview = (<div><img style={{width:"40%",height:"40%"}} src={imagePreviewUrl} /></div>);
       } else {
         $imagePreview = (<div className="previewText">Please select an Image for Preview</div>);
       }
@@ -113,10 +113,11 @@ return(
         <form>
                 <div className="errorMsg">{this.state.errors.url}</div>
                 <input className="fileInput" type="file" onChange={(e)=>this._handleImageChange(e)} /><br></br>
+                <br></br>
                 <div className="imgPreview" ><br></br>
-                  {$imagePreview  }
-                </div><br></br>
-                <button className="submitButton" type="submit" onClick={(e)=>this._handleSubmit(e)}>Upload Image</button><br></br>
+                  {$imagePreview}
+                </div>
+                <button className="submitButton" type="submit" onClick={(e)=>this._handleSubmit(e)}>Add Image</button><br></br>
                 <div className="text-center mb-3">
                 <br></br>
                 </div>

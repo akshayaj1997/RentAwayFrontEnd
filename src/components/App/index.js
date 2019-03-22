@@ -7,7 +7,6 @@ import HostPage from "./hostPage";
 import AdminTabs from './adminTabs';
 import UserNavBar from "./userNavbar";
 
-
 import{
    BrowserRouter as Router,
    Route,
@@ -22,6 +21,7 @@ import DetailsPage from "./detailsPage";
 import CheckOut from "./checkoutForm";
 import SearchResults from "./searchResults";
 import ViewProfile from "./viewProfile";
+import Maps from "./maps";
 
 
 class App extends React.Component{
@@ -43,6 +43,7 @@ class App extends React.Component{
                <Route exact path = "/userPage" component={UserNavBar}/>
                <Route exact path = "/checkOut" component={CheckOut}/>
                <Route exact path = "/admin" component={AdminTabs}/>
+               <Route exact path='/map' component={Maps}/>
                <Redirect to = "/homePreSignin" component={HomePreSignin}/>
             </Switch>
 

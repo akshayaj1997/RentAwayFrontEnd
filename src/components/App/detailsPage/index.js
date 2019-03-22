@@ -6,6 +6,8 @@ import { Card, Button } from 'reactstrap';
 import LoginModal from "../loginModal";
 import DayPicker from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
+import ReactMapGL,{Marker,Popup} from 'react-map-gl';
+import MapsDetails from '../../mapsDetails';
 var print = []
 
 class DetailsPage extends Component {
@@ -20,8 +22,11 @@ class DetailsPage extends Component {
             address:' ',
             location: ' ',
             homeName: ' ',
+            latitude1:17.35,
+            longitude1:78.48,
             price: ' ',
             toDate: ' ',
+            description:'',
             amenities: [],
             output: [],
             output1: [],
@@ -30,8 +35,14 @@ class DetailsPage extends Component {
             imageUrls: [],
             user:[],
             propertyType: '',
-           
-        }
+            viewport: {
+                width: 500,
+                height: 200,
+                latitude: 17.3850,
+                longitude: 78.4867,
+                zoom: 8
+              },
+           }
 
     }
 
@@ -73,8 +84,12 @@ class DetailsPage extends Component {
                     data: contents,
                     amenities: contents.amenities,
                     imageUrls: contents.imageUrls,
-                    user: contents.user
+                    user: contents.user,
+                    latitude1:parseFloat(contents.latitude),
+                    longitude1:parseFloat(contents.longitude)
                 })
+                sessionStorage.setItem("LatPlace",this.state.latitude1)
+                sessionStorage.setItem('LongPlace',this.state.longitude1)
 
             })
             .catch(() => console.log("can't access" + url + "response. "))
@@ -86,6 +101,7 @@ class DetailsPage extends Component {
     render() {
 
         console.log(this.state.data);
+        console.log("location "+typeof parseFloat(this.state.data.latitude))
         console.log(this.state.amenities);
         console.log("Images" + this.state.imageUrls)
         console.log("amenities keys" + this.state.amenities);
@@ -201,20 +217,29 @@ class DetailsPage extends Component {
                 <div className="images"><UncontrolledCarousel indicators={false} items={[
                     {
                         src: this.state.imageUrls[0],
-                        width: '20vw'
+                        
                     },
                     {
                         src: this.state.imageUrls[1],
-                        width: '20vw'
+                        
                     },
                     {
                         src: this.state.imageUrls[2],
-                        width: '20vw'
+                       
                     }
                 ]} /></div>
                 <div>
 
                     <div className="cardD"  >
+                    <Card className='HR'>
+                            <br />
+                            
+                                {this.state.data.description}
+                            
+                        </Card>
+
+                        <br/>
+                        <hr/>
                         <Card className='HR'>
                             <b><h1 style={{ fontSize: '50px' }}>Amenities</h1></b>
                             <br />
@@ -265,16 +290,18 @@ class DetailsPage extends Component {
                         <Card className='HR'>
                             <h1 style={{fontSize:'50px'}}>Availability</h1>
                             <DayPicker
-                                initialMonth={new Date(2017, 3)}
                                 disabledDays={[
-                                    new Date(2017, 3, 12),
-                                    new Date(2017, 3, 2),
                                     {
-                                        after: new Date(2017, 3, 20),
-                                        before: new Date(2017, 3, 25),
+                                        after: new Date(this.state.data.toDate),
+                                        before:new Date(this.state.data.fromDate)
                                     },
+                                    {
+                                        before:new Date()
+                                    },
+
                                 ]}
                             />
+                            
                         </Card>
                         <hr/>
                         <Card className='HR'>
@@ -284,6 +311,7 @@ class DetailsPage extends Component {
                         <br/>
                         <i style={{fontSize:'30px',float:'right'}}>{this.state.data.address}</i>
                         <br/>
+                        <MapsDetails/>  
                         </Card>
                         <hr/>
                         <Card className='HR'>

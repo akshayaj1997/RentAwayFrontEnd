@@ -16,7 +16,7 @@ class Listings extends React.Component{
     onDelete(id){
       const url = "http://10.10.200.24:9000/homes/users/"+id;
       let headers = new Headers();
-   
+     console.log(url)
       headers.append('Content-Type','application/json');
       headers.append('Accept','application/json');
    

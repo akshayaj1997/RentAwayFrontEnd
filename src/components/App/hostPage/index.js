@@ -2,6 +2,7 @@ import React from "react";
 import "./host.css";
 import Calender from "../Calender";
 import ImageUpload from "../imageUpload";
+import Maps from "../maps";
 
 var currentTab = 0; 
 var x;
@@ -27,7 +28,7 @@ class HostPage extends React.Component{
            // this.onClickSubmit=this.onClickSubmit.bind(this);
            this.onAddressChange=this.onAddressChange.bind(this);
            this.onPincodeChange=this.onPincodeChange.bind(this);
-       
+           this.onDescriptionChange=this.onDescriptionChange.bind(this);
     
             this.state = {
                 propertyType:' ',
@@ -40,8 +41,8 @@ class HostPage extends React.Component{
                 fromDate:' ',
                 toDate:' ',
                 address:' ',
-                pincode:' '
-                
+                pincode:' ',
+                description:''
               }
       
     }
@@ -52,6 +53,11 @@ class HostPage extends React.Component{
     onPincodeChange(event) {
         this.setState({pincode:event.target.value})
     }
+
+    onDescriptionChange(event) {
+        this.setState({description:event.target.value})
+    }
+
     onPropertyChange(event){
         x=document.getElementById("propertyType").value;
         console.log(x);
@@ -107,8 +113,10 @@ class HostPage extends React.Component{
          fromDate:this.state.fromDate,
          imageUrls:JSON.parse(sessionStorage.getItem('imgURLs')),
          address: this.state.address,
-         pincode: this.state.pincode
-       
+         pincode: this.state.pincode,
+         description:this.state.description,
+         latitude:sessionStorage.getItem('lat'),
+         longitude:sessionStorage.getItem('long')
       }
       console.log("become a host"+body);
       var bearerToken = localStorage.getItem('accessToken');
@@ -231,6 +239,9 @@ class HostPage extends React.Component{
                     <input  className = "ts" type="text" name="location" placeholder="Location" required="" onChange={this.onLocationChange}/><br></br><br></br>
                     <h5><b>Pin Code</b></h5>
                     <input  className = "ts" type="text" name="PIN" placeholder="Pin Code" required="" onChange={this.onPincodeChange}/><br></br><br></br>
+                     <div><Maps/></div>
+                    <h5><b>Description</b></h5>
+                    <input  className = "ts" type="text" name="DES" placeholder="Description" required="" onChange={this.onDescriptionChange}/><br></br><br></br>
                     <h5><b>BASIC AMENITIES</b></h5>
                    
                                
