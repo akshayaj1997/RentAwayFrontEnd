@@ -141,7 +141,7 @@ class ResultMaps extends Component{
                  return(
                      <div>
             <a href={'http://localhost:3000/detailsPage/'+home.homeId} >
-             <Popup latitude={parseFloat(home.latitude)} longitude={parseFloat(home.longitude)} >
+             <Popup latitude={parseFloat(home.latitude)} longitude={parseFloat(home.longitude)} sortByDepth={true} >
           <div>
               <i class="fas fa-home"></i>
               <br/>

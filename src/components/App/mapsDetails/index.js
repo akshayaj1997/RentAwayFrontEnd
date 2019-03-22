@@ -27,9 +27,9 @@ class MapsDetails extends Component{
             {...this.state.viewport}
             onViewportChange={(viewport) => this.setState({viewport})}
             mapboxApiAccessToken='pk.eyJ1IjoibmlkaGlwYXZ1bHVyaSIsImEiOiJjanRqcGQ3eDEwMWE3M3ltamdzYnlpc2syIn0.Iw2YRzOYRS7mBJNmykVa6g'>
-             <Marker latitude={this.state.latitude} longitude={this.state.longitude} offsetLeft={-20} offsetTop={-10} >
+             <Popup latitude={this.state.latitude} longitude={this.state.longitude} >
           <div><i class="fas fa-home"></i></div>
-          </Marker>
+          </Popup>
         </ReactMapGL>
         );
       }
