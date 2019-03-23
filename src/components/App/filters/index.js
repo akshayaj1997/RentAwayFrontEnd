@@ -158,7 +158,7 @@ class SearchFilters extends Component {
                         <Button color="black" id="Price" style={{ marginBottom: '1rem', fontSize:'18px' }}>Price</Button>
                         <UncontrolledCollapse toggler="#Price" style={{ marginLeft: '0%' }}>
                         {/* <Range onAfterChange={this.rangeSet}/>  */}
-                       &#8377; <input type="number" name="Price" min="1000" max="50000" onChange={this.priceChange}/> 
+                       &#8377; <input type="number" name="Price" min="1000" max="5000000" onChange={this.priceChange}/> 
                         {/* <input type="number" name="Price" min="1000" max="100000"/> */}
                         </UncontrolledCollapse>
                         </center>

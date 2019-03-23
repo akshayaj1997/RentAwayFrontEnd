@@ -31,7 +31,7 @@ class ResultsPage extends Component {
                 <CondNavBar/>
                 <SearchFilters/>
                 <div style={{width:'50%'}}><SearchResults/></div>
-                <ResultMaps/>
+                <div style={{width:'50%',float:"right",marginRight:'1vw',position:'sticky'}}><ResultMaps/></div>
                 </div>
             </div>
         )

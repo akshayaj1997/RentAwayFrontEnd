@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import Listings from '../listings';
 import './admin.css'
 import CondNavBar from '../condNavbar';
+import PendingUsers from '../pendingUsers';
 
 export default class AdminTabs extends React.Component {
   constructor(props) {
@@ -12,31 +13,29 @@ export default class AdminTabs extends React.Component {
     this.toggle = this.toggle.bind(this);
     this.state = {
       activeTab: '1',
-      username : ' ',
-      name:' ',
-      gender:' ',
-      dob:' ',
-      mobile:' ',
-      address:' ',
-      aadhar:' ',
-      data:[]
+      data: [],
+      homeId:'',
+      homeName : ' ',
+      propertyType:' ',
+      location: ' ',
+      user:[],
+      userId:'',
+      username:''
+
     };
-    this.onUsernameChange=this.onUsernameChange.bind(this);
-        this.onNameChange=this.onNameChange.bind(this);
-        this.onGenderChange=this.onGenderChange.bind(this);
-        this.onDOBChange=this.onDOBChange.bind(this);
-        this.onMobileChange=this.onMobileChange.bind(this);
-        this.onAddressChange=this.onAddressChange.bind(this);
-        this.onAadharChange=this.onAadharChange.bind(this);
-        this.editProfile=this.editProfile.bind(this);
-        this.getProfile=this.getProfile.bind(this);
+    
+        //this.getPending=this.getPending.bind(this);
   }
 
-  getProfile() {
+  onDelete(id){console.log('Delete listing')}
+
+  
+
+  componentDidMount() {
      
-    const url = "http://10.10.200.24:9000/users/me";
-    var bearerToken = localStorage.getItem('accessToken');
-      var accesstoken = 'Bearer ' + bearerToken;
+    const url = "http://10.10.200.24:9000/pendingListings";
+    // var bearerToken = localStorage.getItem('accessToken');
+    //   var accesstoken = 'Bearer ' + bearerToken;
     let headers = new Headers();
  
     headers.append('Content-Type','application/json');
@@ -44,7 +43,7 @@ export default class AdminTabs extends React.Component {
  
     headers.append('Access-Control-Allow-origin',url);
     headers.append('Access-Control-Allow-Credentials','true');
-    headers.append('Authorization',accesstoken)
+    //headers.append('Authorization',accesstoken)
     headers.append('GET','POST');
  
     fetch(url, {
@@ -53,20 +52,16 @@ export default class AdminTabs extends React.Component {
        
     })
     .then(response => {
-      console.log(response.status);
+
       response.json()
               .then((responseData)=>{
-                console.log("Aadhar "+responseData.aadharcard)
+                
                 this.setState({
-                  username: responseData.username,
-                  name: responseData.name,
-                  dob: responseData.dob,
-                  aadhar: responseData.aadharcard,
-                  gender:responseData.gender,
-                  mobile: responseData.mobilenbr,
-                  address: responseData.address
+                  data: responseData,
+                  user: responseData.user
                 })
               })
+              
        
         if(response.status===401){
             alert("Go and Sign in");
@@ -81,93 +76,8 @@ export default class AdminTabs extends React.Component {
  this.toggle('2');
 
   }
-
-  onUsernameChange(event){
-    this.setState({username:event.target.value})
-  }
-  onNameChange(event){
-    this.setState({name:event.target.value})
-
-  }
-  onGenderChange(event){
-    this.setState({gender:event.target.value})
-  }
-
-  onDOBChange(event){
-    this.setState({dob:event.target.value})
-  }
-
-  onMobileChange(event){
-    this.setState({mobile:event.target.value})
-  }
-
-  onAddressChange(event){
-    this.setState({address:event.target.value})
-  }
-
-  onAadharChange(event){
-    this.setState({aadhar:event.target.value})
-  }
   
-  editProfile(event){
-   
-   let body = {
   
-        username : this.state.username,
-        gender:this.state.gender,
-        dob:this.state.dob,
-        mobilenbr:this.state.mobile,
-        aadharcard:this.state.aadhar,
-        address:this.state.address,
-        name:this.state.name
-     
-    }
-    console.log("edit profile"+body);
-
-    
-    
- 
-    const url = "http://10.10.200.24:9000/users/update";
-    let headers = new Headers();
- 
-    headers.append('Content-Type','application/json');
-    headers.append('Accept','application/json');
- 
-    headers.append('Access-Control-Allow-origin',url);
-    headers.append('Access-Control-Allow-Credentials','true');
- 
-    //headers.append('GET','POST','PUT');
- 
-    fetch(url, {
-       headers:headers,
-       method: 'PUT',
-       body: JSON.stringify(body)
-    })
-    .then(response => {
-      console.log(response.status);
-      if(response.status===200)
-          {
-            window.location.reload();
-          }
-          else if(response.status===400){
-            alert("Username already exists");
-            window.location.reload();
-          }
-          else if(response.status===401){
-            alert("Username or password is incorrect");
-            window.location.reload();
-          }
-          else{
-            alert("Unauthorized");
-            window.location.reload();
-          }})
-    .then(contents => {console.log("in fetch"+contents);
-                
-                      
- })
- .catch(()=> console.log("can't access" + url))
- 
-  }
 
 
   toggle(tab) {
@@ -195,7 +105,15 @@ export default class AdminTabs extends React.Component {
           <NavItem>
             <NavLink
               className={classnames({ active: this.state.activeTab === '2' })}
-              onClick={() => { this.toggle('2'); this.getProfile();}}
+              onClick={() => { this.toggle('2'); }}
+            >
+              <h2><b><i>View Pending Users</i></b></h2>
+            </NavLink>
+          </NavItem>
+          <NavItem>
+          <NavLink
+              className={classnames({ active: this.state.activeTab === '3' })}
+              onClick={() => { this.toggle('3'); }}
             >
               <h2><b><i>View Reports</i></b></h2>
             </NavLink>
@@ -203,10 +121,26 @@ export default class AdminTabs extends React.Component {
         </Nav>
         <TabContent activeTab={this.state.activeTab}>
           <TabPane tabId="1">
-          <Listings/>
+          <br/>
+          <ul>
+          <br/>
+           {this.state.data.map((home,index) => {
+     return(
+        <li key={index} style={{fontSize:'20px'}}>
+      <i><b>{home.homeName}</b> </i>  <div style={{float:'right'}}><input type='button' style={{backgroundColor:'#FF4C4C',color:'white',fontSize:'16px',fontStyle:'oblique'}} className='listbutton' value='Delete Listing' onClick={this.onDelete.bind(this,home.homeId)}></input>  &nbsp; <input type='button' style={{backgroundColor:'#32CD32',color:'white',fontSize:'16px',fontStyle:'oblique'}} className='listbutton' value='Confirm Listing' onClick={this.onDelete.bind(this,home.homeId)}></input></div>
+        <br/>
+        <br/>
+         </li>
+     )
+  })}
+  </ul>
           </TabPane>
           <TabPane tabId="2">
           <br/>
+          <PendingUsers/>
+          </TabPane>
+          <TabPane tabId="3">
+          <br/> Hello
           </TabPane>
         </TabContent>
         <Button style={{width:'150px',height:'50px',backgroundColor:'rgb(255,255,255,0)',color:'black',float:'right',border:'rgb(255,255,255,0)',paddingTop:'20px'}} href='http://localhost:3000/homePreSignin'><i className='fa fa-home'/> Return to Home Page</Button>

@@ -239,6 +239,7 @@ class HostPage extends React.Component{
                     <input  className = "ts" type="text" name="location" placeholder="Location" required="" onChange={this.onLocationChange}/><br></br><br></br>
                     <h5><b>Pin Code</b></h5>
                     <input  className = "ts" type="text" name="PIN" placeholder="Pin Code" required="" onChange={this.onPincodeChange}/><br></br><br></br>
+                    <h4><b>Location</b></h4>
                      <div><Maps/></div>
                     <h5><b>Description</b></h5>
                     <input  className = "ts" type="text" name="DES" placeholder="Description" required="" onChange={this.onDescriptionChange}/><br></br><br></br>

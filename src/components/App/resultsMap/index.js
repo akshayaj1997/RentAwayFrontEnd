@@ -135,6 +135,7 @@ class ResultMaps extends Component{
             <div style={{float:'right'}}>
           <ReactMapGL
             {...this.state.viewport}
+            mapStyle="mapbox://styles/mapbox/streets-v11"
             onViewportChange={(viewport) => this.setState({viewport})}
             mapboxApiAccessToken='pk.eyJ1IjoibmlkaGlwYXZ1bHVyaSIsImEiOiJjanRqcGQ3eDEwMWE3M3ltamdzYnlpc2syIn0.Iw2YRzOYRS7mBJNmykVa6g'>
              {this.state.data.map((home,index) => {
