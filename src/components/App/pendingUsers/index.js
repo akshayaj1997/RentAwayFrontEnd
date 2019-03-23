@@ -11,7 +11,7 @@ class PendingUsers extends React.Component{
       }
   }
     onDelete(id){
-      const url = "http://10.10.200.24:9000/homes/users/"+id;
+      const url = "http://localhost:9000/homes/users/"+id;
       let headers = new Headers();
      console.log(url)
       headers.append('Content-Type','application/json');
@@ -46,7 +46,7 @@ class PendingUsers extends React.Component{
     }
    componentDidMount(){
      
-    const url = "http://10.10.200.24:9000/pendingUsers";
+    const url = "http://localhost:9000/pendingUsers";
     let headers = new Headers();
  
     headers.append('Content-Type','application/json');

@@ -14,7 +14,7 @@ class Listings extends React.Component{
       }
   }
     onDelete(id){
-      const url = "http://10.10.200.24:9000/homes/users/"+id;
+      const url = "http://localhost:9000/homes/users/"+id;
       let headers = new Headers();
      console.log(url)
       headers.append('Content-Type','application/json');
@@ -57,7 +57,7 @@ class Listings extends React.Component{
          
         }
         console.log("Listings"+body);
-        const url = "http://10.10.200.24:9000/homelist";
+        const url = "http://localhost:9000/homelist";
         let headers = new Headers();
      
         headers.append('Content-Type','application/json');

@@ -33,7 +33,7 @@ export default class AdminTabs extends React.Component {
 
   componentDidMount() {
      
-    const url = "http://10.10.200.24:9000/pendingListings";
+    const url = "http://localhost:9000/pendingListings";
     // var bearerToken = localStorage.getItem('accessToken');
     //   var accesstoken = 'Bearer ' + bearerToken;
     let headers = new Headers();

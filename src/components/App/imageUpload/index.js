@@ -31,7 +31,7 @@ constructor() {
   _handleSubmit(e) {
     e.preventDefault();
     console.log('handle uploading-', this.state.file);
-    const url = "http://10.10.200.24:9000/images"; 
+    const url = "http://localhost:9000/images"; 
     var bearerToken = localStorage.getItem('accessToken');
     var accesstoken = 'Bearer ' + bearerToken;
     console.log(accesstoken)

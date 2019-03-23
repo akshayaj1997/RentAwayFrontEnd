@@ -62,7 +62,7 @@ class DetailsPage extends Component {
         }
     }
     componentDidMount() {
-        const url = "http://10.10.200.24:9000/homes/" + this.props.match.params.id;
+        const url = "http://localhost:9000/homes/" + this.props.match.params.id;
         let headers = new Headers();
 
         headers.append('Content-Type', 'application/json');
@@ -107,7 +107,7 @@ class DetailsPage extends Component {
         console.log("amenities keys" + this.state.amenities);
         if (this.state.amenities.wifi == true) {
 
-            this.state.output1.push(<i class="fa fa-wifi fa-2x" aria-hidden="true"></i>)
+            this.state.output1.push(<img src={require('./wireless-internet.png')}></img>)
 
             this.state.output.push("Wifi  ");
 
@@ -117,7 +117,7 @@ class DetailsPage extends Component {
 
         if (this.state.amenities.airConditioner == true) {
 
-            this.state.output1.push(<i class="fa fa-snowflake-o fa-2x" aria-hidden="true"></i>)
+            this.state.output1.push(<img src={require('./AC.png')}></img>)
 
             this.state.output.push("Air Conditioner  ");
 
@@ -125,56 +125,56 @@ class DetailsPage extends Component {
 
         }
         if (this.state.amenities.breakfast == true) {
-            this.state.output1.push(<i class="fas fa-utensils fa-2x" aria-hidden="true"></i>)
+            this.state.output1.push(<img src={require('./break.png')}></img>)
 
             this.state.output.push("Breakfast  ");
 
         }
         if (this.state.amenities.fireExtinguisher == true) {
-            this.state.output1.push(<i class="fa fa-fire-extinguisher fa-2x" aria-hidden="true"></i>)
+            this.state.output1.push(<img src={require('./fire.png')}    ></img>)
 
             this.state.output.push("Fire Extinguisher ");
         }
         if (this.state.amenities.firstAidKit == true) {
-            this.state.output1.push(<i class="fa fa-medkit fa-2x" aria-hidden="true"></i>)
+            this.state.output1.push(<img src={require('./first.png')} ></img>)
 
             this.state.output.push("First Aid Kit  ");
         }
         if (this.state.amenities.gym == true) {
-            this.state.output1.push(<i class="fas fa-dumbbell fa-2x" aria-hidden="true"></i>)
+            this.state.output1.push(<img src={require('./gym.png')}></img>)
 
             this.state.output.push("Gym  ");
         }
         if (this.state.amenities.parking == true) {
-            this.state.output1.push(<i class="fa fa-car fa-2x" aria-hidden="true"></i>)
+            this.state.output1.push(<img src={require('./parking.png')} style={{alignSelf:'center'}}></img>)
 
             this.state.output.push("Parking  ");
         }
         if (this.state.amenities.pool == true) {
-            this.state.output1.push(<i class="fas fa-swimmer fa-2x"></i>)
+            this.state.output1.push(<img src={require('./pool.png')}></img>)
 
             this.state.output.push("Pool  ");
         }
         if (this.state.amenities.tv == true) {
-            this.state.output1.push(<i class="fas fa-tv fa-2x" aria-hidden="true"></i>)
+            this.state.output1.push(<img src={require('./tv.png')}></img>)
 
             this.state.output.push("TV  ");
         }
         if (this.state.amenities.workspace == true) {
-            this.state.output1.push(<i class="fa fa-briefcase fa-2x" aria-hidden="true"></i>)
+            this.state.output1.push(<img src={require('./work.png')} ></img>)
 
             this.state.output.push("Work Space  ");
 
         }
         if (this.state.amenities.smokeDetector == true) {
-            this.state.output1.push(<i class="fas fa-smog fa-2x" aria-hidden="true"></i>)
+            this.state.output1.push(<img src={require('./smoke-detector.png')} style={{borderRadius:'100%'}}></img>)
 
             this.state.output.push("Smoke Detector  ");
 
         }
         if (this.state.amenities.noPets == true) {
 
-            this.state.rules1.push(<i class="fas fa-paw fa-2x" aria-hidden="true"></i>)
+            this.state.rules1.push(<img src={require('./pet.png')} ></img>)
 
             this.state.rules.push(" No Pets ");
 
@@ -182,7 +182,7 @@ class DetailsPage extends Component {
 
         }
         if (this.state.amenities.noDrinking == true) {
-            this.state.rules1.push(<i class="fa fa-glass fa-2x" aria-hidden="true"></i>)
+            this.state.rules1.push(<img src={require('./event.png')}></img>)
             this.state.rules.push(" No Drinking  ");
 
 
@@ -190,7 +190,7 @@ class DetailsPage extends Component {
         }
         if (this.state.amenities.noSmoking == true) {
 
-            this.state.rules1.push(<i class="fas fa-smoking fa-2x" aria-hidden="true"></i>)
+            this.state.rules1.push(<img src={require('./smoke.png')}></img>)
 
             this.state.rules.push(" No Smoking  ");
 
@@ -253,7 +253,7 @@ class DetailsPage extends Component {
                                             <div className='listitemsAmen' >
                                                 {this.state.output1[index]}
                                                 <br /> <br />
-                                                {this.state.output[index]}
+                                               <span className='imgcaption'> {this.state.output[index]}</span>
                                             </div>
                                         </li>
                                     )
@@ -272,7 +272,7 @@ class DetailsPage extends Component {
                                         <li key={index} style={{ listStyle: 'none', float: 'left', paddingLeft: '10px', paddingBottom: '10px', paddingRight: '10px', paddingTop: '20px', display: 'inline' }}>
                                             <div className='listitemsAmen' >
                                                 {this.state.rules1[index]}<br />
-                                                <br />
+                                                <br /><br/>
                                                 {this.state.rules[index]}
                                             </div>
 
