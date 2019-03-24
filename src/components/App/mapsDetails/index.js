@@ -7,11 +7,12 @@ class MapsDetails extends Component{
         super(props);
         this.state = {
             viewport: {
-              width: 400,
-              height: 200,
+              width: 750,
+              height: 500,
               latitude: parseFloat(sessionStorage.getItem('LatPlace')),
               longitude: parseFloat(sessionStorage.getItem('LongPlace')),
-              zoom: 8
+              zoom: 12
+
             },
             latitude:parseFloat(sessionStorage.getItem('LatPlace')),
             longitude:parseFloat(sessionStorage.getItem('LongPlace')),
@@ -24,6 +25,7 @@ class MapsDetails extends Component{
       render() {
         return (
           <ReactMapGL
+          mapStyle="mapbox://styles/mapbox/streets-v11"
             {...this.state.viewport}
             onViewportChange={(viewport) => this.setState({viewport})}
             mapboxApiAccessToken='pk.eyJ1IjoibmlkaGlwYXZ1bHVyaSIsImEiOiJjanRqcGQ3eDEwMWE3M3ltamdzYnlpc2syIn0.Iw2YRzOYRS7mBJNmykVa6g'>

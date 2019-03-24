@@ -56,6 +56,7 @@ class Maps extends Component{
           
           <ReactMapGL
             ref={this.mapRef}
+            mapStyle="mapbox://styles/mapbox/streets-v11"
             {...this.state.viewport}
             onClick={this.onMapclick}
             onViewportChange={(viewport) => this.setState({viewport})}
