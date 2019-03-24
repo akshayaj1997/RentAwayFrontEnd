@@ -64,7 +64,7 @@ div .amHr1 {
 
 div .HomenameBox{
     width:42vw;
-    height: 77.5vh;
+    height: 67vh;
     float: left;
     padding-top: 5vh;
     background-color: #e6e6e6;
@@ -72,6 +72,7 @@ div .HomenameBox{
     padding-left: 2vw;
     padding-right: 2vw;
     padding-bottom: 5vh;
+    position: relative;
 }
 .HR {
     padding-left:20px;
@@ -94,8 +95,10 @@ div .HomenameBox{
   }
 
 div .images {
-    width: 55.5vw;
+    width: 1200px;
     float: right;
+    position: absolute;
+    margin-left: 45vw;
     /* height: 750px; */
     
 }

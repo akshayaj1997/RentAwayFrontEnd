@@ -182,8 +182,8 @@ class DetailsPage extends Component {
 
         }
         if (this.state.amenities.noDrinking == true) {
-            this.state.rules1.push(<img src={require('./event.png')}></img>)
-            this.state.rules.push(" No Drinking  ");
+            this.state.rules1.push(<img src={require('./event.png')} style={{height:'120px'}}></img>)
+            this.state.rules.push(" Not Suitable for Events  ");
 
 
 
