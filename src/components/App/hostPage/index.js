@@ -120,7 +120,7 @@ class HostPage extends React.Component{
       }
       console.log("become a host"+body);
       var bearerToken = localStorage.getItem('accessToken');
-      const url = "http://localhost:9000/homes";
+      const url = "http://10.10.200.24:9000/homes";
       var accesstoken = 'Bearer ' + bearerToken;
       console.log(accesstoken);
       let headers = new Headers();
