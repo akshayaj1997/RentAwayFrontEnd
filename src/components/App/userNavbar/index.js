@@ -63,7 +63,7 @@ class UserNavBar extends React.Component {
               <NavItem>
                 <NavLink className="text-black" onClick={this.onClickN} href="http://localhost:3000/hostPage">Become a host</NavLink>
               </NavItem>
-              <UncontrolledDropdown nav inNavbar>
+              <UncontrolledDropdown nav inNavbar className="dropdownWidth">
                 <DropdownToggle nav caret className="text-black">
                   <i class="fa fa-user-o"></i>
                 </DropdownToggle>

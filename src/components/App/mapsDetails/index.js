@@ -9,16 +9,35 @@ class MapsDetails extends Component{
             viewport: {
               width: 750,
               height: 500,
-              latitude: parseFloat(sessionStorage.getItem('LatPlace')),
-              longitude: parseFloat(sessionStorage.getItem('LongPlace')),
+              latitude: parseFloat(this.props.latitude),
+              longitude: parseFloat(this.props.longitude),
               zoom: 12
 
             },
-            latitude:parseFloat(sessionStorage.getItem('LatPlace')),
-            longitude:parseFloat(sessionStorage.getItem('LongPlace')),
+            latitude:parseFloat(this.props.latitude),
+            longitude:parseFloat(this.props.longitude),
           };
           
     }
+
+    componentDidUpdate(prevProps) {
+      if(prevProps.latitude !== this.props.latitude || prevProps.longitude !== this.props.longitude) {
+        this.setState({
+          latitude: this.props.latitude,
+          longitude: this.props.longitude,
+          viewport: {
+            width: 750,
+            height: 500,
+            latitude: parseFloat(this.props.latitude),
+            longitude: parseFloat(this.props.longitude),
+            zoom: 12
+
+          }
+
+        })
+      }
+    }
+
    
     
     

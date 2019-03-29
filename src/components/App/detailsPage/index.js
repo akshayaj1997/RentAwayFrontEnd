@@ -15,6 +15,7 @@ class DetailsPage extends Component {
     constructor(props) {
         super(props);
         this.submitCheckout = this.submitCheckout.bind(this);
+        //this.onLatLongChange=this.onLatLongChange.bind(this);
         this.state = {
             data: [],
             homeId: ' ',
@@ -22,8 +23,8 @@ class DetailsPage extends Component {
             address:' ',
             location: ' ',
             homeName: ' ',
-            latitude1:17.35,
-            longitude1:78.48,
+            latitude1:0,
+            longitude1:0,
             price: ' ',
             toDate: ' ',
             description:'',
@@ -35,16 +36,12 @@ class DetailsPage extends Component {
             imageUrls: [],
             user:[],
             propertyType: '',
-            viewport: {
-                width: 500,
-                height: 200,
-                latitude: 17.3850,
-                longitude: 78.4867,
-                zoom: 8
-              },
+            
            }
 
     }
+
+   
 
     submitCheckout() {
         if (localStorage.getItem('role') === null) {
@@ -61,6 +58,11 @@ class DetailsPage extends Component {
             window.location.assign('http://localhost:3000/checkOut')
         }
     }
+
+
+   
+
+
     componentDidMount() {
         const url = "http://10.10.200.24:9000/homes/" + this.props.match.params.id;
         let headers = new Headers();
@@ -80,16 +82,19 @@ class DetailsPage extends Component {
             .then(response => response.json())
             .then(contents => {
                 console.log("in fetch" + contents);
+                console.log("Long"+contents.longitude)
                 this.setState({
                     data: contents,
                     amenities: contents.amenities,
                     imageUrls: contents.imageUrls,
-                    user: contents.user,
+                    user: contents.user, 
                     latitude1:parseFloat(contents.latitude),
                     longitude1:parseFloat(contents.longitude)
+                   
                 })
-                sessionStorage.setItem("LatPlace",this.state.latitude1)
-                sessionStorage.setItem('LongPlace',this.state.longitude1)
+               
+                // sessionStorage.setItem("LatPlace",this.state.latitude1)
+                // sessionStorage.setItem('LongPlace',this.state.longitude1)
 
             })
             .catch(() => console.log("can't access" + url + "response. "))
@@ -100,11 +105,8 @@ class DetailsPage extends Component {
 
     render() {
 
-        console.log(this.state.data);
-        console.log("location "+typeof parseFloat(this.state.data.latitude))
-        console.log(this.state.amenities);
-        console.log("Images" + this.state.imageUrls)
-        console.log("amenities keys" + this.state.amenities);
+        console.log('lat state'+this.state.longitude1)
+        
         if (this.state.amenities.wifi == true) {
 
             this.state.output1.push(<img src={require('./wireless-internet.png')}></img>)
@@ -233,7 +235,7 @@ class DetailsPage extends Component {
                     <div className="cardD"  >
                     <Card className='HR'>
                             <br />
-                            
+                            <b><h1 style={{ fontSize: '50px' }}>Description</h1></b>
                                 {this.state.data.description}
                             
                         </Card>
@@ -311,7 +313,7 @@ class DetailsPage extends Component {
                         <br/>
                         <i style={{fontSize:'30px',float:'right'}}>{this.state.data.address}</i>
                         <br/>
-                        <MapsDetails/>  
+                        <MapsDetails latitude={this.state.latitude1} longitude={this.state.longitude1}/>  
                         </Card>
                         <hr/>
                         <Card className='HR'>

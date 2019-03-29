@@ -102,7 +102,7 @@ render() {
   let {imagePreviewUrl} = this.state;
       let $imagePreview = null;
       if (imagePreviewUrl) {
-        $imagePreview = (<div><img style={{width:"40%",height:"40%"}} src={imagePreviewUrl} /></div>);
+        $imagePreview = (<div><img style={{width:"50%",height:"50%"}} src={imagePreviewUrl} /></div>);
       } else {
         $imagePreview = (<div className="previewText">Please select an Image for Preview</div>);
       }
@@ -117,7 +117,7 @@ return(
                 <div className="imgPreview" ><br></br>
                   {$imagePreview}
                 </div>
-                <button className="submitButton" type="submit" onClick={(e)=>this._handleSubmit(e)}>Add Image</button><br></br>
+                <button className="submitButton" type="submit" style={{width:'150px',fontWeight:'1000',fontSize:'12px',backgroundColor:''}} onClick={(e)=>this._handleSubmit(e)}>Add Image</button><br></br>
                 <div className="text-center mb-3">
                 <br></br>
                 </div>

@@ -64,11 +64,11 @@ class HostNavBar extends React.Component {
                 <NavLink className="text-black" onClick={this.onClickN} href="http://localhost:3000/hostPage">Add Listing 
                 </NavLink>
               </NavItem>
-              <UncontrolledDropdown nav inNavbar>
+              <UncontrolledDropdown nav inNavbar className='dropdownWidth'>
                 <DropdownToggle nav caret className="text-black">
                   <i class="fa fa-user-o"></i>
                 </DropdownToggle>
-                <DropdownMenu right>
+                <DropdownMenu>
                 <DropdownItem disabled>
                   Hey, {localStorage.getItem('username')}
                   </DropdownItem>

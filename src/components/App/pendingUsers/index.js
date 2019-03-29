@@ -10,8 +10,8 @@ class PendingUsers extends React.Component{
       
       }
   }
-    onDelete(id){
-      const url = "http://10.10.200.24:9000/homes/users/"+id;
+  confirmUser(id){
+      const url = "http://10.10.200.24:9000/users/pending/"+id;
       let headers = new Headers();
      console.log(url)
       headers.append('Content-Type','application/json');
@@ -20,11 +20,11 @@ class PendingUsers extends React.Component{
       headers.append('Access-Control-Allow-origin',url);
       headers.append('Access-Control-Allow-Credentials','true');
    
-     // headers.append('','POST');
+      headers.append('GET','POST','PUT');
    
       fetch(url, {
          headers:headers,
-         method: 'DELETE',
+         method: 'PUT',
          //body: JSON.stringify(body)
       })
       .then(response => {
@@ -65,7 +65,7 @@ class PendingUsers extends React.Component{
       console.log(response.status);
             response.json()
                     .then((responseData)=>{
-                      console.log("User "+responseData[0].user.userId)
+                      
                       this.setState({
                         data: responseData,
                         
@@ -87,7 +87,7 @@ class PendingUsers extends React.Component{
            {this.state.data.map((home,index) => {
      return(
         <li key={index} style={{fontSize:'20px'}}>
-      <i><b>{home.user.username}</b> </i>   <div style={{float:'right'}}><input type='button' style={{backgroundColor:'#FF4C4C',color:'white',fontSize:'16px',fontStyle:'oblique'}} className='listbutton' value='Delete Listing' ></input>  &nbsp; <input type='button' style={{backgroundColor:'#32CD32',color:'white',fontSize:'16px',fontStyle:'oblique'}} className='listbutton' value='Confirm Listing'></input></div>
+      <i><b>{home.user.username}</b> </i>    <input type='button' style={{backgroundColor:'#32CD32',color:'white',fontSize:'16px',fontStyle:'oblique',borderRadius:'10%',height:'30px'}} className='listbutton' value='Confirm' onClick={this.confirmUser.bind(this,home.user.userId)}></input>
         <br/>
         <br/>
          </li>
