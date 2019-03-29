@@ -23,6 +23,7 @@ import SearchResults from "./searchResults";
 import ViewProfile from "./viewProfile";
 import Maps from "./maps";
 import ResultMaps from "./resultsMap";
+import Notifications, {notify} from 'react-notify-toast';
 
 
 class App extends React.Component{
@@ -30,6 +31,9 @@ class App extends React.Component{
    
    render(){
       return (
+         <div>
+        <div> <Notifications />
+        </div>
          <Router>
             <Switch>            
                <Route exact path = "/homePreSignin" component={HomePreSignin}/>
@@ -50,6 +54,7 @@ class App extends React.Component{
             </Switch>
 
          </Router>
+         </div>
       );
       
    }

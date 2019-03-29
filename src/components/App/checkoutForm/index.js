@@ -1,15 +1,19 @@
 import React, {Component} from 'react';
 import CondNavBar from '../condNavbar';
 import './checkout.css';
+import Notifications, {notify} from 'react-notify-toast';
 
 class CheckOut extends Component{
 
   constructor(props){
     super(props);
-    
+    this.onCheckOut=this.onCheckOut.bind(this)
+    this.show = notify.createShowQueue();
   }
 
- 
+ onCheckOut(){
+  this.show('Booking is done','success',100000);
+ }
  
     
     render(){
@@ -74,7 +78,7 @@ class CheckOut extends Component{
     <input type="checkbox" defaultChecked="checked" name="sameadr" /> Shipping address same as billing
   </label>
   <br/>
- <center><input type="submit" value="Continue to checkout" className="btn" /><a href='#'></a></center> 
+ <center><input type="submit" value="Continue to checkout" className="btn" onClick={this.onCheckOut} /></center> 
  
 </form>
 </div>

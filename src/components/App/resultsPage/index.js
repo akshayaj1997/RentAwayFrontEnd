@@ -5,6 +5,8 @@ import SearchFilters from "../filters";
 import './page.css';
 import {createBrowserHistory as createHistory} from 'history';
 import ResultMaps from '../resultsMap';
+import Switch from "react-switch";
+ 
 
 class ResultsPage extends Component {
     //history=createHistory(this.props)
@@ -14,28 +16,53 @@ class ResultsPage extends Component {
             type1: [],
             Amen1: [],
             HR1:  [],
-            Lang1: []
+            Lang1: [],
+            checked:false
         }
+
+        this.handleChange = this.handleChange.bind(this);
     }
-    componentDidMount(){
-        this.setState(this.props.history.location.state)
-        console.log(this.props.history.location.state)
-    
-    }
+    handleChange(checked) {
+        this.setState({ checked });
+        if(this.state.checked){
+            console.log('it is checked '+this.state.checked)
+          
+            
+        }
+      }
+
+   
 
     render() {
+        if(this.state.checked){
+            return(
+                <div className="results">
+                <div className="way">
+                <CondNavBar/>
+                <SearchFilters/>
+                <div style={{float:'right',marginRight:'2vw'}}><span>Show Map</span><Switch onChange={this.handleChange} checked={this.state.checked}/></div>
+               
+                <div style={{width:'50%'}}><SearchResults/></div>
+                <div style={{width:'30%',float:"right",marginRight:'1vw',marginTop:'-380px'}}><ResultMaps/></div>
+                </div>
+            </div>
+           )
+        }
+        else{
         return(
            
             <div className="results">
                 <div className="way">
                 <CondNavBar/>
                 <SearchFilters/>
-                <div style={{width:'50%'}}><SearchResults/></div>
-                <div style={{width:'50%',float:"right",marginRight:'1vw',position:'sticky'}}><ResultMaps/></div>
+                <div style={{float:'right',marginRight:'2vw'}}><span ><a >Show Map</a></span><Switch onChange={this.handleChange} checked={this.state.checked}/></div>
+                <div style={{width:'100%'}}><SearchResults/></div>
+                
                 </div>
             </div>
         )
     }
+}
 }
 
 export default ResultsPage;
