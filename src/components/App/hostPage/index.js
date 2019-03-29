@@ -3,6 +3,7 @@ import "./host.css";
 import Calender from "../Calender";
 import ImageUpload from "../imageUpload";
 import Maps from "../maps";
+import CondNavBar from "../condNavbar";
 
 var currentTab = 0; 
 var x;
@@ -176,9 +177,10 @@ class HostPage extends React.Component{
         return(
             <div>
             <center>
+               
             <section className="bg">
             <div>
-           
+            <CondNavBar/>
             </div></section>
             </center>
             <section>
