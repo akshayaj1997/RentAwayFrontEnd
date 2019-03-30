@@ -12,7 +12,65 @@ class CheckOut extends Component{
   }
 
  onCheckOut(){
-  this.show('Booking is done','success',100000);
+  console.log("entered");
+     
+  let body = { 
+    "homeId": 88,
+      "toDate": "2020-08-31",
+      "fromDate": "2019-03-01"
+   }
+   console.log("become a host"+body);
+   var bearerToken = localStorage.getItem('accessToken');
+   const url = "http://10.10.200.24:9000/booking";
+   var accesstoken = 'Bearer ' + bearerToken;
+   console.log(accesstoken);
+   let headers = new Headers();
+
+   headers.append('Content-Type','application/json');
+   headers.append('Accept','application/json');
+
+   headers.append('Access-Control-Allow-origin',url);
+   headers.append('Access-Control-Allow-Credentials','true');
+
+   headers.append('GET','POST');
+
+   fetch(url, {
+     headers: headers,
+     method: 'POST',
+     withCredentials:true,
+     credentials:'include',
+     headers:{
+       'Authorization':accesstoken,
+       'Content-Type': 'application/json',
+       'Access-Control-Allow-Origin': url
+     },
+     body: JSON.stringify(body) 
+ })
+   .then(response => {
+     console.log(response.status);
+     if(response.status===200)
+         {
+           window.location.reload();
+           localStorage.setItem('role',response.role)
+         }
+         else if(response.status===400){
+           alert("Username already exists");
+           window.location.reload();
+         }
+         else if(response.status===401){
+           alert("Username or password is incorrect");
+           window.location.reload();
+         }
+         else{
+           alert("Unauthorized");
+           window.location.reload();
+         }})
+   .then(contents => {console.log("in fetch"+contents);
+               
+                     
+})
+.catch(()=> console.log("can't access" + url))
+
  }
  
     
@@ -48,6 +106,7 @@ class CheckOut extends Component{
       </div>
     </div>
     <div >
+      
       <h3>Payment</h3>
       <label htmlFor="fname">Accepted Cards</label>
       <div className="icon-container">

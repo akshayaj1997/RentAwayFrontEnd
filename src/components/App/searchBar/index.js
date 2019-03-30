@@ -16,6 +16,10 @@ export default class SearchBar extends Component {
     console.log("location1"+this.state.location1)
   }
 
+  componentDidMount(){
+
+  }
+
   onSearchChange(event){
     this.setState({location1: event},()=> {
     //console.log("location1"+this.state.location1)
@@ -40,6 +44,10 @@ export default class SearchBar extends Component {
     {
       key: 'kolkata',
       value: 'Kolkata',
+    },
+    {
+      key: 'new york',
+      value: 'New York',
     },
   ]
 

@@ -41,9 +41,11 @@ class ResultsPage extends Component {
                 <CondNavBar/>
                 <SearchFilters/>
                 <div style={{float:'right',marginRight:'2vw'}}><span>Show Map</span><Switch onChange={this.handleChange} checked={this.state.checked}/></div>
-               
+                <br></br>
+               <div>
                 <div style={{width:'50%'}}><SearchResults/></div>
-                <div style={{width:'30%',float:"right",marginRight:'1vw',marginTop:'-380px'}}><ResultMaps/></div>
+                <div style={{width:'30%',float:"right",marginRight:'1vw',}}><ResultMaps/></div>
+                </div>
                 </div>
             </div>
            )

@@ -28,6 +28,31 @@ export default class AdminTabs extends React.Component {
   }
 
   onDelete(id){console.log('Delete listing')}
+  onConfirm(id){
+  console.log('Confirm Listing')
+  const url = "http://10.10.200.24:9000/homes/pending/"+parseInt(id);
+  let headers = new Headers();
+ console.log(url)
+
+  fetch(url, {
+     method: 'PUT',
+     
+  })
+  .then(response => {
+    console.log(response.status);
+    if(response.status===401)
+        {
+          alert("Unauthorized");
+          window.location.reload();
+        }
+        })
+        
+  .then(contents => {console.log("in fetch "+contents);
+              
+                    
+})
+.catch(()=> console.log("can't access" + url))
+window.location.reload()}
 
   
 
@@ -127,7 +152,7 @@ export default class AdminTabs extends React.Component {
            {this.state.data.map((home,index) => {
      return(
         <li key={index} style={{fontSize:'20px'}}>
-      <i><b>{home.homeName}</b> </i>  <div style={{float:'right'}}><input type='button' style={{backgroundColor:'#FF4C4C',color:'white',fontSize:'16px',fontStyle:'oblique'}} className='listbutton' value='Delete Listing' onClick={this.onDelete.bind(this,home.homeId)}></input>  &nbsp; <input type='button' style={{backgroundColor:'#32CD32',color:'white',fontSize:'16px',fontStyle:'oblique'}} className='listbutton' value='Confirm Listing' onClick={this.onDelete.bind(this,home.homeId)}></input></div>
+      <i><b>{home.homeName}</b> </i>  <div style={{float:'right'}}><input type='button' style={{backgroundColor:'#FF4C4C',color:'white',fontSize:'16px',fontStyle:'oblique'}} className='listbutton' value='Delete Listing' onClick={this.onDelete.bind(this,home.homeId)}></input>  &nbsp; <input type='button' style={{backgroundColor:'#32CD32',color:'white',fontSize:'16px',fontStyle:'oblique'}} className='listbutton' value='Confirm Listing' onClick={this.onConfirm.bind(this,home.homeId)}></input></div>
         <br/>
         <br/>
          </li>

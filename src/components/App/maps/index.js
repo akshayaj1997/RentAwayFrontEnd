@@ -63,7 +63,7 @@ class Maps extends Component{
             mapboxApiAccessToken='pk.eyJ1IjoibmlkaGlwYXZ1bHVyaSIsImEiOiJjanRqcGQ3eDEwMWE3M3ltamdzYnlpc2syIn0.Iw2YRzOYRS7mBJNmykVa6g'>
              
              <Marker latitude={this.state.latitude} longitude={this.state.longitude} offsetLeft={-20} offsetTop={-10} draggable onDragEnd={this.setLatLng}>
-          <div><i class="fas fa-home"></i></div>
+          <div><i class="fas fa-home fa-2x"></i></div>
           </Marker>
         </ReactMapGL>
         <br/>

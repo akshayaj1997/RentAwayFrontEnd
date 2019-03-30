@@ -8,7 +8,7 @@ class ResultMaps extends Component{
         super(props);
         this.state = {
             viewport: {
-              width: 1100,
+              width:1100,
               height: 1300,
               latitude: 0,
               longitude: 0,
@@ -134,6 +134,8 @@ class ResultMaps extends Component{
         return (
             <div style={{float:'right'}}>
           <ReactMapGL
+          width='60%'
+          height='40%'
             {...this.state.viewport}
             mapStyle="mapbox://styles/mapbox/streets-v11"
             onViewportChange={(viewport) => this.setState({viewport})}

@@ -10,22 +10,18 @@ class PendingUsers extends React.Component{
       
       }
   }
-  confirmUser(id){
-      const url = "http://10.10.200.24:9000/users/pending/"+id;
+  confirmUser(Id){
+    console.log(parseInt(Id))
+      const url = "http://10.10.200.24:9000/users/pending/"+parseInt(Id);
+      console.log(url)
       let headers = new Headers();
      console.log(url)
-      headers.append('Content-Type','application/json');
-      headers.append('Accept','application/json');
+      
    
-      headers.append('Access-Control-Allow-origin',url);
-      headers.append('Access-Control-Allow-Credentials','true');
-   
-      headers.append('GET','POST','PUT');
+     headers.append('POST','PUT');
    
       fetch(url, {
-         headers:headers,
          method: 'PUT',
-         //body: JSON.stringify(body)
       })
       .then(response => {
         console.log(response.status);
@@ -44,6 +40,8 @@ class PendingUsers extends React.Component{
    window.location.reload()
       
     }
+
+
    componentDidMount(){
      
     const url = "http://10.10.200.24:9000/pendingUsers";
@@ -67,9 +65,9 @@ class PendingUsers extends React.Component{
                     .then((responseData)=>{
                       
                       this.setState({
-                        data: responseData,
+                        data: Object.keys(responseData).map((key) => [ key,responseData[key]]),
                         
-                      })                      
+                      })                 
                     })   
                       
  })
@@ -81,19 +79,9 @@ class PendingUsers extends React.Component{
     render(){  
       return( 
         <div className='ViewListings'>
-  
         <ul>
-          <br/>
-           {this.state.data.map((home,index) => {
-     return(
-        <li key={index} style={{fontSize:'20px'}}>
-      <i><b>{home.user.username}</b> </i>    <input type='button' style={{backgroundColor:'#32CD32',color:'white',fontSize:'16px',fontStyle:'oblique',borderRadius:'10%',height:'30px'}} className='listbutton' value='Confirm' onClick={this.confirmUser.bind(this,home.user.userId)}></input>
-        <br/>
-        <br/>
-         </li>
-     )
-  })}
-  </ul>
+        {this.state.data.map((user,index)=>{return(<li key={index} style={{fontSize:'20px'}}><div>{user[0]} &nbsp; {user[1]} &nbsp; <input type='button' style={{backgroundColor:'#32CD32',color:'white',fontSize:'16px',fontStyle:'oblique',borderRadius:'10%',height:'30px'}} className='listbutton' value='Confirm' onClick={this.confirmUser.bind(this,user[0])}></input><br/></div></li>)})}
+        </ul>
    </div>
         
       )

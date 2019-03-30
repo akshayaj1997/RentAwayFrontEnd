@@ -300,7 +300,7 @@ class DetailsPage extends Component {
                                     {
                                         before:new Date()
                                     },
-
+                                    
                                 ]}
                             />
                             
