@@ -8,6 +8,8 @@ import DayPicker from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
 import ReactMapGL,{Marker,Popup} from 'react-map-gl';
 import MapsDetails from '../mapsDetails';
+import CalenderBook from '../CalenderBook';
+
 var print = []
 
 class DetailsPage extends Component {
@@ -290,19 +292,24 @@ class DetailsPage extends Component {
                         <br />
                         <hr />
                         <Card className='HR'>
+                        <div>
                             <h1 style={{fontSize:'50px'}}>Availability</h1>
-                            <DayPicker
+                            {/* { <DayPicker 
                                 disabledDays={[
+
                                     {
                                         after: new Date(this.state.data.toDate),
                                         before:new Date(this.state.data.fromDate)
                                     },
-                                    {
-                                        before:new Date()
-                                    },
                                     
                                 ]}
-                            />
+                            />  */}
+
+                            
+                        <CalenderBook id={this.props.match.params.id} ownerToDate={this.state.data.toDate} ownerFromDate={this.state.data.fromDate}/>
+                      
+                      </div>
+                            
                             
                         </Card>
                         <hr/>

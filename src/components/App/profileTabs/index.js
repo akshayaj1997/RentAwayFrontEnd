@@ -196,6 +196,14 @@ export default class ProfileTabs extends React.Component {
               <h2><b><i>Edit Profile</i></b></h2>
             </NavLink>
           </NavItem>
+          <NavItem>
+            <NavLink
+              className={classnames({ active: this.state.activeTab === '3' })}
+              onClick={() => { this.toggle('3'); this.getProfile();}}
+            >
+              <h2><b><i>Notifications</i></b></h2>
+            </NavLink>
+          </NavItem>
         </Nav>
         <TabContent activeTab={this.state.activeTab}>
           <TabPane tabId="1">
@@ -299,6 +307,11 @@ export default class ProfileTabs extends React.Component {
         <button type="submit">Submit</button>
 </div>
 </form>
+          </TabPane>
+
+          <TabPane tabId="3">
+          Hello,<br></br>
+          These are your Notifications
           </TabPane>
         </TabContent>
         <Button style={{width:'150px',height:'50px',backgroundColor:'rgb(255,255,255,0)',color:'black',float:'right',border:'rgb(255,255,255,0)',paddingTop:'20px'}} href='http://localhost:3000/homePreSignin'><i className='fa fa-home'/> Return to Home Page</Button>

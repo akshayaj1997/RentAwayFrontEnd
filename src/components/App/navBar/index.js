@@ -39,7 +39,8 @@ class NavBar extends React.Component {
       <div>
         <Navbar className="navBar" color="none"  light expand="md" >
           <NavbarBrand className="navBar" href="/">
-          <i class="fab fa-houzz"></i></NavbarBrand>
+          <img src={require('./rentaway.png')} width="75"></img>
+          </NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>

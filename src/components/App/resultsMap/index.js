@@ -1,9 +1,12 @@
 import mapboxgl from 'mapbox-gl';
 import React,{Component} from 'react';
 import ReactMapGL,{Marker,Popup} from 'react-map-gl';
+import Geocoder from 'react-map-gl-geocoder'
 
 var body;
 class ResultMaps extends Component{
+   mapRef = React.createRef()
+  geocoderContainerRef = React.createRef();
     constructor(props) {
         super(props);
         this.state = {
@@ -12,7 +15,7 @@ class ResultMaps extends Component{
               height: 1300,
               latitude: 0,
               longitude: 0,
-              zoom: 2.5
+              zoom: 1
             },
             latitude:0,
             longitude:0,
@@ -132,10 +135,12 @@ class ResultMaps extends Component{
     
       render() {
         return (
-            <div style={{float:'right'}}>
+            <div ref={this.geocoderContainerRef1} style={{float:'right'}}>
+            
           <ReactMapGL
           width='60%'
           height='40%'
+          ref={this.mapRef}
             {...this.state.viewport}
             mapStyle="mapbox://styles/mapbox/streets-v11"
             onViewportChange={(viewport) => this.setState({viewport})}
@@ -156,6 +161,12 @@ class ResultMaps extends Component{
           </a>
           </div>)
           })}
+          <Geocoder
+         containerRef={this.geocoderContainerRef1}
+         mapRef={this.mapRef}
+         onViewportChange={(viewport) => this.setState({viewport})}
+         mapboxApiAccessToken='pk.eyJ1IjoibmlkaGlwYXZ1bHVyaSIsImEiOiJjanRqcGQ3eDEwMWE3M3ltamdzYnlpc2syIn0.Iw2YRzOYRS7mBJNmykVa6g'
+       />
         </ReactMapGL>
         </div>
         );

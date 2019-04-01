@@ -43,8 +43,8 @@ class ResultsPage extends Component {
                 <div style={{float:'right',marginRight:'2vw'}}><span>Show Map</span><Switch onChange={this.handleChange} checked={this.state.checked}/></div>
                 <br></br>
                <div>
-                <div style={{width:'50%'}}><SearchResults/></div>
-                <div style={{width:'30%',float:"right",marginRight:'1vw',}}><ResultMaps/></div>
+               <br/>
+                <div style={{width:'30%',float:"right",marginRight:'3vw',marginLeft:'3vw'}}><ResultMaps/></div>
                 </div>
                 </div>
             </div>
