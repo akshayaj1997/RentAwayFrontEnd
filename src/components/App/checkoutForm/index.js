@@ -4,13 +4,20 @@ import './checkout.css';
 import Notifications, {notify} from 'react-notify-toast';
 import moment from 'moment';
 import { Card } from 'reactstrap';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 class CheckOut extends Component{
 
   constructor(props){
     super(props);
     this.onCheckOut=this.onCheckOut.bind(this)
-    this.show = notify.createShowQueue();
+    this.notify=this.notify.bind(this)
   }
+
+  notify() {
+    toast("Wow so easy !");
+  }
+  
 
  onCheckOut(){
   console.log("entered");
@@ -72,9 +79,11 @@ class CheckOut extends Component{
 })
 .catch(()=> console.log("can't access" + url))
 
+toast('Booking Complete')
 
  }
  
+
     
     render(){
         
@@ -172,7 +181,6 @@ Cancel within 48 hours of booking to get a full refund.
 
 </Card>
    </div>
-   
  </div>
             )
     }

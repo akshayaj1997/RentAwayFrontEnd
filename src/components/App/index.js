@@ -23,8 +23,8 @@ import SearchResults from "./searchResults";
 import ViewProfile from "./viewProfile";
 import Maps from "./maps";
 import ResultMaps from "./resultsMap";
-import ReactNotification from "react-notifications-component";
-import "react-notifications-component/dist/theme.css";
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 class App extends React.Component{
 
@@ -38,6 +38,7 @@ class App extends React.Component{
       return (
          <div>
         <div> 
+        <ToastContainer />
         </div>
          <Router>
             <Switch>            
