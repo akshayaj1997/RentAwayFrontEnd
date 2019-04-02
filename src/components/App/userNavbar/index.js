@@ -31,8 +31,27 @@ class UserNavBar extends React.Component {
     });
   }
   SignOut(){
-    localStorage.clear();
-    window.location.assign("http://localhost:3000/homePreSignin");
+    const url = "http://10.10.200.24:9000/users/signout";
+    var bearerToken = localStorage.getItem('accessToken');
+    var accesstoken = 'Bearer ' + bearerToken;
+    console.log(accesstoken)
+  
+
+    fetch(url, {
+      
+        method: 'PUT',
+        withCredentials:true,
+        credentials:'include',
+        headers:{
+       'Authorization':accesstoken,
+     },
+    })
+        .then(response => response.json())
+        
+        .catch(() => console.log("can't access" + url + "response. "))
+
+        window.location.assign("http://localhost:3000/homePreSignin");
+        localStorage.clear();
   }
 
   render() {

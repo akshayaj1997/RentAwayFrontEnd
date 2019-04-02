@@ -1,29 +1,51 @@
 import React,{Component} from 'react';
 import DayPicker,{DateUtils} from 'react-day-picker';
+import moment from 'moment';
 
+ var data=[];
+ 
 class CalenderBook extends Component {
+
+    static defaultProps = {
+        numberOfMonths: 2,
+      };
+
+
     constructor(props) {
         super(props);
-        this.state={
-            data:[],
-            var:{
-                from:undefined,
-                to:undefined
-            }
-          
-        }
-        this.handleDayClick = this.handleDayClick.bind(this);
-        this.handleResetClick = this.handleResetClick.bind(this);
+         super(props);
+    this.handleDayClick = this.handleDayClick.bind(this);
+    this.handleResetClick = this.handleResetClick.bind(this);
+    this.state = this.getInitialState();
     }
     
+    getInitialState() {
+        return {
+          from: undefined,
+          to: undefined,
+        };
+      }
 
-    handleDayClick(day) {
-        const range = DateUtils.addDayToRange(day, this.state.var);
-        this.setState(range);
-      }
-      handleResetClick() {
-        this.setState(this.getInitialState());
-      }
+ handleDayClick(day) {
+    const range = DateUtils.addDayToRange(day, this.state);
+    this.setState(range);
+    console.log(range.from)
+    console.log('to'+range.to)
+     var dateObj1 = new Date(range.to);
+    var momentObj1 = moment(dateObj1);
+    var momentString1 = momentObj1.format('YYYY-MM-DD');
+    sessionStorage.setItem('bookToDate',momentString1)
+    var dateObj2 = new Date(range.from);
+    var momentObj2 = moment(dateObj2);
+    var momentString2 = momentObj2.format('YYYY-MM-DD');
+    sessionStorage.setItem('bookFromDate',momentString2)
+    sessionStorage.setItem('homeid',this.props.id)
+  }
+  handleResetClick() {
+    this.setState(this.getInitialState());
+    sessionStorage.removeItem('bookToDate')
+    sessionStorage.removeItem('bookFromDate')
+  }
 
     componentDidMount() {
         const url = "http://10.10.200.24:9000/bookingsByHome/" + this.props.id;
@@ -44,11 +66,8 @@ class CalenderBook extends Component {
             .then(response => response.json())
             .then(contents => {
                 console.log("in fetch" + contents);
-                this.setState({
-                    data: contents,
-                 
-                })
-                console.log("data"+this.state.data)
+                data=contents;
+                console.log("data"+data)
                
                 // sessionStorage.setItem("LatPlace",this.state.latitude1)
                 // sessionStorage.setItem('LongPlace',this.state.longitude1)
@@ -58,59 +77,67 @@ class CalenderBook extends Component {
     }
 
     render(){
-        const { from, to } = this.state.var;
+        const { from, to } = this.state;
         const modifiers = { start: from, end: to };
         console.log("ownerToDate"+this.props.ownerToDate);
         console.log(this.props.ownerFromDate);
-        if(this.state.data)
+        console.log('length of data '+data.length)
+        if(data.length != 0)
         { 
-        return(
+            console.log("2")
+            return(
        
-       <div>
-            {this.state.data.map((home, index) => {
-               
-
-                return (
-                    <div>
-                   <center>
+                     <div>
+                    {data.map((home) => {
+                        return (
+                                     <div>
+                                    <center>
                        
-                     <DayPicker 
-                     selectedDays={[from, { from, to }]}
-                     disabledDays={[
-                         new Date(home.toDate),
-                         new Date(home.fromDate),
-                         {
-                            after: new Date(this.props.ownerToDate),
-                            before:new Date(this.props.ownerFromDate)
-                        },
+                                    <DayPicker 
+                                    className="Selectable"
+                                    numberOfMonths={this.props.numberOfMonths}
+                                    selectedDays={[from, { from, to }]}
+                                    disabledDays={[
+                                                    new Date(home.toDate),
+                                                    new Date(home.fromDate),
+                                                    {
+                                                        after: new Date(this.props.ownerToDate),
+                                                        before:new Date(this.props.ownerFromDate)
+                                                    },
                          
-                         {
-                             after: new Date(home.fromDate),
-                             before:new Date(home.toDate)
-                         },
+                                                     {
+                                                        after: new Date(home.fromDate),
+                                                        before:new Date(home.toDate)
+                                                    },
                          
-                     ]}
-                     modifiers={modifiers}
-                     onDayClick={this.handleDayClick}
-                 />
-                     </center>                               
-                 </div> 
-                )
+                                                ]}
+                                    modifiers={modifiers}
+                                    onDayClick={this.handleDayClick}
+                                />
+                                
+                                </center>                               
+                                </div> 
+                                 )
            
             })}  
             </div>
-    
+
        )
+      
     }
-    else{
+    else
+    {
+        console.log("1")
         return(
            
                           <div>
-                              <center>  
+                        <center>  
                           <DayPicker 
-                  
+                             className="Selectable"
+                             numberOfMonths={this.props.numberOfMonths}
+                             selectedDays={[from, { from, to }]}
                           
-                          disabledDays={[
+                            disabledDays={[
                               
                               {
                                  after: new Date(this.props.ownerToDate),
@@ -120,19 +147,17 @@ class CalenderBook extends Component {
                              
                               
                           ]}
+                          modifiers={modifiers}
 
                           onDayClick={this.handleDayClick}
                       />
-                          </center>                               
+                      
+                    </center>                               
                       </div> 
                      )
                 
-                 } 
-               
-         
-            
-    }
-      
+                 }        
+    }  
 }
 
 

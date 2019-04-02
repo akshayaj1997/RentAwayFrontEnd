@@ -23,16 +23,21 @@ import SearchResults from "./searchResults";
 import ViewProfile from "./viewProfile";
 import Maps from "./maps";
 import ResultMaps from "./resultsMap";
-import Notifications, {notify} from 'react-notify-toast';
-
+import ReactNotification from "react-notifications-component";
+import "react-notifications-component/dist/theme.css";
 
 class App extends React.Component{
 
+   constructor(props) {
+      super(props);
+     
+    }
+  
    
    render(){
       return (
          <div>
-        <div> <Notifications />
+        <div> 
         </div>
          <Router>
             <Switch>            

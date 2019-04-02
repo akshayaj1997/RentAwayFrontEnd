@@ -9,6 +9,7 @@ import 'react-day-picker/lib/style.css';
 import ReactMapGL,{Marker,Popup} from 'react-map-gl';
 import MapsDetails from '../mapsDetails';
 import CalenderBook from '../CalenderBook';
+import BookModal from '../bookModal';
 
 var print = []
 
@@ -17,6 +18,7 @@ class DetailsPage extends Component {
     constructor(props) {
         super(props);
         this.submitCheckout = this.submitCheckout.bind(this);
+        this.onClickB=this.onClickB.bind(this);
         //this.onLatLongChange=this.onLatLongChange.bind(this);
         this.state = {
             data: [],
@@ -46,6 +48,7 @@ class DetailsPage extends Component {
    
 
     submitCheckout() {
+        
         if (localStorage.getItem('role') === null) {
 
             var modal = document.getElementById('id01');
@@ -95,8 +98,10 @@ class DetailsPage extends Component {
                    
                 })
                
-                // sessionStorage.setItem("LatPlace",this.state.latitude1)
-                // sessionStorage.setItem('LongPlace',this.state.longitude1)
+                sessionStorage.setItem("Price",this.state.data.price)
+                sessionStorage.setItem("Type",this.state.data.propertyType)
+                sessionStorage.setItem("Name",this.state.data.homeName)
+               
 
             })
             .catch(() => console.log("can't access" + url + "response. "))
@@ -218,7 +223,7 @@ class DetailsPage extends Component {
                     <i style={{ fontSize: '66px' }}>{this.state.data.homeName}
                     </i>
                 </div>
-                <div className="images"><UncontrolledCarousel indicators={false} items={[
+                <div className="images" style={{zIndex:'0'}}><UncontrolledCarousel indicators={false} items={[
                     {
                         src: this.state.imageUrls[0],
                         
@@ -294,19 +299,17 @@ class DetailsPage extends Component {
                         <Card className='HR'>
                         <div>
                             <h1 style={{fontSize:'50px'}}>Availability</h1>
-                            {/* { <DayPicker 
-                                disabledDays={[
-
-                                    {
-                                        after: new Date(this.state.data.toDate),
-                                        before:new Date(this.state.data.fromDate)
-                                    },
-                                    
-                                ]}
-                            />  */}
-
-                            
-                        <CalenderBook id={this.props.match.params.id} ownerToDate={this.state.data.toDate} ownerFromDate={this.state.data.fromDate}/>
+    
+                            <Button style={{
+                        width: '20%',
+                        padding: '10px 30px',
+                        marginRight: '15px',
+                        backgroundColor: 'white',
+                        color:'purple',
+                        border:'none'                    
+                    }} onClick={this.onClickB}><h4>Show Calender</h4>
+                    <BookModal id={this.props.match.params.id} bookOwnerToDate={this.state.data.toDate} bookOwnerFromDate={this.state.data.fromDate}/></Button>
+                       
                       
                       </div>
                             
@@ -349,6 +352,7 @@ class DetailsPage extends Component {
                         <br /> <br /> <br /> <br />
                     </div>
                 </div>
+           
 
                 <div className="fixed-footer">
 
@@ -360,13 +364,22 @@ class DetailsPage extends Component {
                         backgroundColor: '#f44336',
                         float: 'right',
                         borderRadius:'10%'
-                    }} onClick={this.submitCheckout}><h4>Book</h4></Button>
+                    }} onClick={this.onClickB}><h4>Book</h4>
+                    <BookModal id={this.props.match.params.id} bookOwnerToDate={this.state.data.toDate} bookOwnerFromDate={this.state.data.fromDate}/></Button>
                     <i style={{ float: 'right', marginRight: '30px', marginTop: '20px' }}>  &#8377;{this.state.data.price}/ night</i>
-                </div>
-
+                                 </div>
+                                
             </div>
         )
     }
+
+    onClickB(event) {
+        var modal = document.getElementById('id01');
+        modal.style.display = "block";
+       
+      }
 }
+
+
 
 export default DetailsPage;

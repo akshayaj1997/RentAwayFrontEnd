@@ -1,5 +1,5 @@
 div .CheckImg {
-  background-image:url("./Checkout.jpg");
+  
   background-repeat: no-repeat;
     background-position: cover;
   background-size: cover;
@@ -11,6 +11,11 @@ div .CheckImg {
 }
 label{
     font-size: 7px;
+}
+
+div .check{
+  width: 30%;
+  border: black;
 }
 .name
 {
@@ -28,6 +33,7 @@ label{
 div .boxC {
   margin-top: 30px;
   margin-left: 40px;
+  border: black;
 
 }
 .name1
@@ -97,4 +103,13 @@ border-radius:5px;
 {
 background-color:white;
   color: #f94141;
+}
+
+.blockC{
+  
+  padding-bottom: 10px;
+  border-radius: 6%;
+  padding-left: 10px; 
+  align-content: center;
+  
 }

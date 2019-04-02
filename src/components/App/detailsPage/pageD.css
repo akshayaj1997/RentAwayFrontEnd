@@ -67,7 +67,7 @@ div .HomenameBox{
     height: 67vh;
     float: left;
     padding-top: 5vh;
-    background-color: #e6e6e6;
+    background-color: white;
     margin-left: 20px;
     padding-left: 2vw;
     padding-right: 2vw;
@@ -95,11 +95,11 @@ div .HomenameBox{
   }
 
 div .images {
-    width: 1200px;
+    width: 1400px;
     float: right;
     position: absolute;
-    margin-left: 45vw;
-    /* height: 750px; */
+    margin-left: 43vw;
+    margin-right: 2vw;
     
 }
 
