@@ -374,7 +374,7 @@ class DetailsPage extends Component {
     }
 
     onClickB(event) {
-        var modal = document.getElementById('id01');
+        var modal = document.getElementById('id07');
         modal.style.display = "block";
        
       }

@@ -88,7 +88,7 @@ class CalenderBook extends Component {
             return(
        
                      <div>
-                    {data.map((home) => {
+                     {data.map((home) => {
                         return (
                                      <div>
                                     <center>
@@ -97,6 +97,7 @@ class CalenderBook extends Component {
                                     className="Selectable"
                                     numberOfMonths={this.props.numberOfMonths}
                                     selectedDays={[from, { from, to }]}
+                                    
                                     disabledDays={[
                                                     new Date(home.toDate),
                                                     new Date(home.fromDate),
@@ -117,9 +118,9 @@ class CalenderBook extends Component {
                                 
                                 </center>                               
                                 </div> 
-                                 )
+   )
            
-            })}  
+})}    
             </div>
 
        )

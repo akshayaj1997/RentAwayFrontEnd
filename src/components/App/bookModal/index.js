@@ -20,7 +20,7 @@ class BookModal extends Component {
        
         if (localStorage.getItem('role') === null) {
 
-            var modal = document.getElementById('id01');
+            var modal = document.getElementById('id02');
             modal.style.display = "block";
             return (
                 <LoginModal />
@@ -42,7 +42,7 @@ class BookModal extends Component {
         return (
             <div>
                 
-  <div id="id01" className="modal">
+  <div id="id07" className="modal">
   <div className="modal-content animate" >
     <button
           onClick={this.onClickN}
@@ -62,7 +62,7 @@ class BookModal extends Component {
 )
 }
 onClickN(event) {
-  var modal = document.getElementById('id01');
+  var modal = document.getElementById('id07');
         modal.style.display = "none";
 }
 
