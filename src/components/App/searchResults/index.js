@@ -3,6 +3,7 @@ import './results.css';
 //import ImageCarousel from '../imageCarousel';
 import {createBrowserHistory as createHistory} from 'history';
 import { UncontrolledCarousel } from 'reactstrap';
+import './no.jpg'
 
 var body;
 var items;
@@ -119,17 +120,30 @@ class SearchResults extends Component {
         .then(contents => {console.log("in fetch"+contents);
                           this.setState({
                              data:contents
+                            
                           })
      })
      .catch(()=> console.log("can't access" + url + "response. "))
      }
      
         render() {  
-
+         console.log("results data"+this.state.data);
+         if(!this.state.data)
+         {
+            console.log("Entered loop 1")
+            return(
+             <center>
+               <div className = "backg"></div>
+               </center>
+            )
+         }
+         else
+         {
+            console.log("Entered loop 2")
             return (
                <div>
                   <ul>
-                     
+                  
                      {this.state.data.map((home,index) => {
                const id = `${home.homeId}`
                // const path= `/detailsPage/`+id
@@ -169,6 +183,7 @@ class SearchResults extends Component {
             </ul>
              </div>
                 )
+         }
         }
 }
 

@@ -3,11 +3,19 @@ import React from "react";
 //import {Navbar, Nav, NavItem, NavDropdown,MenuItem} from 'react-bootstrap';
 //import NavBar from "../NavBar";
 import Image from "../image"
-//import SignUp from "../signUp";
-//import SignUpModal from '../signUpModal';
+import { toast, ToastContainer } from "react-toastify";
 
+import 'react-toastify/dist/ReactToastify.css';
 class HomePreSignin extends React.Component{
   componentDidMount(){
+    if(sessionStorage.getItem("Name")) {
+      toast("Booking for "+sessionStorage.getItem("Name")+" has been done",{
+        position: toast.POSITION.BOTTOM_LEFT,
+        
+      }
+      );
+      sessionStorage.removeItem("Name")
+    }
     sessionStorage.removeItem('price');
     sessionStorage.removeItem('propertyType');
     sessionStorage.removeItem('amenities');
@@ -17,6 +25,7 @@ class HomePreSignin extends React.Component{
     render(){
       return( 
         <div>
+          <ToastContainer/>
         <Image/>  
         </div>
         

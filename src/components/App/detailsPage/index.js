@@ -32,6 +32,7 @@ class DetailsPage extends Component {
             price: ' ',
             toDate: ' ',
             description:'',
+            rating:'',
             amenities: [],
             output: [],
             output1: [],
@@ -242,25 +243,30 @@ class DetailsPage extends Component {
                     <br/>
                     
                     <Button style={{
-                        width: '35%',
-                        padding: '10px 30px',
-                        marginRight: '15px',
+                        width: '20%',
+                        padding: '5px 5px',
+                        marginLeft: '2px',
                         backgroundColor: 'white',
                        display:'inline',
                         borderRadius:'10%',
                         color:'purple',
                         border:'0px',
+                        float:'left'
 
                     }} onClick={this.report} ><h4><i class="fa fa-flag-o" aria-hidden="true"></i>  Report this Listing</h4></Button>
                     <br/>
                     <br/>
                     <br/>
-                    <ReactStars
+                    <div style={{paddingLeft:'20px'}}>
+                       
+                        <ReactStars
                         count={5}
-                        value={4}
+                        value={parseFloat(this.state.data.rating)}
                         size={24}
                         edit={false}
                         color2={'purple'} />
+                        </div>
+                    
 
 
                 </div>

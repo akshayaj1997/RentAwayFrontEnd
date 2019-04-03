@@ -101,7 +101,10 @@ class LoginModal extends Component {
         console.log(error);
         });
      
-      
+      if(localStorage.getItem('role')==='ADMIN'){
+        console.log("Hello")
+        window.location.assign('http://localhost:3000/admin')
+      }
     }
 
     render() {

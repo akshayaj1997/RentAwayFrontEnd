@@ -2,6 +2,7 @@ import React from 'react';
 import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
 import classnames from 'classnames';
 import Listings from '../listings';
+import Ratings from '../rating';
 
 export default class ProfileTabs extends React.Component {
   constructor(props) {
@@ -310,8 +311,7 @@ export default class ProfileTabs extends React.Component {
           </TabPane>
 
           <TabPane tabId="3">
-          Hello,<br></br>
-          These are your Notifications
+          <Ratings/>
           </TabPane>
         </TabContent>
         <Button style={{width:'150px',height:'50px',backgroundColor:'rgb(255,255,255,0)',color:'black',float:'right',border:'rgb(255,255,255,0)',paddingTop:'20px'}} href='http://localhost:3000/homePreSignin'><i className='fa fa-home'/> Return to Home Page</Button>

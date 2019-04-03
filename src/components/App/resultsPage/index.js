@@ -6,7 +6,7 @@ import './page.css';
 import {createBrowserHistory as createHistory} from 'history';
 import ResultMaps from '../resultsMap';
 import Switch from "react-switch";
- 
+ import MapFilters from '../mapFilters';
 
 class ResultsPage extends Component {
     //history=createHistory(this.props)
@@ -39,7 +39,7 @@ class ResultsPage extends Component {
                 <div className="results">
                 <div className="way">
                 <CondNavBar/>
-                <SearchFilters/>
+              <MapFilters/>
                 <div style={{float:'right',marginRight:'2vw'}}><span>Show Map</span><Switch onChange={this.handleChange} checked={this.state.checked}/></div>
                 <br></br>
                <div>

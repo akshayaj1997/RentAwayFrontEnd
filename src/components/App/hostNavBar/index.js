@@ -108,10 +108,17 @@ class HostNavBar extends React.Component {
                   <p className='ep'><i class="fa fa-user-plus"/>View Profile</p>
                   </NavLink>
                   </NavItem>
+                  <NavItem >
+                  <NavLink href="./profile" >
+                  <p className='ep'><i class="fa fa-close"/>Remove Listings</p>
+                  </NavLink>
+                  </NavItem>
                 
-                  <DropdownItem>
-                    <i class="fa fa-close"></i>Remove Listings
-                  </DropdownItem>
+                  <NavItem >
+                  <NavLink href="./profile" >
+                  <p className='ep'><i class="fa fa-bell" aria-hidden="true"></i>Notifications</p>
+                  </NavLink>
+                  </NavItem>
                   <DropdownItem divider />
                   <DropdownItem>
                   <div onClick={this.SignOut}>

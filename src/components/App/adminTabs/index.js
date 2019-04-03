@@ -5,6 +5,7 @@ import Listings from '../listings';
 import './admin.css'
 import CondNavBar from '../condNavbar';
 import PendingUsers from '../pendingUsers';
+import ReportList from '../listingReports';
 
 export default class AdminTabs extends React.Component {
   constructor(props) {
@@ -165,7 +166,7 @@ window.location.reload()}
           <PendingUsers/>
           </TabPane>
           <TabPane tabId="3">
-          <br/> Hello
+          <br/> <ReportList/>
           </TabPane>
         </TabContent>
         <Button style={{width:'150px',height:'50px',backgroundColor:'rgb(255,255,255,0)',color:'black',float:'right',border:'rgb(255,255,255,0)',paddingTop:'20px'}} href='http://localhost:3000/homePreSignin'><i className='fa fa-home'/> Return to Home Page</Button>

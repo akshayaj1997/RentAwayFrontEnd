@@ -82,34 +82,39 @@ class CheckOut extends Component{
             <CondNavBar/>
             <div className='boxC'>
             <form>
-                <div class="aaa" style={{border:'1px solid #D3D3D3'}}>
+                <div class="aaaa" style={{border:'1px solid #D3D3D3'}}>
                     <form action="/action_page.php">
   <div>
   
     <div style={{paddingTop:'5px'}}>
       <br/>
-      <h3>Payment</h3>
-      <label htmlFor="fname">Accepted Cards</label>
+      <h1>Payment</h1>
+      <label htmlFor="fname"><h3>Accepted Cards</h3></label>
       <div className="icon-container">
-        <i className="fa fa-cc-visa" style={{color: 'navy'}} />
-        <i className="fa fa-cc-amex" style={{color: 'blue'}} />
-        <i className="fa fa-cc-mastercard" style={{color: 'red'}} />
-        <i className="fa fa-cc-discover" style={{color: 'orange'}} />
+        <i className="fa fa-cc-visa fa-2x" style={{color: 'navy'}} /> &nbsp;
+        <i className="fa fa-cc-amex fa-2x" style={{color: 'blue'}} /> &nbsp;
+        <i className="fa fa-cc-mastercard fa-2x" style={{color: 'red'}} /> &nbsp;
+        <i className="fa fa-cc-discover fa-2x" style={{color: 'orange'}} /> &nbsp;
       </div>
-      <label htmlFor="cname">Name on Card</label>
+      <label htmlFor="cname"><h3>Name on Card</h3></label>
       <input type="text" id="cname" name="cardname" placeholder="Name on Card" required />
-      <label htmlFor="ccnum">Credit card number</label>
-      <input type="text" id="ccnum" name="cardnumber" placeholder=" " required />
-      <label htmlFor="expmonth">Exp Month</label>
-      <input type="text" id="expmonth" name="expmonth" placeholder=" " required/>
+      <label htmlFor="ccnum"><h3>Credit card number</h3></label>
+      <input type="number" id="ccnum" name="cardnumber" placeholder="Card Number " required style={{border:'0.5px solid #D3D3D3',width:'100%',height:'40px'}}/>
+      <br/>
+      <br/>
       <div >
         <div>
-          <label htmlFor="expyear">Exp Year</label>
-          <input type="text" id="expyear" name="expyear"  required/>
+        <label htmlFor="expmonth"><h5>Exp Month  </h5></label> &nbsp;
+      <input type="number" id="number" name="expmonth" min={1} max={12} placeholder=" " required style={{border:'0.5px solid #D3D3D3',width:'10%',padding:'2px'}}/>
+         <div style={{float:'right',marginRight:'30%'}}>
+          <label htmlFor="expyear"><h5>Exp Year  </h5></label> &nbsp;
+          <input type="number" id="expyear" name="expyear" min={2008} max={2035} required style={{border:'0.5px solid #D3D3D3',width:'40%',padding:'2px'}}/>
+          </div>
         </div>
+        <br/>
         <div>
-          <label htmlFor="cvv">CVV</label>
-          <input type="text" id="cvv" name="cvv"  required/>
+          <label htmlFor="cvv"><h3>CVV</h3></label> &nbsp;
+          <input type="password" id="number" name="cvv" style={{border:'0.5px solid #D3D3D3',width:'10%',padding:'2px'}} required/>
         </div>
       </div>
     </div>

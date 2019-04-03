@@ -86,4 +86,12 @@ a {
       list-style-type: none;
       align-content: center;
     }
+
+    .backg{
+      background-image: url("./no.jpg");
+      background-repeat: no-repeat;
+      height:40vh;
+      width:80vh;
+      background-position: center; 
+    }
     

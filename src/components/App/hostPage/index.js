@@ -99,6 +99,7 @@ class HostPage extends React.Component{
     }
 
     onClickSubmit(e){
+      e.preventDefault();
         console.log("entered");
      
      let body = {
@@ -150,16 +151,19 @@ class HostPage extends React.Component{
         console.log(response.status);
         if(response.status===200)
             {
+              alert("Successfully Home is registered")
               window.location.reload();
               localStorage.setItem('role',response.role)
             }
             else if(response.status===400){
               alert("Username already exists");
               window.location.reload();
+             
             }
             else if(response.status===401){
               alert("Username or password is incorrect");
               window.location.reload();
+            
             }
             else{
               alert("Unauthorized");

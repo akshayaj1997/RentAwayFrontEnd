@@ -15,6 +15,10 @@ class  CondNavBar extends React.Component{
         {
             return(<HostNavBar/>)
         }
+        else if(localStorage.getItem('role')==='ADMIN')
+        {
+            return(<HostNavBar/>)
+        }
        else {
            return(<NavBar/>)
        }

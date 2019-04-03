@@ -2,6 +2,7 @@ import React,{ Component } from 'react';
 import './index.css';
 import LoginModal from '../loginModal';
 
+var passw=  /^[A-Za-z]\w{7,15}$/;
 class SignUpModal extends Component {
     constructor(){
         super();
@@ -9,11 +10,13 @@ class SignUpModal extends Component {
         this.onClickN=this.onClickN.bind(this);
         this.handleUname=this.handleUname.bind(this);
         this.handlePassword=this.handlePassword.bind(this);
+        this.handleRePassword=this.handleRePassword.bind(this);
         this.handleEmail=this.handleEmail.bind(this);
         this.signUp=this.signUp.bind(this);
         this.state = { 
           username: ' ',
           password:' ',
+          repassword:' ',
           email:' ',
          
         }
@@ -29,6 +32,13 @@ class SignUpModal extends Component {
         password: e.target.value
       })
     }
+
+    handleRePassword(e) {
+      this.setState({
+        repassword: e.target.value
+      })
+    }
+
     handleEmail(e) {
       this.setState({
         email: e.target.value
@@ -38,6 +48,19 @@ class SignUpModal extends Component {
     signUp(e){
       //this.setState({Amen1:this.props.history.location.state.Amen1})
      // e.preventDefault();
+     
+if(!this.state.password.match(passw)) 
+{ 
+alert('Not a strong password. Input 7 to 15 characters which contain only characters, numeric digits, underscore and first character must be a letter')
+e.preventDefault();
+}
+
+else if(!this.state.password.match(this.state.repassword)){
+  alert("The passwords don't match");
+  e.preventDefault();
+}
+else{
+
       console.log("after submit"+this.state.password)
      let body = {
 
@@ -91,8 +114,9 @@ class SignUpModal extends Component {
                         
    })
    .catch(()=> console.log("can't access" + url + "response. "))
+  }
    
-    }
+}
 
     render() {
         return (
@@ -147,6 +171,7 @@ class SignUpModal extends Component {
           type="password"
           placeholder="Re-enter Password"
           name="repsw"
+          onChangeCapture={this.handleRePassword}
           required
         />
         <button type="submit">Submit</button>

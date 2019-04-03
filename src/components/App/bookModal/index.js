@@ -64,6 +64,7 @@ class BookModal extends Component {
 onClickN(event) {
     console.log("working")
     document.getElementById('id07').style.display="none";
+    window.location.reload();
 }
 
 // onClickB(event) {
