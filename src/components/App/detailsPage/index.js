@@ -10,7 +10,7 @@ import ReactMapGL,{Marker,Popup} from 'react-map-gl';
 import MapsDetails from '../mapsDetails';
 import CalenderBook from '../CalenderBook';
 import BookModal from '../bookModal';
-
+import ReactStars from 'react-stars'
 var print = []
 
 class DetailsPage extends Component {
@@ -42,10 +42,26 @@ class DetailsPage extends Component {
             propertyType: '',
             
            }
-
+     this.report=this.report.bind(this);
     }
 
-   
+    report(){
+        const url = "http://10.10.200.24:9000/homes/report/"+this.props.match.params.id;
+        let headers = new Headers();
+        var bearerToken = localStorage.getItem('accessToken');
+         var accesstoken = 'Bearer ' + bearerToken;
+       console.log(url)
+      
+        fetch(url, {
+           method: 'PUT',
+           headers:{
+            'Authorization':accesstoken,
+           }
+        })
+            .then(response => response.json())
+            .catch(() => console.log("can't access " + url + "response. "))
+    
+       }
 
     submitCheckout() {
         
@@ -222,6 +238,31 @@ class DetailsPage extends Component {
                     <br />
                     <i style={{ fontSize: '66px' }}>{this.state.data.homeName}
                     </i>
+                    <br/>
+                    <br/>
+                    
+                    <Button style={{
+                        width: '35%',
+                        padding: '10px 30px',
+                        marginRight: '15px',
+                        backgroundColor: 'white',
+                       display:'inline',
+                        borderRadius:'10%',
+                        color:'purple',
+                        border:'0px',
+
+                    }} onClick={this.report} ><h4><i class="fa fa-flag-o" aria-hidden="true"></i>  Report this Listing</h4></Button>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <ReactStars
+                        count={5}
+                        value={4}
+                        size={24}
+                        edit={false}
+                        color2={'purple'} />
+
+
                 </div>
                 <div className="images" style={{zIndex:'0'}}><UncontrolledCarousel indicators={false} items={[
                     {

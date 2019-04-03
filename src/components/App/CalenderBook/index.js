@@ -3,7 +3,7 @@ import DayPicker,{DateUtils} from 'react-day-picker';
 import moment from 'moment';
 
  var data=[];
- 
+ let arr=[];
 class CalenderBook extends Component {
 
     static defaultProps = {
@@ -19,6 +19,7 @@ class CalenderBook extends Component {
     this.state = this.getInitialState();
     }
     
+   
     getInitialState() {
         return {
           from: undefined,
@@ -82,45 +83,40 @@ class CalenderBook extends Component {
         console.log("ownerToDate"+this.props.ownerToDate);
         console.log(this.props.ownerFromDate);
         console.log('length of data '+data.length)
+        arr.push({after: new Date(this.props.ownerToDate),
+            before:new Date(this.props.ownerFromDate)})
         if(data.length != 0)
         { 
             console.log("2")
+        
             return(
        
                      <div>
-                     {data.map((home) => {
-                        return (
+                         
+                         { data.map((home)=>{
+            arr.push({after:new Date(home.fromDate),before:new Date(home.toDate)})
+           
+
+        })}
+                     
+                     
                                      <div>
-                                    <center>
-                       
+                                    <center>    
                                     <DayPicker 
                                     className="Selectable"
                                     numberOfMonths={this.props.numberOfMonths}
                                     selectedDays={[from, { from, to }]}
                                     
-                                    disabledDays={[
-                                                    new Date(home.toDate),
-                                                    new Date(home.fromDate),
-                                                    {
-                                                        after: new Date(this.props.ownerToDate),
-                                                        before:new Date(this.props.ownerFromDate)
-                                                    },
-                         
-                                                     {
-                                                        after: new Date(home.fromDate),
-                                                        before:new Date(home.toDate)
-                                                    },
-                         
-                                                ]}
+                                    disabledDays={arr}
                                     modifiers={modifiers}
                                     onDayClick={this.handleDayClick}
                                 />
                                 
                                 </center>                               
                                 </div> 
-   )
+  
            
-})}    
+
             </div>
 
        )
@@ -138,16 +134,7 @@ class CalenderBook extends Component {
                              numberOfMonths={this.props.numberOfMonths}
                              selectedDays={[from, { from, to }]}
                           
-                            disabledDays={[
-                              
-                              {
-                                 after: new Date(this.props.ownerToDate),
-                                 before:new Date(this.props.ownerFromDate)
-                             },
-                              
-                             
-                              
-                          ]}
+                            disabledDays={arr}
                           modifiers={modifiers}
 
                           onDayClick={this.handleDayClick}

@@ -62,8 +62,8 @@ class BookModal extends Component {
 )
 }
 onClickN(event) {
-  var modal = document.getElementById('id07');
-        modal.style.display = "none";
+    console.log("working")
+    document.getElementById('id07').style.display="none";
 }
 
 // onClickB(event) {
