@@ -105,7 +105,7 @@ class HostNavBar extends React.Component {
                  
               <NavItem >
                   <NavLink href="./profile" >
-                  <p className='ep'><i class="fa fa-user-plus"/>View Profile</p>
+                  <p className='ep'><i class="fa fa-user-plus"/>View Listings</p>
                   </NavLink>
                   </NavItem>
                   <NavItem >

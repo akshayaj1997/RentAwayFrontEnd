@@ -1,7 +1,10 @@
 import React from "react";
 import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBInput, MDBBtn} from 'mdbreact';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimesCircle ,faImages} from '@fortawesome/free-solid-svg-icons';
 
 
+var i=-1;
 class ImageUpload extends React.Component {
 
 constructor() {
@@ -15,20 +18,26 @@ constructor() {
         price:'',
         rating:'',
         url:'',
-        imageUrls:[]
+        imageUrls:[],
+        files:[]
       },
-      fields: {},
+      
       errors: {},
       file: '',
+      imagesPreviewUrls:[],
       imagePreviewUrl: '',
       result:'',
-      img:[]
+      img:[],
+      files:[]
     };
-    this.handleChange = this.handleChange.bind(this);
+    
     this._handleImageChange=this._handleImageChange.bind(this);
   }
 
+ 
+
   _handleSubmit(e) {
+    i++;
     e.preventDefault();
     console.log('handle uploading-', this.state.file);
     const url = "http://10.10.200.24:9000/images"; 
@@ -36,13 +45,17 @@ constructor() {
     var accesstoken = 'Bearer ' + bearerToken;
     console.log(accesstoken)
     const formdata=new FormData()
-   
+    console.log("After submitting"+this.state.files);
+    
+
+    
+     formdata.append("file",this.state.files[i]);
+     
+ 
     let headers = new Headers();
 
-        formdata.append("file",this.state.file);
-
-        headers.append('Content-Type', 'multipart/form-data');
-        headers.append('Accept', 'application/json');
+        
+        
     
         headers.append('Access-Control-Allow-Origin', url);
         headers.append('Access-Control-Allow-Credentials', 'true');
@@ -61,6 +74,7 @@ constructor() {
           },
           body: formdata
         })       
+       
         .then(response=>{
           console.log(response);
           response.json().then((responseData)=>{console.log(responseData.image_url)
@@ -70,59 +84,83 @@ constructor() {
           })
          
         })
-
+       
+ 
         
    }
-  _handleImageChange(e) {
+   _handleImageChange = e =>{
+     
     e.preventDefault();
-
-    let reader = new FileReader();
-    let file = e.target.files[0];
-
-    reader.onloadend = () => {
-      this.setState({
-        file: file,
-        imagePreviewUrl: reader.result
-      });
-    }
-
-    reader.readAsDataURL(file)
-  }
-  handleChange(e) {
-      let fields = this.state.fields;
-      fields[e.target.name] = e.target.value;
-      this.setState({
-        fields
-      });
+  
+    // FileList to Array
+    let files = Array.from(e.target.files);
+    console.log("target files"+e.target.files);
+    console.log("bbb"+files);
+  
+    // File Reader for Each file and and update state arrays
+    files.forEach((file, i) => {
+        let reader = new FileReader();
+  
+        reader.onloadend = () => {
+            this.setState(prevState => ({
+                files: [...prevState.files, file],
+                imagesPreviewUrls: [...prevState.imagesPreviewUrls, reader.result]
+            }));
+        }
+  
+        reader.readAsDataURL(file);
+    });
   }
 
   
+  removeImage(e,i,image){
+    console.log("i",i);
+    let did=this.state.imagesPreviewUrls.findIndex(k=>k==i)
+   
+    console.log("index is",did)
+    console.log(this.state.imagesPreviewUrls);
+    let remimg=this.state.imagesPreviewUrls.splice(did,1)
+    let f=this.state.files.splice(did,1)
+   
+    
+     this.setState({
+       imagesPreviewUrls: remimg,
+       //files:f
+      
+     })
+     console.log(this.state.imagesPreviewUrls);
+     this.setState({
+         imagesPreviewUrls: this.state.imagesPreviewUrls,
+       })
+      
+   }
+  
 
 render() {
-  let {imagePreviewUrl} = this.state;
-      let $imagePreview = null;
-      if (imagePreviewUrl) {
-        $imagePreview = (<div><img style={{width:"50%",height:"50%"}} src={imagePreviewUrl} /></div>);
-      } else {
-        $imagePreview = (<div className="previewText">Please select an Image for Preview</div>);
-      }
+  
 const { form } = this.state;
 return(
   <div className="hotelformb">
     <div className="imgform">
         <form>
-                <div className="errorMsg">{this.state.errors.url}</div>
-                <input className="fileInput" type="file" onChange={(e)=>this._handleImageChange(e)} /><br></br>
-                <br></br>
+                <input className="upload" type='file' id='multi' onChange={this._handleImageChange} multiple />
+             
                 <div className="imgPreview" ><br></br>
-                  {$imagePreview}
-                </div>
-                <button className="submitButton" type="submit" style={{width:'150px',fontWeight:'1000',fontSize:'12px',backgroundColor:''}} onClick={(e)=>this._handleSubmit(e)}>Add Image</button><br></br>
-                <div className="text-center mb-3">
-                <br></br>
-                </div>
-            
+                  {/* {$imagePreview} */}
+                  {this.state.imagesPreviewUrls.map((image, index)=>{
+                    return (
+                        <div key={index}>                  
+                           <FontAwesomeIcon icon={faTimesCircle} size='1x' onClick={this.removeImage.bind(this,index,image)}/>
+                            <img key={index} className='fadein' src={image} width="200px" style={{padding:"1vh"}} />
+                        </div>
+                        )
+                     })}
+                </div><br></br>
+                <button className="submitButton" type="submit" onClick={(e)=>this._handleSubmit(e)}>Upload Image</button><br></br>
               </form>
+
+            
+          
             
       
     </div>

@@ -246,7 +246,7 @@ class DetailsPage extends Component {
                         width: '20%',
                         padding: '5px 5px',
                         marginLeft: '2px',
-                        backgroundColor: 'white',
+                        backgroundColor: '#e6e6e6',
                        display:'inline',
                         borderRadius:'10%',
                         color:'purple',

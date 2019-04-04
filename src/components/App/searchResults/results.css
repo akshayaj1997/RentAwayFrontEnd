@@ -15,8 +15,8 @@ a {
       box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
       background-color: white;
       transition: 0.3s;
-      width: 315px;
-      height: 335px;
+      width: 380px;
+      height: 400px;
       margin-left: 4%;
       margin-right: 2%;
       margin-bottom:4%;
@@ -42,8 +42,8 @@ a {
       position: initial;
       text-transform: uppercase;
       color: darkgrey;
-      padding-top: 16px;
-      padding-bottom: 16px;
+      padding-top: 10px;
+      padding-bottom: 10px;
      
     }
     .name1 {
@@ -51,7 +51,7 @@ a {
       font-style: normal;
       font-weight: 500;
       position: inherit;
-      padding-bottom: 16px; 
+      padding-bottom: 10px; 
   
     }
     .location {
@@ -59,7 +59,7 @@ a {
       font-style: italic;
       font-weight: 400;
       position: inherit;
-      padding-bottom: 16px; 
+      padding-bottom: 10px; 
   
     }
     .cost {

@@ -1,7 +1,7 @@
 import React from "react";
  import './listings.css';
 import {Button } from 'reactstrap';
-
+import { toast, ToastContainer } from "react-toastify";
 class Listings extends React.Component{
   constructor(props) {
     super(props);
@@ -37,18 +37,33 @@ class Listings extends React.Component{
               alert("Unauthorized");
               window.location.reload();
             }
+            if(response.status===500)
+            {
+              //alert("Cannot delete the home since booked");
+              sessionStorage.setItem('del',1)
+              window.location.reload();
+              
+            }
             })
             
       .then(contents => {console.log("in fetch "+contents);
                   
                         
    })
-   .catch(()=> console.log("can't access" + url))
+   .catch(()=> {sessionStorage.setItem('del',1);console.log("can't access" + url)})
    window.location.reload()
       
     }
    componentDidMount(){
      
+    if(sessionStorage.getItem("del")) {
+      toast.error("Deletion can't be done when the home is booked.",{
+        position: toast.POSITION.BOTTOM_LEFT,
+        
+      }
+      );
+      sessionStorage.removeItem("del")
+    }
         console.log("entered");
         console.log(typeof localStorage.getItem('id'))
        let body = {
@@ -98,7 +113,7 @@ class Listings extends React.Component{
     render(){  
       return( 
         <div className='ViewListings'>
-  
+        <ToastContainer/>
         <ul>
           <br/>
            {this.state.data.map((home,index) => {

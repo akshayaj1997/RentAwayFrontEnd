@@ -4,7 +4,7 @@ import './results.css';
 import {createBrowserHistory as createHistory} from 'history';
 import { UncontrolledCarousel } from 'reactstrap';
 import './no.jpg'
-
+import ReactStars from 'react-stars'
 var body;
 var items;
 class SearchResults extends Component {
@@ -167,9 +167,16 @@ class SearchResults extends Component {
       }
     ]} />
                   </div>
+                  
                      {/* <img src={require('./images.png')} alt="Avatar" className='image' /> */}
                      <div class="container">
-
+                     <br/>
+                     <ReactStars
+                                          count={5}
+                                          value={parseFloat(home.rating)}
+                                          size={24}
+                                          edit={false}
+                                          color2={'purple'} />
                       <p className='type1'>{home.propertyType} </p>
                       <p className='location'>{home.homeName} </p>
                       <p className='location'>{home.location}</p>

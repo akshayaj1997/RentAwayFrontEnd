@@ -8,13 +8,13 @@ import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 class HomePreSignin extends React.Component{
   componentDidMount(){
-    if(sessionStorage.getItem("Name")) {
-      toast("Booking for "+sessionStorage.getItem("Name")+" has been done",{
+    if(sessionStorage.getItem("BookName")) {
+      toast("Booking for "+sessionStorage.getItem("BookName")+" has been done",{
         position: toast.POSITION.BOTTOM_LEFT,
         
       }
       );
-      sessionStorage.removeItem("Name")
+      sessionStorage.removeItem("BookName")
     }
     sessionStorage.removeItem('price');
     sessionStorage.removeItem('propertyType');

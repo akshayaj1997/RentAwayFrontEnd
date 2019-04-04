@@ -16,7 +16,7 @@ class ReportList extends React.Component{
 
   deleteReport(Id){
     console.log(parseInt(Id))
-      const url = "http://10.10.200.24:9000/delete/homes/report/"+parseInt(Id);
+      const url = "http://10.10.200.24:9000/homes/report/"+parseInt(Id);
       console.log(url)
       let headers = new Headers();
      console.log(url)
@@ -25,22 +25,40 @@ class ReportList extends React.Component{
      headers.append('POST','PUT');
    
       fetch(url, {
-         method: 'PUT',
+         method: 'DELETE',
       })
       .then(response => {
-        console.log(response.status);
-        if(response.status===401)
+        console.log("repost"+response.status);
+
+         if(response.status===200)
+            {
+              alert("Deleted Successfully");
+              window.location.reload();
+            }
+
+        else if(response.status===401)
             {
               alert("Unauthorized");
               window.location.reload();
             }
-            })
+          
+
+            else if(response.status===500)
+            {
+             
+              window.location.reload();
+            }
+          
+
+           })
             
       .then(contents => {console.log("in fetch "+contents);
                   
                         
    })
-   .catch(()=> console.log("can't access" + url))
+   .catch(()=> {console.log("can't access" + url);
+   alert("Deletion Can't be done since it is booked")}
+   )
    window.location.reload()
       
     }

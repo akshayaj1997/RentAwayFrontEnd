@@ -14,7 +14,10 @@ class CheckOut extends Component{
 
  onCheckOut(){
   console.log("entered");
-     
+  
+  console.log("Bookanme"+sessionStorage.getItem('Name'));
+  sessionStorage.setItem('BookName',sessionStorage.getItem('Name'))
+  sessionStorage.removeItem('Name');
   let body = { 
     "homeId": sessionStorage.getItem('homeid'),
       "toDate": sessionStorage.getItem('bookToDate'),
@@ -49,10 +52,13 @@ class CheckOut extends Component{
  })
    .then(response => {
      console.log(response.status);
+     
      if(response.status===200)
          {
+          localStorage.setItem('role',response.role)
+         
            window.location.reload();
-           localStorage.setItem('role',response.role)
+           
          }
          else if(response.status===400){
            alert("Username already exists");
@@ -157,13 +163,13 @@ class CheckOut extends Component{
     <div style={{float:'right'}}>
     <i class="fa fa-inr" aria-hidden="true"></i> { moment(sessionStorage.getItem('bookToDate')).diff( sessionStorage.getItem('bookFromDate'),'days') * sessionStorage.getItem('Price')}
     <br/>
-    <i class="fa fa-inr" aria-hidden="true"></i> 10000
+    <i class="fa fa-inr" aria-hidden="true"></i> {0.15*sessionStorage.getItem('Price')}
     <br/>
     <i class="fa fa-inr" aria-hidden="true"></i> 2000
     <br/>
     <br/>
    
-     <i class="fa fa-inr" aria-hidden="true"></i> {(moment(sessionStorage.getItem('bookToDate')).diff( sessionStorage.getItem('bookFromDate'),'days') * sessionStorage.getItem('Price'))+10000+2000}
+     <i class="fa fa-inr" aria-hidden="true"></i> {(moment(sessionStorage.getItem('bookToDate')).diff( sessionStorage.getItem('bookFromDate'),'days') * sessionStorage.getItem('Price'))+(0.15*sessionStorage.getItem('Price'))+2000}
     </div>
    <br/>
   

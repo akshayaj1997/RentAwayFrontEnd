@@ -25,7 +25,7 @@ export default class AdminTabs extends React.Component {
 
     };
     
-        //this.getPending=this.getPending.bind(this);
+    this.SignOut=this.SignOut.bind(this);
   }
 
   onDelete(id){console.log('Delete listing')}
@@ -103,6 +103,33 @@ window.location.reload()}
 
   }
   
+  SignOut(){
+   
+
+
+    const url = "http://10.10.200.24:9000/users/signout";
+    var bearerToken = localStorage.getItem('accessToken');
+    var accesstoken = 'Bearer ' + bearerToken;
+    console.log(accesstoken);
+  
+
+    fetch(url, {
+        method: 'PUT',
+        withCredentials:true,
+     credentials:'include',
+     headers:{
+       'Authorization':accesstoken,
+     },
+    })
+        .then(response => response.json())
+        
+        .catch(() => console.log("can't access" + url + "response. "))
+
+
+    window.location.assign("http://localhost:3000/homePreSignin");
+    localStorage.clear();
+    
+  }
   
 
 
@@ -117,7 +144,9 @@ window.location.reload()}
   render() {
     return (
       <div className='adminTabs'>
-      <CondNavBar/>
+       <Button onClick={this.SignOut} style={{width:'200px',height:'50px',float:'right',marginRight:'2vw',backgroundColor:'#e6e6e6',color:'red',fontSize:'20px',border:'0px'}}>
+                    <i class="fa fa-sign-out"></i> Sign Out
+                  </Button>
       <div className='prof1Tabs'>
         <Nav tabs>
             <NavItem>
@@ -125,7 +154,7 @@ window.location.reload()}
               className={classnames({ active: this.state.activeTab === '1' })}
               onClick={() => { this.toggle('1'); }}
             >
-              <h2><b><i>View Pending</i></b></h2>
+              <h2><b><i>View Pending Houses</i></b></h2>
             </NavLink>
           </NavItem>
           <NavItem>

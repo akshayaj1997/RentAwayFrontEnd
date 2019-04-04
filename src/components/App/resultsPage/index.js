@@ -44,7 +44,7 @@ class ResultsPage extends Component {
                 <br></br>
                <div>
                <br/>
-                <div style={{width:'30%',float:"right",marginRight:'3vw',marginLeft:'3vw'}}><ResultMaps/></div>
+                <div style={{width:'30%',float:"right",marginRight:'5vw',marginLeft:'3vw'}}><ResultMaps/></div>
                 </div>
                 </div>
             </div>

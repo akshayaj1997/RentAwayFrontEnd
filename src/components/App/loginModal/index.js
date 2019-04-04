@@ -83,6 +83,10 @@ class LoginModal extends Component {
                                           username:responseData.username
                                         }
                                       )
+                                      if(localStorage.getItem('role')==='ADMIN'){
+                                        console.log("Hello")
+                                        window.location.assign('http://localhost:3000/admin')
+                                      }
                                       console.log("bearerToken:"+this.state.accessToken)
                                       //localStorage.setItem('accessToken',this.state.accessToken)
                                       // if(response.status===200)
@@ -101,10 +105,7 @@ class LoginModal extends Component {
         console.log(error);
         });
      
-      if(localStorage.getItem('role')==='ADMIN'){
-        console.log("Hello")
-        window.location.assign('http://localhost:3000/admin')
-      }
+     
     }
 
     render() {

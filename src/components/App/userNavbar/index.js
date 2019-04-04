@@ -93,13 +93,20 @@ class UserNavBar extends React.Component {
                   
                   <NavItem >
                 <NavLink  href="http://localhost:3000/profile" >
-                <p className='ep'><i class="fa fa-user-plus"/>Edit Profile</p>                </NavLink>
+                <p className='ep'><i class="fa fa-user-plus"/>Edit Profile</p>                
+                </NavLink>
                 
               </NavItem>
               
-                  <DropdownItem>
-                    <a href='http://localhost:3000/profile'><i class="fa fa-vcard-o"></i>View Profile</a>
-                  </DropdownItem>
+
+
+                  <NavItem >
+                  <NavLink href="./profile" >
+                  <p className='ep'><i class="fa fa-bell" aria-hidden="true"></i>Notifications</p>
+                  </NavLink>
+                  </NavItem>
+
+                  
                   <DropdownItem divider />
                   <DropdownItem>
                   <div onClick={this.SignOut}>

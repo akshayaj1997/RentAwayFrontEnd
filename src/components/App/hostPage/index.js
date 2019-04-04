@@ -4,6 +4,8 @@ import Calender from "../Calender";
 import ImageUpload from "../imageUpload";
 import Maps from "../maps";
 import CondNavBar from "../condNavbar";
+//import { toast } from "mdbreact";
+import { ToastContainer,toast } from "react-toastify";
 
 var currentTab = 0; 
 var x;
@@ -47,7 +49,16 @@ class HostPage extends React.Component{
               }
       
     }
-    
+    componentDidMount(){
+        if(sessionStorage.getItem("add")) {
+          toast("Home has been successfully added. It will be visible on next login.",{
+            position: toast.POSITION.BOTTOM_RIGHT,
+            
+          }
+          );
+          sessionStorage.removeItem("add")
+        }
+    }
     onAddressChange(event) {
         this.setState({address:event.target.value})
     }
@@ -151,21 +162,25 @@ class HostPage extends React.Component{
         console.log(response.status);
         if(response.status===200)
             {
-              alert("Successfully Home is registered")
+              sessionStorage.removeItem('imgURLs');
               window.location.reload();
-              localStorage.setItem('role',response.role)
+              sessionStorage.setItem('add',1);
+              localStorage.setItem('role',"HOST")
             }
             else if(response.status===400){
+                sessionStorage.removeItem('imgURLs');
               alert("Username already exists");
               window.location.reload();
              
             }
             else if(response.status===401){
+                sessionStorage.removeItem('imgURLs');
               alert("Username or password is incorrect");
               window.location.reload();
             
             }
             else{
+                sessionStorage.removeItem('imgURLs');
               alert("Unauthorized");
               window.location.reload();
             }})
@@ -180,6 +195,7 @@ class HostPage extends React.Component{
     render(){
         return(
             <div>
+                <ToastContainer/>
             <center>
                
             <section className="bg">

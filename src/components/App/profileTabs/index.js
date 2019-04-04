@@ -3,6 +3,7 @@ import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, Ca
 import classnames from 'classnames';
 import Listings from '../listings';
 import Ratings from '../rating';
+import BookList from '../bookingsList';
 
 export default class ProfileTabs extends React.Component {
   constructor(props) {
@@ -200,9 +201,17 @@ export default class ProfileTabs extends React.Component {
           <NavItem>
             <NavLink
               className={classnames({ active: this.state.activeTab === '3' })}
-              onClick={() => { this.toggle('3'); this.getProfile();}}
+              onClick={() => { this.toggle('3'); }}
             >
-              <h2><b><i>Notifications</i></b></h2>
+              <h2><b><i>Previous Bookings</i></b></h2>
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink
+              className={classnames({ active: this.state.activeTab === '4' })}
+              onClick={() => { this.toggle('4');}}
+            >
+              <h2><b><i>Scheduled Bookings</i></b></h2>
             </NavLink>
           </NavItem>
         </Nav>
@@ -312,6 +321,9 @@ export default class ProfileTabs extends React.Component {
 
           <TabPane tabId="3">
           <Ratings/>
+          </TabPane>
+          <TabPane tabId="4">
+          <BookList/>
           </TabPane>
         </TabContent>
         <Button style={{width:'150px',height:'50px',backgroundColor:'rgb(255,255,255,0)',color:'black',float:'right',border:'rgb(255,255,255,0)',paddingTop:'20px'}} href='http://localhost:3000/homePreSignin'><i className='fa fa-home'/> Return to Home Page</Button>

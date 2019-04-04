@@ -95,9 +95,10 @@ class CalenderBook extends Component {
                          
                          { data.map((home)=>{
             arr.push({after:new Date(home.fromDate),before:new Date(home.toDate)})
-           
+            arr.push(new Date(home.fromDate),new Date(home.toDate))
 
         })}
+
                      
                      
                                      <div>

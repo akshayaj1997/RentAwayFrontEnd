@@ -11,16 +11,18 @@ class Ratings extends React.Component{
       homeName : ' ',
       toDate:'',
       homeId:'',
-      rating:0
+      rating:0,
       }
+      this.deleteRating=this.deleteRating.bind(this);
   }
 
   changeRating(newRating,name) {
+    
     this.setState({rating:newRating})
-    console.log(name)
+    console.log(name[0])
     let body = {
 
-        homeId: name ,
+        homeId: name[0] ,
         rating:newRating
          
        
@@ -30,8 +32,7 @@ class Ratings extends React.Component{
       const url = "http://10.10.200.24:9000/rating";
       let headers = new Headers();
       var bearerToken = localStorage.getItem('accessToken');
-  
-  var accesstoken = 'Bearer ' + bearerToken;
+      var accesstoken = 'Bearer ' + bearerToken;
    
       headers.append('Content-Type','application/json');
       headers.append('Accept','application/json');
@@ -62,7 +63,43 @@ class Ratings extends React.Component{
                         
    })
    .catch(()=> console.log("can't access" + url + "response. "))
+
+   this.deleteRating(name[1])
+    }
+
+    deleteRating(id){
+      const url = "http://10.10.200.24:9000/bookingByBookingId/"+id
+      let headers = new Headers();
+     console.log(url)
+      headers.append('Content-Type','application/json');
+      headers.append('Accept','application/json');
    
+      headers.append('Access-Control-Allow-origin',url);
+      headers.append('Access-Control-Allow-Credentials','true');
+   
+     // headers.append('','POST');
+   
+      fetch(url, {
+         headers:headers,
+         method: 'DELETE',
+         //body: JSON.stringify(body)
+      })
+      .then(response => {
+        console.log(response.status);
+        if(response.status===401)
+            {
+              alert("Unauthorized");
+              window.location.reload();
+            }
+            })
+            
+      .then(contents => {console.log("in fetch "+contents);
+                  
+                        
+   })
+   .catch(()=> console.log("can't access" + url))
+   window.location.reload()
+      
     }
 
 
@@ -82,7 +119,7 @@ class Ratings extends React.Component{
           this.setState({
             data: responseData,
           })
-          console.log("data"+typeof this.state.data)
+          console.log("data"+typeof new Set(this.state.data))
         }))
         
         .catch(() => console.log("can't access" + url + "response. "))
@@ -94,20 +131,22 @@ class Ratings extends React.Component{
       return( 
         <div className='ViewListings'>
           <ul>
-          {new Set(this.state.data[0])}
-          {new Set(this.state.data[2])}
           <br/>
+          
            {this.state.data.map((home,index) => {
-            if(moment(home[2]).dayOfYear()<moment().dayOfYear()){
+            if(moment(home[3]).dayOfYear()<moment().dayOfYear()){
      return(
         <li key={index}>
-      <h3>{home[1]}
+      <h3>{home[2]}&nbsp;
+      ({moment(home[3]).format("MMMM D ,YYYY")}) &nbsp;
       <StarRatings
           rating={this.state.rating}
           starRatedColor="blue"
           changeRating={this.changeRating.bind(this)}
           numberOfStars={5}
-          name={home[0]}
+          name={[home[1],home[0]]}
+          starDimension="24px"
+        starSpacing="7px"
         />
 
       </h3>
