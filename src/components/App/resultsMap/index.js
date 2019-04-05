@@ -190,7 +190,7 @@ class ResultMaps extends Component {
                                           size={24}
                                           edit={false}
                                           color2={'purple'} />
-                                       <br />
+                                       
                                        {home.homeName}
                                        <br/>
                                        {home.location}

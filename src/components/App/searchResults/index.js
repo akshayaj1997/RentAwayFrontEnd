@@ -128,7 +128,7 @@ class SearchResults extends Component {
      
         render() {  
          console.log("results data"+this.state.data);
-         if(!this.state.data)
+         if(this.state.data.length==0)
          {
             console.log("Entered loop 1")
             return(

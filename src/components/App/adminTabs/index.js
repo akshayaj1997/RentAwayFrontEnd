@@ -182,7 +182,8 @@ window.location.reload()}
            {this.state.data.map((home,index) => {
      return(
         <li key={index} style={{fontSize:'20px'}}>
-      <i><b>{home.homeName}</b> </i>  <div style={{float:'right'}}><input type='button' style={{backgroundColor:'#FF4C4C',color:'white',fontSize:'16px',fontStyle:'oblique'}} className='listbutton' value='Delete Listing' onClick={this.onDelete.bind(this,home.homeId)}></input>  &nbsp; <input type='button' style={{backgroundColor:'#32CD32',color:'white',fontSize:'16px',fontStyle:'oblique'}} className='listbutton' value='Confirm Listing' onClick={this.onConfirm.bind(this,home.homeId)}></input></div>
+      <i><b>{home.homeName}</b> </i>  <div style={{float:'right'}}>  &nbsp; 
+      <input type='button' style={{backgroundColor:'#32CD32',color:'white',fontSize:'16px',fontStyle:'oblique'}} className='listbutton' value='Confirm Listing' onClick={this.onConfirm.bind(this,home.homeId)}></input></div>
         <br/>
         <br/>
          </li>

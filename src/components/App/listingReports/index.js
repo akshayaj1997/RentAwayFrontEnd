@@ -56,9 +56,10 @@ class ReportList extends React.Component{
                   
                         
    })
-   .catch(()=> {console.log("can't access" + url);
+   .catch(()=> 
+   console.log("can't access" + url)
    
-   alert("Deletion Can't be done since it is booked")}
+   
    )
    window.location.reload()
       
