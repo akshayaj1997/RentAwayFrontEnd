@@ -85,13 +85,13 @@ class LoginModal extends Component {
                                       )
                                       if(localStorage.getItem('role')==='ADMIN'){
                                         console.log("Hello")
-                                        window.location.assign('http://localhost:3000/admin')
+                                        window.location.assign('http://10.10.200.42:3000/admin')
                                       }
                                       console.log("bearerToken:"+this.state.accessToken)
                                       //localStorage.setItem('accessToken',this.state.accessToken)
                                       // if(response.status===200)
                                       // {
-                                      //   window.location.assign('http://localhost:3000/homePreSignin');
+                                      //   window.location.assign('http://10.10.200.42:3000/homePreSignin');
                                       // }
             
             })

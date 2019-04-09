@@ -4,6 +4,7 @@ import ReactMapGL, { Marker, Popup } from 'react-map-gl';
 import Geocoder from 'react-map-gl-geocoder'
 import { UncontrolledCarousel } from 'reactstrap';
 import ReactStars from 'react-stars'
+import './resultsmap.css';
 var body;
 class ResultMaps extends Component {
    mapRef = React.createRef()
@@ -166,9 +167,9 @@ class ResultMaps extends Component {
                         <div>
                            <Popup latitude={parseFloat(home.latitude)} longitude={parseFloat(home.longitude)} sortByDepth={true} >
                               <div onMouseOut={() => { this.setState({ hover: false }) }} >
-                                 <a href={'http://localhost:3000/detailsPage/' + home.homeId} >
+                                 <a href={'http://10.10.200.42:3000/detailsPage/' + home.homeId}>
                                     <div style={{ width: "330px" }}>
-                                       <UncontrolledCarousel style={{ width: '30%' }} indicators={false} controls={false} items={[
+                                       <UncontrolledCarousel style={{ width: '30%' }} indicators={true} controls={false} items={[
                                           {
                                              src: home.imageUrls[0],
 
@@ -190,12 +191,13 @@ class ResultMaps extends Component {
                                           size={24}
                                           edit={false}
                                           color2={'purple'} />
-                                       
-                                       {home.homeName}
+                                      <i style={{fontWeight:'50',color:'darkgrey',fontStyle:'oblique'}}>{home.propertyType}</i> 
+                                       <br/>
+                                       <b style={{fontWeight:'500'}}>{home.homeName}</b>
                                        <br/>
                                        {home.location}
                                        <br />
-                                       &#8377;{home.price}
+                                       &#8377;{home.price} per night . Free Cancellation
 
                                     </div>
                                  </a>

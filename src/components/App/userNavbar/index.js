@@ -50,7 +50,7 @@ class UserNavBar extends React.Component {
         
         .catch(() => console.log("can't access" + url + "response. "))
 
-        window.location.assign("http://localhost:3000/homePreSignin");
+        window.location.assign("http://10.10.200.42:3000/homePreSignin");
         localStorage.clear();
   }
 
@@ -69,7 +69,7 @@ class UserNavBar extends React.Component {
                 </DropdownToggle>
                 <DropdownMenu right>
                   <DropdownItem>
-                  <a href="http://localhost:3000/homePreSignin">Homes</a> 
+                  <a href="http://10.10.200.42:3000/homePreSignin">Homes</a> 
                   </DropdownItem>
                   <DropdownItem>
                     Office Spaces
@@ -80,7 +80,7 @@ class UserNavBar extends React.Component {
                 </DropdownMenu>
               </UncontrolledDropdown>
               <NavItem>
-                <NavLink className="text-black" onClick={this.onClickN} href="http://localhost:3000/hostPage">Become a host</NavLink>
+                <NavLink className="text-black" onClick={this.onClickN} href="http://10.10.200.42:3000/hostPage">Become a host</NavLink>
               </NavItem>
               <UncontrolledDropdown nav inNavbar className="dropdownWidth">
                 <DropdownToggle nav caret className="text-black">
@@ -92,7 +92,7 @@ class UserNavBar extends React.Component {
                   </DropdownItem>
                   
                   <NavItem >
-                <NavLink  href="http://localhost:3000/profile" >
+                <NavLink  href="http://10.10.200.42:3000/profile" >
                 <p className='ep'><i class="fa fa-user-plus"/>Edit Profile</p>                
                 </NavLink>
                 

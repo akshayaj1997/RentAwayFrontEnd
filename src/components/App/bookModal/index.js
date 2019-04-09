@@ -30,7 +30,7 @@ class BookModal extends Component {
 
         else {
            
-           window.location.assign('http://localhost:3000/checkOut')
+           window.location.assign('http://10.10.200.42:3000/checkOut')
            
         }
     }
