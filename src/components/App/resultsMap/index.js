@@ -168,7 +168,7 @@ class ResultMaps extends Component {
                               <div onMouseOut={() => { this.setState({ hover: false }) }} >
                                  <a href={'http://localhost:3000/detailsPage/' + home.homeId} >
                                     <div style={{ width: "330px" }}>
-                                       <UncontrolledCarousel style={{ width: '30%' }} indicators={false} items={[
+                                       <UncontrolledCarousel style={{ width: '30%' }} indicators={false} controls={false} items={[
                                           {
                                              src: home.imageUrls[0],
 
