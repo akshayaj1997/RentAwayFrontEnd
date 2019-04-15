@@ -63,11 +63,13 @@ class BookList extends React.Component{
     })
         .then(response => response.json()
         .then((responseData)=>{
-          console.log("ratings "+typeof responseData);
+          console.log("ratings "+responseData);
           this.setState({
             data: responseData,
+            
           })
-          console.log("data"+typeof new Set(this.state.data))
+          localStorage.setItem('bookings',this.state.data.length)
+          console.log("data"+this.state.data.length)
         }))
         
         .catch(() => console.log("can't access" + url + "response. "))

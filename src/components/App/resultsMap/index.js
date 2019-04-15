@@ -164,10 +164,10 @@ class ResultMaps extends Component {
                {this.state.data.map((home, index) => {
                   if (this.state.hover && (this.state.idbaby == home.homeId)) {
                      return (
-                        <div>
+                        <div className='ResultsMap'>
                            <Popup latitude={parseFloat(home.latitude)} longitude={parseFloat(home.longitude)} sortByDepth={true} >
                               <div onMouseOut={() => { this.setState({ hover: false }) }} >
-                                 <a href={'http://10.10.200.42:3000/detailsPage/' + home.homeId}>
+                                 <a href={'http://localhost:3000/detailsPage/' + home.homeId}>
                                     <div style={{ width: "330px" }}>
                                        <UncontrolledCarousel style={{ width: '30%' }} indicators={true} controls={false} items={[
                                           {

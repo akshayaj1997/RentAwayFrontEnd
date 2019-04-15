@@ -1,18 +1,18 @@
-a:link {
+.ResultsMap a:link {
     text-decoration: none;
   }
   
-  a:visited {
+  .ResultsMap a:visited {
     text-decoration: none;
     
   }
   
-  a:hover {
+  .ResultsMap a:hover {
     text-decoration: none;
     color: #000;
     background-color: #e6e6e6;
   }
   
-  a:active {
+  .ResultsMap a:active {
     text-decoration: none;
   }

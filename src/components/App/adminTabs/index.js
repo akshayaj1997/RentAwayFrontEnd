@@ -126,7 +126,7 @@ window.location.reload()}
         .catch(() => console.log("can't access" + url + "response. "))
 
 
-    window.location.assign("http://10.10.200.42:3000/homePreSignin");
+    window.location.assign("http://localhost:3000/homePreSignin");
     localStorage.clear();
     
   }
@@ -199,7 +199,7 @@ window.location.reload()}
           <br/> <ReportList/>
           </TabPane>
         </TabContent>
-        <Button style={{width:'150px',height:'50px',backgroundColor:'rgb(255,255,255,0)',color:'black',float:'right',border:'rgb(255,255,255,0)',paddingTop:'20px'}} href='http://10.10.200.42:3000/homePreSignin'><i className='fa fa-home'/> Return to Home Page</Button>
+        <Button style={{width:'150px',height:'50px',backgroundColor:'rgb(255,255,255,0)',color:'black',float:'right',border:'rgb(255,255,255,0)',paddingTop:'20px'}} href='http://localhost:3000/homePreSignin'><i className='fa fa-home'/> Return to Home Page</Button>
       </div>
       </div>
     );

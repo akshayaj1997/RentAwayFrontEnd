@@ -4,14 +4,27 @@ import './checkout.css';
 import Notifications, {notify} from 'react-notify-toast';
 import moment from 'moment';
 import { Card } from 'reactstrap';
+var value;
 class CheckOut extends Component{
 
   constructor(props){
     super(props);
     this.onCheckOut=this.onCheckOut.bind(this)
     this.show = notify.createShowQueue();
+    this.price=this.price.bind(this);
   }
-
+  price(){
+    console.log('Price')
+    if(localStorage.getItem('bookings')<='3'){
+      value=(moment(sessionStorage.getItem('bookToDate')).diff( sessionStorage.getItem('bookFromDate'),'days') * sessionStorage.getItem('Price'))+(0.15*sessionStorage.getItem('Price'))+2000
+    }
+   else{
+   value=(0.85*(moment(sessionStorage.getItem('bookToDate')).diff( sessionStorage.getItem('bookFromDate'),'days') * sessionStorage.getItem('Price'))+(0.15*sessionStorage.getItem('Price'))+2000)
+   }
+   
+   return value
+    
+  }
  onCheckOut(){
   console.log("entered");
   
@@ -83,7 +96,7 @@ class CheckOut extends Component{
  
     
     render(){
-        
+        this.price()
         return(<div className="CheckImg">
             <CondNavBar/>
             <div className='boxC'>
@@ -169,7 +182,7 @@ class CheckOut extends Component{
     <br/>
     <br/>
    
-     <i class="fa fa-inr" aria-hidden="true"></i> {(moment(sessionStorage.getItem('bookToDate')).diff( sessionStorage.getItem('bookFromDate'),'days') * sessionStorage.getItem('Price'))+(0.15*sessionStorage.getItem('Price'))+2000}
+     <i class="fa fa-inr" aria-hidden="true"></i> {value}
     </div>
    <br/>
   
