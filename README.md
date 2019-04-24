@@ -19,6 +19,7 @@ On the occasion that the node modules required are not available on the system, 
 ### `npm install`
 
 Runs the app in the development mode. The app can be edited in this mode.
+
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 Various versions and edits of the code are available on GitHub on the repository **_RentAwayFrontEnd_**
