@@ -13,8 +13,7 @@ This project was created using React App and React Native software.
 
 This application maybe run on any operating system, as long as it supports a browser which uses ES6 or higher.
 
-The projects version control has been done using 
-###### **Git**.
+The projects version control has been done using ###### **Git**.
 
 To run the file,
 In the project directory, run:
