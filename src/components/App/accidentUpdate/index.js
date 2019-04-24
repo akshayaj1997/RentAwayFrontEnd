@@ -1,9 +1,5 @@
 import React from 'react';
 import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
-import classnames from 'classnames';
-import Listings from '../listings';
-import Ratings from '../rating';
-import BookList from '../bookingsList';
 import TopBar from '../topBar';
 
 export default class AccidentUpdate extends React.Component {
@@ -222,7 +218,7 @@ export default class AccidentUpdate extends React.Component {
          
           <NavItem>
             <NavLink
-              className={classnames({ active: this.state.activeTab === '1' })}
+              
               onClick={() => { this.toggle('1'); this.getProfile();}}
             >
               <h2><b><i>Edit Profile</i></b></h2>
@@ -232,7 +228,6 @@ export default class AccidentUpdate extends React.Component {
         </Nav>
         <TabContent activeTab={this.state.activeTab}>
           <TabPane tabId="1">
-          <Listings/>
           </TabPane>
           <TabPane tabId="2">
           <br/>

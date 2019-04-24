@@ -4,7 +4,7 @@ import ReactMapGL, { Marker, Popup } from 'react-map-gl';
 import Geocoder from 'react-map-gl-geocoder'
 
 import './resultsmap.css';
-import SideNavBar from '../sideNavBar';
+
 var body;
 class AccidentMaps extends Component {
    mapRef = React.createRef()

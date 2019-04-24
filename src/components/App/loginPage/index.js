@@ -123,7 +123,9 @@ class  LoginPage extends React.Component{
         
         return(<div className="myImg">
             <TopBar/>
-            <div className='prof1Tabs' style={{paddingLeft:'30px', height:'80%'}}>
+            <br/>
+            <br/>         
+            <div className='prof1Tabs' style={{paddingLeft:'30px', height:'80%',width:'40%', backgroundColor:'white',paddingTop:'2%',marginLeft:'30%',marginTop:'5%',borderRadius:'5%'}}>
         <Nav tabs>
           <NavItem>
             <NavLink
@@ -189,15 +191,8 @@ class  LoginPage extends React.Component{
     </form>
 
           </TabPane>
-          <TabPane tabId="2">
-          <br/>
-          <SignUpPage/>
-          </TabPane>
-          <TabPane tabId="3">
-          <br/>
-          <SignUpHos/>
-          </TabPane>
-        </TabContent>
+          
+             </TabContent>
         
       </div>
       </div>

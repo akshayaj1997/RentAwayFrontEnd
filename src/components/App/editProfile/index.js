@@ -195,17 +195,19 @@ class EditProfile extends Component {
         <label htmlFor="mbr">
                     <b>Mobile Number</b>
                   </label>
+                  <br/>
                   <input
                     type="tel"
                     placeholder="Enter Mobile Number"
                     name="mbr"
                     onChange={this.onMobileChange}
                     required
+                    style={{width:'100%'}}
         />
-
-        <label htmlFor="addr">
+       <br/>
+        
                     <b>Address</b>
-                  </label>
+                  
                   <input
                     type="text"
                     placeholder="Enter Address"

@@ -1,6 +1,6 @@
 import React,{ Component } from 'react';
 import './index.css';
-import LoginModal from '../loginModal';
+
 
 var passw=  /^[A-Za-z]\w{7,15}$/;
 class SignUpHos extends Component {

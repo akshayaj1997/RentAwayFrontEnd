@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
 import './results.css';
-//import ImageCarousel from '../imageCarousel';
-import { createBrowserHistory as createHistory } from 'history';
-import { UncontrolledCarousel } from 'reactstrap';
 
-import ReactStars from 'react-stars';
-import { Button, ButtonGroup } from 'reactstrap';
 
 var body;
 var items;

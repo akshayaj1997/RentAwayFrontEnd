@@ -1,9 +1,5 @@
 import React from "react"
 import "./img.css"
-import CondNavBar from "../condNavbar";
-import SignUpModal from "../signUpModal";
-import SearchBar from "../searchBar";
-import HomeSearch from "../homeSearch";
 import TopBar from "../topBar";
 import SideNavBar from "../sideNavBar";
 import AccidentList from "../accidentList";
