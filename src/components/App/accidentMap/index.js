@@ -96,7 +96,7 @@ class AccidentMaps extends Component {
                height='40%'
                ref={this.mapRef}
                {...this.state.viewport}
-               mapStyle="mapbox://styles/mapbox/streets-v11"
+               mapStyle="mapbox://styles/mapbox/satellite-v9"
                onViewportChange={(viewport) => this.setState({ viewport })}
                mapboxApiAccessToken='pk.eyJ1IjoibmlkaGlwYXZ1bHVyaSIsImEiOiJjanRqcGQ3eDEwMWE3M3ltamdzYnlpc2syIn0.Iw2YRzOYRS7mBJNmykVa6g' >
                {this.state.data.map((user, index) => {
