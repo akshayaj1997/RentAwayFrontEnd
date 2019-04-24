@@ -97,7 +97,7 @@ else{
         console.log(response.status);
         if(response.status===200)
             {
-              window.location.assign('http://localhost:3000/homePreSignin');
+              window.location.reload();
             }
             else if(response.status===400){
               alert("Usernamealready exists");
