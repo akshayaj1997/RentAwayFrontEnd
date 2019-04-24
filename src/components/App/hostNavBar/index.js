@@ -34,7 +34,7 @@ class HostNavBar extends React.Component {
    
 
 
-    const url = "http://10.10.200.24:9000/users/signout";
+    const url = "http://localhost:9000/users/signout";
     var bearerToken = localStorage.getItem('accessToken');
     var accesstoken = 'Bearer ' + bearerToken;
     console.log(accesstoken);

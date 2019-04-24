@@ -11,11 +11,7 @@ class  CondNavBar extends React.Component{
             return(<UserNavBar/>)
             
         }
-        else if(localStorage.getItem('role')==='HOST')
-        {
-            return(<HostNavBar/>)
-        }
-        else if(localStorage.getItem('role')==='ADMIN')
+        else if(localStorage.getItem('role')==='HOSPITAL')
         {
             return(<HostNavBar/>)
         }

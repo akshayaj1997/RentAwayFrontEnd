@@ -12,7 +12,7 @@ class PendingUsers extends React.Component{
   }
   confirmUser(Id){
     console.log(parseInt(Id))
-      const url = "http://10.10.200.24:9000/users/pending/"+parseInt(Id);
+      const url = "http://localhost:9000/users/pending/"+parseInt(Id);
       console.log(url)
       let headers = new Headers();
      console.log(url)
@@ -44,7 +44,7 @@ class PendingUsers extends React.Component{
 
    componentDidMount(){
      
-    const url = "http://10.10.200.24:9000/pendingUsers";
+    const url = "http://localhost:9000/pendingUsers";
     let headers = new Headers();
  
     headers.append('Content-Type','application/json');

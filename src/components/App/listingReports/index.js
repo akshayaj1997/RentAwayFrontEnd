@@ -16,7 +16,7 @@ class ReportList extends React.Component{
 
   deleteReport(Id){
     console.log(parseInt(Id))
-      const url = "http://10.10.200.24:9000/homes/report/"+parseInt(Id);
+      const url = "http://localhost:9000/homes/report/"+parseInt(Id);
       console.log(url)
       let headers = new Headers();
      console.log(url)
@@ -68,7 +68,7 @@ class ReportList extends React.Component{
   
    componentDidMount(){
 
-    const url = "http://10.10.200.24:9000/reported";
+    const url = "http://localhost:9000/reported";
     let headers = new Headers();
  
     headers.append('Content-Type','application/json');

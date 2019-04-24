@@ -4,8 +4,9 @@ import classnames from 'classnames';
 import Listings from '../listings';
 import Ratings from '../rating';
 import BookList from '../bookingsList';
+import TopBar from '../topBar';
 
-export default class ProfileTabs extends React.Component {
+export default class AccidentUpdate extends React.Component {
   constructor(props) {
     super(props);
 
@@ -30,7 +31,37 @@ export default class ProfileTabs extends React.Component {
         this.onAadharChange=this.onAadharChange.bind(this);
         this.editProfile=this.editProfile.bind(this);
         this.getProfile=this.getProfile.bind(this);
+        this.SignOut=this.SignOut.bind(this)
   }
+
+  SignOut(){
+   
+
+
+    const url = "http://localhost:9000/users/signout";
+    var bearerToken = localStorage.getItem('accessToken');
+    var accesstoken = 'Bearer ' + bearerToken;
+    console.log(accesstoken);
+  
+
+    fetch(url, {
+        method: 'PUT',
+        withCredentials:true,
+     credentials:'include',
+     headers:{
+       'Authorization':accesstoken,
+     },
+    })
+        .then(response => response.json())
+        
+        .catch(() => console.log("can't access" + url + "response. "))
+
+
+    window.location.assign("http://localhost:3000/Landing");
+    localStorage.clear();
+    
+  }
+
 
   getProfile() {
      
@@ -180,40 +211,24 @@ export default class ProfileTabs extends React.Component {
   }
   render() {
     return (
-      <div className='profTabs'>
+        <div>
+            <TopBar/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>   
+      <div className='profTabs' style={{width:'50%', marginLeft:'25%',fontSize:'25px'}}>
         <Nav tabs>
+         
           <NavItem>
             <NavLink
               className={classnames({ active: this.state.activeTab === '1' })}
-              onClick={() => { this.toggle('1'); }}
-            >
-              <h2><b><i>View Listings</i></b></h2>
-            </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink
-              className={classnames({ active: this.state.activeTab === '2' })}
-              onClick={() => { this.toggle('2'); this.getProfile();}}
+              onClick={() => { this.toggle('1'); this.getProfile();}}
             >
               <h2><b><i>Edit Profile</i></b></h2>
             </NavLink>
           </NavItem>
-          <NavItem>
-            <NavLink
-              className={classnames({ active: this.state.activeTab === '3' })}
-              onClick={() => { this.toggle('3'); }}
-            >
-              <h2><b><i>Previous Bookings</i></b></h2>
-            </NavLink>
-          </NavItem>
-          <NavItem>
-            <NavLink
-              className={classnames({ active: this.state.activeTab === '4' })}
-              onClick={() => { this.toggle('4');}}
-            >
-              <h2><b><i>Scheduled Bookings</i></b></h2>
-            </NavLink>
-          </NavItem>
+          
         </Nav>
         <TabContent activeTab={this.state.activeTab}>
           <TabPane tabId="1">
@@ -303,7 +318,7 @@ export default class ProfileTabs extends React.Component {
         />
 
         <label htmlFor="AdhrNbr">
-                  <b>Aadhar Number/Passport Number</b>
+                  <b>Vehicle Number</b>
                   </label>
                   <input
                     type="text"
@@ -319,14 +334,12 @@ export default class ProfileTabs extends React.Component {
 </form>
           </TabPane>
 
-          <TabPane tabId="3">
-          <Ratings/>
-          </TabPane>
-          <TabPane tabId="4">
-          <BookList/>
-          </TabPane>
-        </TabContent>
-        <Button style={{width:'150px',height:'50px',backgroundColor:'rgb(255,255,255,0)',color:'black',float:'right',border:'rgb(255,255,255,0)',paddingTop:'20px'}} href='http://localhost:3000/homePreSignin'><i className='fa fa-home'/> Return to Home Page</Button>
+         </TabContent>
+         <button onClick={this.SignOut} style={{backgroundColor:'white',color:'black',float:'right',fontSize:'18px',width:'20%'}}>
+                    <i class="fa fa-sign-out fa-2x"></i> Sign Out
+                  </button>
+      </div>
+      
       </div>
     );
   }

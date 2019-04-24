@@ -3,11 +3,11 @@ import './index.css';
 import LoginModal from '../loginModal';
 
 var passw=  /^[A-Za-z]\w{7,15}$/;
-class SignUpModal extends Component {
+class SignUpHos extends Component {
     constructor(){
         super();
         //this.onClickB=this.onClickB.bind(this);
-        this.onClickN=this.onClickN.bind(this);
+        
         this.handleUname=this.handleUname.bind(this);
         this.handlePassword=this.handlePassword.bind(this);
         this.handleRePassword=this.handleRePassword.bind(this);
@@ -45,10 +45,10 @@ class SignUpModal extends Component {
       })
     }
 
-    signUp(e){
+    signUp(e){ 
       //this.setState({Amen1:this.props.history.location.state.Amen1})
      // e.preventDefault();
-     
+     console.log("entered  signup")
 if(!this.state.password.match(passw)) 
 { 
 alert('Not a strong password. Input 7 to 15 characters which contain only characters, numeric digits, underscore and first character must be a letter')
@@ -61,7 +61,7 @@ else if(!this.state.password.match(this.state.repassword)){
 }
 else{
 
-      console.log("after submit"+this.state.password)
+      console.log("after submit "+this.state.password)
      let body = {
 
         email : this.state.email,
@@ -75,7 +75,7 @@ else{
       
       
    
-      const url = "http://localhost:9000/users";
+      const url = "http://localhost:9000/hospital";
       let headers = new Headers();
    
       headers.append('Content-Type','application/json');
@@ -90,7 +90,9 @@ else{
          headers:headers,
          method: 'POST',
          body: JSON.stringify(body)
+       
       })
+
       .then(response => {
         console.log(response.status);
         if(response.status===200)
@@ -99,15 +101,15 @@ else{
             }
             else if(response.status===400){
               alert("Usernamealready exists");
-              window.location.assign('http://localhost:3000/homePreSignin');
+              window.location.reload();
             }
             else if(response.status===401){
               alert("Username or password is incorrect");
-              window.location.assign('http://localhost:3000/homePreSignin');
+              window.location.reload();
             }
             else{
               alert("Unauthorized");
-              window.location.assign('http://localhost:3000/homePreSignin');
+              window.location.reload();
             }})
       .then(contents => {console.log("in fetch"+contents);
                   
@@ -120,19 +122,9 @@ else{
 
     render() {
         return (
-            <div>
-  {/* <button onClick={this.onClickB} style={{ width: "auto" }} className="b1">Login</button> */}
-  <div id="id02" className="modal">
-    <form className="modal-content animate" onSubmit={this.signUp}>
-    <button
-          onClick={this.onClickN}
-          className="close1"
-          title="Close Modal">×</button>
-        <br></br>
-      <div className="imgcontainer">
-        
-        <img src={require('./img_login.png')} alt="Avatar" className="avatar" />
-      </div>
+          
+    <form onSubmit={this.signUp}>
+  
       <div className="container">
       <label htmlFor="email">
           <b>Enter your E-mail</b>
@@ -145,7 +137,7 @@ else{
           required
         />
         <label htmlFor="uname">
-          <b>Enter your Username</b>
+          <b>Enter your Hospital name</b>
         </label>
         <input
           type="text"
@@ -185,40 +177,11 @@ else{
           I agree to the terms and conditions.
         </label>
       </div>
-      <div
-        className="container"
-        style={{ backgroundColor: "#f1f1f1" }}
-      >
-        <button
-          type="button"
-          onClick={this.onClickN}
-          className="cancelbtn"
-        >
-          Cancel
-        </button>
-        {/* <span className="psw">
-          Forgot Password <a href="#"><center><h6>password?</h6></center></a>
-        </span> */}
-      </div>
-      <a href="#" onClick={this.onClickB}>Already a member? Login.</a>
-      <LoginModal/>
-    </form>
-  </div>
-  </div>
+     </form>
+ 
 )
 }
-onClickN(event) {
-  var modal = document.getElementById('id02');
-        modal.style.display = "none";
-}
-
-onClickB(event) {
-  var modal = document.getElementById('id01');
-  var modal2 = document.getElementById('id02');
-  modal.style.display = "block";
-  modal2.style.display ='none';
-}
 
 }
 
-export default SignUpModal;
+export default SignUpHos;

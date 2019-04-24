@@ -18,13 +18,15 @@ import SignUpModal from "./signUpModal";
 import ResultsPage from "./resultsPage";
 //import Details from "./details";
 import DetailsPage from "./detailsPage";
-import CheckOut from "./checkoutForm";
+import LoginPage from './loginPage';
 import SearchResults from "./searchResults";
 import ViewProfile from "./viewProfile";
 import Maps from "./maps";
 import ResultMaps from "./resultsMap";
 import ReactNotification from "react-notifications-component";
 import "react-notifications-component/dist/theme.css";
+import AccidentUpdate from "./accidentUpdate";
+import AccidentMaps from "./accidentMap";
 
 class App extends React.Component{
 
@@ -51,11 +53,14 @@ class App extends React.Component{
                <Route exact path = "/hostPage" component={HostPage}/>
                <Route exact path ='/profile' component={ViewProfile}/>
                <Route exact path = "/userPage" component={UserNavBar}/>
-               <Route exact path = "/checkOut" component={CheckOut}/>
+               <Route exact path = "/Landing" component={LoginPage}/>
                <Route exact path = "/admin" component={AdminTabs}/>
                <Route exact path='/map' component={Maps}/>
                <Route exact path='/resultmap' component={ResultMaps}/>
+               <Route exact path='/updateUser' component={AccidentUpdate}/>
+               <Route exact path='/accidentMap' component={AccidentMaps}/>
                <Redirect to = "/homePreSignin" component={HomePreSignin}/>
+               
             </Switch>
 
          </Router>

@@ -49,7 +49,7 @@ class CalenderBook extends Component {
   }
 
     componentDidMount() {
-        const url = "http://10.10.200.24:9000/bookingsByHome/" + this.props.id;
+        const url = "http://localhost:9000/bookingsByHome/" + this.props.id;
         let headers = new Headers();
 
         headers.append('Content-Type', 'application/json');

@@ -1,15 +1,10 @@
 import React from "react";
-//import HomeSearch from ".App/homeSearch";
-//import {Navbar, Nav, NavItem, NavDropdown,MenuItem} from 'react-bootstrap';
-//import NavBar from "../NavBar";
-import Image from "../image"
 
-class HomePreSignin extends React.Component{
+
+class TopBar extends React.Component{
   componentDidMount(){
     if(sessionStorage.getItem("BookName")) {
-      console.log('Hello')
-        
-     
+      
       sessionStorage.removeItem("BookName")
     }
     sessionStorage.removeItem('price');
@@ -20,8 +15,8 @@ class HomePreSignin extends React.Component{
     
     render(){
       return( 
-        <div>
-        <Image/>  
+        <div style={{width:'100%', background:'black', position:'fixed', height:'50px',color:'white',fontWeight:'50px'}}>
+       <h1 style={{paddingTop:'10px'}}><center>Welcome to Salus..</center></h1>
         </div>
         
       )
@@ -29,4 +24,4 @@ class HomePreSignin extends React.Component{
   }
 
 
-export default HomePreSignin;
+export default TopBar;

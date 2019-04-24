@@ -38,7 +38,7 @@ class SearchResults extends Component {
    }
    componentDidMount() {
       //this.setState({Amen1:this.props.history.location.state.Amen1})
-      const url = "http://10.10.200.24:9000/homes1";
+      const url = "http://localhost:9000/homes1";
       if (sessionStorage.getItem('location1') == "null") {
          this.state.location = null;
       }

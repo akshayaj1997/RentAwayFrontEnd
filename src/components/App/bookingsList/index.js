@@ -16,7 +16,7 @@ class BookList extends React.Component{
   }
 
   onDelete(id){
-    const url = "http://10.10.200.24:9000/bookingByBookingId/"+id
+    const url = "http://localhost:9000/bookingByBookingId/"+id
     let headers = new Headers();
    console.log(url)
     headers.append('Content-Type','application/json');
@@ -53,7 +53,7 @@ class BookList extends React.Component{
 
   
    componentDidMount(){
-   const url="http://10.10.200.24:9000/bookingsByUser/"+localStorage.getItem('id')
+   const url="http://localhost:9000/bookingsByUser/"+localStorage.getItem('id')
     
   
 

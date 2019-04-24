@@ -5,7 +5,7 @@ import CalenderBook from '../CalenderBook';
 import {Button} from 'reactstrap';
 import LoginModal from '../loginModal';
 import Notifications, {notify} from 'react-notify-toast';
-import CheckOut from '../checkoutForm';
+
 class BookModal extends Component {
   history=createHistory(this.props);
     constructor(props){

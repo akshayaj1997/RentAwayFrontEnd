@@ -31,7 +31,7 @@ export default class AdminTabs extends React.Component {
   onDelete(id){console.log('Delete listing')}
   onConfirm(id){
   console.log('Confirm Listing')
-  const url = "http://10.10.200.24:9000/homes/pending/"+parseInt(id);
+  const url = "http://localhost:9000/homes/pending/"+parseInt(id);
   let headers = new Headers();
  console.log(url)
 
@@ -59,7 +59,7 @@ window.location.reload()}
 
   componentDidMount() {
      
-    const url = "http://10.10.200.24:9000/pendingListings";
+    const url = "http://localhost:9000/pendingListings";
     // var bearerToken = localStorage.getItem('accessToken');
     //   var accesstoken = 'Bearer ' + bearerToken;
     let headers = new Headers();
@@ -107,7 +107,7 @@ window.location.reload()}
    
 
 
-    const url = "http://10.10.200.24:9000/users/signout";
+    const url = "http://localhost:9000/users/signout";
     var bearerToken = localStorage.getItem('accessToken');
     var accesstoken = 'Bearer ' + bearerToken;
     console.log(accesstoken);
