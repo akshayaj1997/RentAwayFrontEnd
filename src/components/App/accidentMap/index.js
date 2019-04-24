@@ -17,7 +17,7 @@ class AccidentMaps extends Component {
             height: 1300,
             latitude: 21,
             longitude: 73,
-            zoom: 1
+            zoom: 4,
          },
          latitude: 0,
          longitude: 0,
@@ -106,7 +106,7 @@ class AccidentMaps extends Component {
                            <Popup latitude={parseFloat(user.latitude)} longitude={parseFloat(user.longitude)} sortByDepth={true} closeButton={false}>
                               <div>
                                  <div>
-                                 <i class="fas fa-ambulance"></i>
+                                 <i class="fas fa-car-crash"></i>
                                  </div>
 
                               </div>

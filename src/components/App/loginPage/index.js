@@ -123,7 +123,7 @@ class  LoginPage extends React.Component{
         
         return(<div className="myImg">
             <TopBar/>
-            <div className='prof1Tabs' style={{paddingLeft:'30px'}}>
+            <div className='prof1Tabs' style={{paddingLeft:'30px', height:'80%'}}>
         <Nav tabs>
           <NavItem>
             <NavLink

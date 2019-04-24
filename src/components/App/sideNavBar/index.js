@@ -50,11 +50,16 @@ class SideNavBar extends React.Component{
         <div style={{fontSize:'16px', paddingLeft:'4%', paddingTop:'10%'}}>
             <h1>Dashboard</h1>
             <br/>
-            <a href="http://localhost:3000/homePreSignin"><i class="fas fa-user-injured fa-2x" style={{color:'gold', paddingRight:'4%'}}></i> New Cases </a><br/><br/>
+            <a onClick={(e) => {
+        sessionStorage.removeItem('state')
+        }} href="http://localhost:3000/homePreSignin"><i class="fas fa-user-injured fa-2x" style={{color:'gold', paddingRight:'4%'}}></i> New Cases </a><br/><br/>
            
            <a href="http://localhost:3000/accidentMap"> <i class="fas fa-search-location fa-2x" style={{color:'gold', paddingRight:'4%'}}></i> 
             Location </a><br/> <br/>
-            <i class="fas fa-history fa-2x" style={{color:'gold', paddingRight:'4%'}}></i> History<br/> <br/>
+            <a onClick={(e) => {
+        sessionStorage.setItem('state',1)
+        }} href="http://localhost:3000/homePreSignin"><i class="fas fa-history fa-2x" style={{color:'gold', paddingRight:'4%'}}></i> History<br/> <br/>
+            </a>
         </div>
 
         

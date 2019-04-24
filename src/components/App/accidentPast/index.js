@@ -10,7 +10,7 @@ import { Button, ButtonGroup } from 'reactstrap';
 var body;
 var items;
 var sort=true;
-class AccidentList extends Component {
+class AccidentPast extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -89,9 +89,9 @@ class AccidentList extends Component {
             <ul>
               
               <br/>
-              <div style={{fontSize:'25px'}}><i class="fas fa-car-crash"></i> Active cases to be taken.</div>
+              <div style={{fontSize:'25px'}}><i class="fas fa-user-injured"></i> Cases from the past</div>
                {this.state.data.map((user,index) => {
-        if(user.role==='USER'&& user.status==='ACTIVE') 
+        if(user.role==='USER'&& user.status==='PASSIVE') 
         {return(
             <li key={index}>
             <table>
@@ -116,4 +116,4 @@ class AccidentList extends Component {
         }
 }
 
-export default AccidentList;
+export default AccidentPast;
