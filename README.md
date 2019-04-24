@@ -16,6 +16,7 @@ This application maybe run on any operating system, as long as it supports a bro
 The projects version control has been done using **Git**.
 
 Any commands given as below are to be run on the _terminal_ in the _project directory_.
+
 To run the file,
 In the project directory, run:
 
