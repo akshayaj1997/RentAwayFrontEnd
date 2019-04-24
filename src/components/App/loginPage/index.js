@@ -191,6 +191,14 @@ class  LoginPage extends React.Component{
     </form>
 
           </TabPane>
+          <TabPane tabId="2">
+          <br/>
+          <SignUpPage/>
+          </TabPane>
+          <TabPane tabId="3">
+          <br/>
+          <SignUpHos/>
+          </TabPane>
           
              </TabContent>
         

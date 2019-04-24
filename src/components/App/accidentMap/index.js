@@ -13,11 +13,11 @@ class AccidentMaps extends Component {
       super(props);
       this.state = {
          viewport: {
-            width: 2300,
-            height: 1300,
-            latitude: 21,
-            longitude: 73,
-            zoom: 4,
+            width: 2000,
+            height: 1000,
+            latitude: 17.3850,
+            longitude: 78.4867,
+            zoom: 10
          },
          latitude: 0,
          longitude: 0,

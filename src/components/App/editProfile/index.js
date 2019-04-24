@@ -198,11 +198,12 @@ class EditProfile extends Component {
                   <br/>
                   <input
                     type="tel"
+                    style={{width:'4000px'}}
                     placeholder="Enter Mobile Number"
                     name="mbr"
                     onChange={this.onMobileChange}
                     required
-                    style={{width:'100%'}}
+                    
         />
        <br/>
         
