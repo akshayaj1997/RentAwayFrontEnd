@@ -85,6 +85,7 @@ class CalenderBook extends Component {
         console.log('length of data '+data.length)
         arr.push({after: new Date(this.props.ownerToDate),
             before:new Date(this.props.ownerFromDate)})
+        arr.push({before:new Date()})
         if(data.length != 0)
         { 
             console.log("2")

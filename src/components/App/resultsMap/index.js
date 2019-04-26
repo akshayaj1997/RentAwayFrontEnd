@@ -17,7 +17,7 @@ class ResultMaps extends Component {
             height: 1300,
             latitude: 21,
             longitude: 73,
-            zoom: 1
+            zoom: 2.3
          },
          latitude: 0,
          longitude: 0,

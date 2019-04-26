@@ -5,6 +5,8 @@ import Notifications, {notify} from 'react-notify-toast';
 import moment from 'moment';
 import { Card } from 'reactstrap';
 var value;
+var disc1;
+var discn;
 class CheckOut extends Component{
 
   constructor(props){
@@ -16,13 +18,17 @@ class CheckOut extends Component{
   price(){
     console.log('Price')
     if(localStorage.getItem('bookings')<='3'){
+      disc1=" "
+      discn=" "
       value=(moment(sessionStorage.getItem('bookToDate')).diff( sessionStorage.getItem('bookFromDate'),'days') * sessionStorage.getItem('Price'))+(0.15*sessionStorage.getItem('Price'))+2000
     }
    else{
+     disc1="Frequent Flyers Discount"
+     discn= "-15%"
    value=(0.85*(moment(sessionStorage.getItem('bookToDate')).diff( sessionStorage.getItem('bookFromDate'),'days') * sessionStorage.getItem('Price'))+(0.15*sessionStorage.getItem('Price'))+2000)
    }
    
-   return value
+   return value,disc1,discn
     
   }
  onCheckOut(){
@@ -168,9 +174,11 @@ class CheckOut extends Component{
     <br/>
     Safety Deposit 
     <br/>
-    Service Fee<br/>
+    Service Fee
     <br/>
-    
+    {disc1}
+    <br/>
+    <br/>
     Total Fee
     </div>
     <div style={{float:'right'}}>
@@ -180,9 +188,11 @@ class CheckOut extends Component{
     <br/>
     <i class="fa fa-inr" aria-hidden="true"></i> 2000
     <br/>
+    {discn}
     <br/>
-   
-     <i class="fa fa-inr" aria-hidden="true"></i> {value}
+    <br/>
+    
+     <i class="fa fa-inr" aria-hidden="true"></i> {value} <br/> 
     </div>
    <br/>
   

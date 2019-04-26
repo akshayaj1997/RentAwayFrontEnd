@@ -41,6 +41,15 @@ class SearchFilters extends Component {
         this.onGuestChange = this.onGuestChange.bind(this);
         
     }
+    onClear(event){
+        sessionStorage.removeItem('propertyType');
+        sessionStorage.removeItem('price');
+        sessionStorage.removeItem('amenities');
+        sessionStorage.removeItem('rules')
+        sessionStorage.setItem('location1',null)
+        sessionStorage.setItem('fromDate',null)
+        sessionStorage.setItem('toDate',null)
+    }
     onGuestChange(event){
 
         
@@ -173,7 +182,7 @@ class SearchFilters extends Component {
                             </div>
                             <div className="rightCheck" style={{ float: "right" }}>
                                 <input id="Bung" type="radio" name="type" value="HOUSE" onClick={this.onCheckBoxT} />
-                                <label for="Bung">Bungalow</label>
+                                <label for="Bung">House</label>
                                 <br />
                                 <input id="Service" type="radio" name="type" value="SERVICEDAPARTMENTS" onClick={this.onCheckBoxT} />
                                 <label for="Service">Serviced Apartment</label>
@@ -235,6 +244,8 @@ class SearchFilters extends Component {
                        
                     </div> 
                     <br/>
+                    <Button color="danger" style={{float:"left", width:"115px",marginLeft:"10%",fontSize:'18px'}} onClick={this.onClear}>Clear Filters</Button>
+                   <br/>
                     <Button color="danger" style={{float:"right", width:"80px",marginRight:"10%",fontSize:'18px'}}>Done</Button>{' '}
                     </form> 
                 </div>
