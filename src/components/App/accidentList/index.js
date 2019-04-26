@@ -27,6 +27,46 @@ class AccidentList extends Component {
           }
       }
 
+      onActiveToPassive(id){
+        console.log("entered into deletion");
+        console.log("deletion id"+id)
+        const url = "http://localhost:9000/passive/"+parseInt(id);
+        let headers = new Headers();
+       console.log(url)
+       
+     
+       // headers.append('','POST');
+     
+        fetch(url, {
+           
+           method: 'PUT',
+           //body: JSON.stringify(body)
+        })
+        .then(response => {
+          console.log(response.status);
+          if(response.status===401)
+              {
+                alert("Unauthorized");
+                window.location.reload();
+              }
+              if(response.status===500)
+              {
+                //alert("Cannot delete the home since booked");
+                sessionStorage.setItem('del',1)
+                window.location.reload();
+                
+              }
+              })
+              
+        .then(contents => {console.log("in fetch "+contents);
+                    
+                          
+     })
+     .catch(()=> {sessionStorage.setItem('del',1);console.log("can't access" + url)})
+     window.location.reload()
+        
+      }
+
       componentDidMount(){
      
         if(sessionStorage.getItem("del")) {
@@ -95,6 +135,11 @@ class AccidentList extends Component {
              <td style={{padding:'20px'}}> {user.aadharcard}</td>
             <td style={{padding:'20px'}}> {user.mobilenbr} </td>
             <td style={{padding:'20px',textTransform:'lowercase'}}> {user.gender}
+            </td>
+
+
+            <td >{user.userId}</td>
+            <td style={{padding:'20px'}}><input type='button' style={{backgroundColor:'#7CFC00'}} className='DeleteListing' value='Accept the case' onClick={this.onActiveToPassive.bind(this,user.userId)}></input>
             </td>
             </tr>
        
